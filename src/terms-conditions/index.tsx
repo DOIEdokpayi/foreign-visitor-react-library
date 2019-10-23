@@ -1,8 +1,8 @@
 /**
- * @class ExampleComponent
+ * @class TermsAndConditions
  */
 
-import * as React from 'react'
+import * as React from 'react';
 import { TermsAndConditionsHeader } from './TermsAndConditionsHeader';
 import { TermsAndConditionsWarningList } from './TermsAndConditionsWarningList';
 import { TermsAndConditionsForm } from './TermsAndConditionsForm';

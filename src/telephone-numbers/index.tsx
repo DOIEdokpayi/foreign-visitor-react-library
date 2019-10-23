@@ -1,5 +1,5 @@
 /**
- * @class ForeignVisitorTelephoneNumber
+ * @class TelephoneNumbers
  */
 
 import * as React from 'react'

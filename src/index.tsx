@@ -9,6 +9,8 @@ import TelephoneNumbers from './telephone-numbers'
 import EmailAddresses from './email-addresses'
 import TermsAndConditions from './terms-conditions'
 import { IContact, ILocation, ISponsor, ISponsorFunc, IVisit, IVisitFunc, IVisitor, IVisitorFunc, RequestStatusEnum, ThreatLevelEnum } from './types'
+import Loading from './loading'
+import Sponsors from './sponsors'
 
 
 class ExampleComponent extends React.Component {
@@ -54,6 +56,25 @@ class ExampleComponent extends React.Component {
                 SubmitPageFunc={() => <span className="bg-warning">Will not redirect in example!</span>}
                 SubmitAction={() => new Promise((resolve) => resolve())} />
             </div>
+            <div className="col-xs-12">
+              <h2>Loading</h2>
+            </div>
+            <div className="col-xs-12">
+              <Loading />
+            </div>
+            <div className="col-xs-12">
+              <h2>Sponsors</h2>
+            </div>
+            <div className="col-xs-12">
+              <Sponsors
+                Sponsors={[
+                  { Name: "John Doe", Telephone: "(703) 987-1234", Email: "john_doe@ios.doi.com" },
+                  { Name: "Jane Doe", Telephone: "(703) 987-0234", Email: "jane_doe@ios.doi.com" },
+                  { Name: "John Q Public", Telephone: "(703) 987-0934", Email: "john_public@ios.doi.com" }
+                ]}
+                ClickHandler={(sponsor: ISponsor) => alert("You clicked: " + sponsor.Name)}
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -61,5 +82,5 @@ class ExampleComponent extends React.Component {
   }
 }
 
-export { EmailAddresses, ExampleComponent, IContact, ILocation, ISponsor, ISponsorFunc, IVisit, IVisitFunc, IVisitor, IVisitorFunc, RequestStatusEnum, TelephoneNumbers, TermsAndConditions, ThreatLevelEnum }
-export default { EmailAddresses, ExampleComponent, RequestStatusEnum, TelephoneNumbers, TermsAndConditions, ThreatLevelEnum };
+export { EmailAddresses, ExampleComponent, IContact, ILocation, ISponsor, ISponsorFunc, IVisit, IVisitFunc, IVisitor, IVisitorFunc, Loading, RequestStatusEnum, Sponsors, TelephoneNumbers, TermsAndConditions, ThreatLevelEnum }
+export default { EmailAddresses, ExampleComponent, Loading, RequestStatusEnum, Sponsors, TelephoneNumbers, TermsAndConditions, ThreatLevelEnum };

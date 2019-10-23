@@ -2,7 +2,7 @@
  * @class EmailAddresses
  */
 
-import * as React from 'react'
+import * as React from 'react';
 import styles from "../styles.css";
 import { IEmailAddressesProps } from './IEmailAddressesProps'
 
