@@ -11,6 +11,10 @@ import TermsAndConditions from './terms-conditions'
 import { IContact, ILocation, ISponsor, ISponsorFunc, IVisit, IVisitFunc, IVisitor, IVisitorFunc, RequestStatusEnum, ThreatLevelEnum } from './types'
 import Loading from './loading'
 import Sponsors from './sponsors'
+import Visits from './Visits'
+import Visitors from './Visitors'
+import Contacts from './Contacts'
+import Locations from './Locations'
 
 
 class ExampleComponent extends React.Component {
@@ -75,6 +79,61 @@ class ExampleComponent extends React.Component {
                 ClickHandler={(sponsor: ISponsor) => alert("You clicked: " + sponsor.Name)}
               />
             </div>
+            <div className="col-xs-12">
+              <h2>Visits</h2>
+            </div>
+            <div className="col-xs-12">
+              <Visits
+                Visits={[
+                  { ArrivalDate: new Date(2019, 11, 1), DepartureDate: new Date(2019, 11, 2), DownloadLink: "https://www.nps.gov/nationalmallplan/Maps/NMMParks_map.pdf" },
+                  { ArrivalDate: new Date(2019, 12, 1), DepartureDate: new Date(2019, 12, 2), DownloadLink: "https://www.nps.gov/nationalmallplan/Maps/NMMParks_map.pdf" },
+                  { ArrivalDate: new Date(2020, 1, 10), DepartureDate: new Date(2020, 1, 11), DownloadLink: "https://www.nps.gov/nationalmallplan/Maps/NMMParks_map.pdf" },
+                ]}
+                ClickHandler={(visit: IVisit) => alert("You clicked a visit starting on:  " + visit.ArrivalDate.toString())}
+              />
+            </div>
+            <div className="col-xs-12">
+              <h2>Visitors</h2>
+            </div>
+            <div className="col-xs-12">
+              <Visitors
+                Visitors={[
+                  { FirstName: "Mohammed", LastName: "Saleh", PlaceOfBirth: "Riyadh, Saudi Arabia" },
+                  { FirstName: "Xi", LastName: "Ping", PlaceOfBirth: "Beijing, China" },
+                  {FirstName:"Malcom", LastName:"O'Donnell", PlaceOfBirth:"Ireland"}
+
+                ]}
+                ClickHandler={(visitor: IVisitor) => alert("You clicked a visitor named:  " + visitor.FirstName + " " + visitor.LastName)}
+              />
+            </div>
+            <div className="col-xs-12">
+              <h2>Contacts</h2>
+            </div>
+            <div className="col-xs-12">
+              <Contacts
+                Contacts={[
+                  { FirstName:  "John", LastName:"Brown", EMail: "john_brown@ios.doi.gov", BusinessPhone:"(202) 345-2299" },
+                  { FirstName:  "JoAnne", LastName:"Simpson", EMail: "joanne_simpson@ios.doi.gov", BusinessPhone:"(703) 321-0622" },
+                  { FirstName:  "Hillary", LastName:"Malliot", EMail: "hillary_malliot@ios.doi.gov", BusinessPhone:"(202) 399-2200" },
+                  { FirstName: "Tina", LastName: "Practiss", EMail: "tina_practiss@ios.doi.gov", BusinessPhone:"(202) 345-1111" },
+
+                ]}
+                ClickHandler={(contact: IContact) => alert("You clicked a contact named:  " + contact.FirstName + " " + contact.LastName)}
+              />
+            </div>
+            <div className="col-xs-12">
+              <h2>Locations</h2>
+            </div>
+            <div className="col-xs-12">
+              <Locations
+                Locations={[
+                  {Facility:"Main Interior Building", StreetAddress:"Eighteenth and C Sts. NW", City:"Washington", State:"District of Columbia"},
+                  {Facility:"United States Geological Survey HQ", StreetAddress:"12201 Sunrise Valley Dr", City:"Reston", State:"Virginia"},
+                  {Facility:"USFWS Partners for Fish and Wildlife Program", StreetAddress:"5275 Leesburg Pike", City:"Falls Church", State:"Virginia"},                  
+                ]}
+                ClickHandler={(location: ILocation) => alert("You clicked a location named:  " + location.Facility)}
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -82,5 +141,5 @@ class ExampleComponent extends React.Component {
   }
 }
 
-export { EmailAddresses, ExampleComponent, IContact, ILocation, ISponsor, ISponsorFunc, IVisit, IVisitFunc, IVisitor, IVisitorFunc, Loading, RequestStatusEnum, Sponsors, TelephoneNumbers, TermsAndConditions, ThreatLevelEnum }
-export default { EmailAddresses, ExampleComponent, Loading, RequestStatusEnum, Sponsors, TelephoneNumbers, TermsAndConditions, ThreatLevelEnum };
+export { Contacts, EmailAddresses, ExampleComponent, IContact, ILocation, ISponsor, ISponsorFunc, IVisit, IVisitFunc, IVisitor, IVisitorFunc, Loading, RequestStatusEnum, Sponsors, TelephoneNumbers, TermsAndConditions, ThreatLevelEnum, Visits, Visitors }
+export default { Contacts, EmailAddresses, ExampleComponent, Loading, RequestStatusEnum, Sponsors, TelephoneNumbers, TermsAndConditions, ThreatLevelEnum, Visits, Visitors };

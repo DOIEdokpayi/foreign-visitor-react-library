@@ -32,13 +32,18 @@ export interface ISponsor {
     EMail: string;
     BusinessPhone: string;
   }
+  export interface IContactFunc{
+    (contact: IContact): void
+  }
   export interface ILocation {
     Facility: string;
     StreetAddress: string;
     City: string;
     State: string;
   }
-  
+  export interface ILocationFunc{
+    (location:ILocation): void
+  }
   export enum RequestStatusEnum {
     Approved, NotApproved, Incomplete, Invalid, NotApplicable
   }
