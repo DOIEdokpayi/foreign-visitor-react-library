@@ -1,12 +1,17 @@
 import React, { Component } from 'react'
 
-import ExampleComponent from 'foreign-visitors-react-library'
+import { ExampleComponent } from 'foreign-visitors-react-library'
 
 export default class App extends Component {
-  render () {
+  render() {
     return (
-      <div>
-        <ExampleComponent text='Modern React component module' />
+
+      <div className="container">
+        <div className="row">
+          <div className="col-xs-12">
+            <ExampleComponent />
+          </div>
+        </div>
       </div>
     )
   }

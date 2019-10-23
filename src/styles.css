@@ -1,8 +1,25 @@
 /* add css styles here (optional) */
-
-.test {
+.example{
   display: inline-block;
-  margin: 2em auto;
   border: 2px solid #000;
   font-size: 2em;
+  padding: 1px;;
+}
+
+.foreignVisitorComponent {
+  margin: 0;
+  padding: 0;
+}
+
+.foreignVisitorComponent li, 
+.foreignVisitorComponent li > a,
+.foreignVisitorComponent li > a:visited{
+  color: black;
+  text-decoration: none;
+}
+.foreignVisitorComponent li:hover,
+.foreignVisitorComponent li:hover > a {
+  color: blue;
+  font-weight: bolder;
+  text-decoration: underline;
 }
