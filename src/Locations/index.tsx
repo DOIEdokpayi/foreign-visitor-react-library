@@ -15,10 +15,12 @@ export default class Locations extends React.Component<ILocationsProps> {
         return (
             <table className="table table-hover">
                 <thead>
-                    <th>Facility</th>
-                    <th>Street Address</th>
-                    <th>City</th>
-                    <th>State</th>
+                    <tr>
+                        <th>Facility</th>
+                        <th>Street Address</th>
+                        <th>City</th>
+                        <th>State</th>
+                    </tr>
                 </thead>
                 <tbody>
                     {

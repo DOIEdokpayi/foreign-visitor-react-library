@@ -15,10 +15,12 @@ export default class Contacts extends React.Component<IContactProps> {
         return (
             <table className="table table-hover">
                 <thead>
-                    <th>Last Name</th>
-                    <th>First Name</th>
-                    <th>Email</th>
-                    <th>Business Phone</th>
+                    <tr>
+                        <th>Last Name</th>
+                        <th>First Name</th>
+                        <th>Email</th>
+                        <th>Business Phone</th>
+                    </tr>
                 </thead>
                 <tbody>
                     {
@@ -34,7 +36,7 @@ export default class Contacts extends React.Component<IContactProps> {
                                     <a href={"mailto:" + contact.EMail}>{contact.EMail}</a>
                                 </td>
                                 <td>
-                                <a href={"tel:"+contact.BusinessPhone}>{contact.BusinessPhone}</a>
+                                    <a href={"tel:" + contact.BusinessPhone}>{contact.BusinessPhone}</a>
                                 </td>
                             </tr>)
                     }

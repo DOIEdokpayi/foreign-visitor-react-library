@@ -1,3 +1,6 @@
+export interface IErrorHandlerFunc {
+  (ErrorMessage?: string, Stack?: string) : JSX.Element
+}
 export interface ISponsor {
     Name: string;
     Telephone: string;

@@ -11,16 +11,19 @@ import { printDate } from '../printDate';
 export default class Visits extends React.Component<IVisitsProps> {
     public render(): JSX.Element {
         const {
+            IsAdmin,
             Visits,
             ClickHandler
         } = this.props;
         return (
             <table className="table table-hover">
                 <thead>
-                    <th>Arrival Date</th>
-                    <th>Departure Date</th>
-                    <th>Download</th>
-                    <th>Respond</th>
+                    <tr>
+                        <th>Arrival Date</th>
+                        <th>Departure Date</th>
+                        <th>Download</th>
+                        {IsAdmin ? <th>Respond</th> : undefined}
+                    </tr>
                 </thead>
                 <tbody>
                     {
@@ -35,9 +38,12 @@ export default class Visits extends React.Component<IVisitsProps> {
                                 <td>
                                     <a href={visit.DownloadLink}><i className={"fa fa-paperclip " + styles.foreignVisitorAnchorTag} aria-hidden="true"></i></a>
                                 </td>
-                                <td>
-                                    <a href="#" onClick={() => ClickHandler(visit)}><i className={"fa fa-reply " + styles.foreignVisitorAnchorTag} aria-hidden="true"></i></a>
-                                </td>
+                                {
+                                    IsAdmin ?
+                                        <td>
+                                            <a href="#" onClick={() => ClickHandler(visit)}><i className={"fa fa-reply " + styles.foreignVisitorAnchorTag} aria-hidden="true"></i></a>
+                                        </td> : undefined
+                                }
                             </tr>)
                     }
                 </tbody>

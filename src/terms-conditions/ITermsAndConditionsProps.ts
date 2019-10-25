@@ -1,6 +1,7 @@
 import { SubmitActionFunc } from "doiforms";
+import { IErrorHandlerFunc } from "../types";
 export interface ITermsAndConditionsProps {
-  ErrorHandler: (ErrorMessage?: string, Stack?: string) => JSX.Element;
+  ErrorHandler: IErrorHandlerFunc;
   IconUrl: string;
   TermsAccepted: boolean;
   Redirect: string;

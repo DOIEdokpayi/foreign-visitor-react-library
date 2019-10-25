@@ -16,9 +16,11 @@ export default class Sponsors extends React.Component<ISponsorProps> {
         return (
             <table className="table table-hover">
                 <thead>
-                    <th>Name</th>
-                    <th>Telephone</th>
-                    <th>Email</th>
+                    <tr>
+                        <th>Name</th>
+                        <th>Telephone</th>
+                        <th>Email</th>
+                    </tr>
                 </thead>
                 <tbody>
                     {

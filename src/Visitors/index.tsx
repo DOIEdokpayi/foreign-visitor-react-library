@@ -16,9 +16,11 @@ export default class Visitors extends React.Component<IVisitorProps> {
         return (
             <table className="table table-hover">
                 <thead>
-                    <th>Last Name</th>
-                    <th>First Name</th>
-                    <th>Place Of Birth</th>
+                    <tr>
+                        <th>Last Name</th>
+                        <th>First Name</th>
+                        <th>Place Of Birth</th>
+                    </tr>
                 </thead>
                 <tbody>
                     {
