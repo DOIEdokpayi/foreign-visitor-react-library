@@ -22,8 +22,7 @@
     "deploy": "gh-pages -d example/build"
   },
   "dependencies": {
-    "bootstrap3formtemplates": "^1.9.3",
-    "doiforms": "^1.8.5"
+    "formik": "^2.0.1"
   },
   "peerDependencies": {
     "prop-types": "^15.5.4",
@@ -48,7 +47,7 @@
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-postcss": "^1.6.2",
-    "rollup-plugin-typescript2": "^0.17.0",
+    "rollup-plugin-typescript2": "^0.24.3",
     "rollup-plugin-url": "^1.4.0",
     "typescript": "^2.8.3"
   },

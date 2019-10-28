@@ -8,24 +8,13 @@ import styles from './styles.css'
 import TelephoneNumbers from './telephone-numbers'
 import EmailAddresses from './email-addresses'
 import TermsAndConditions from './terms-conditions'
-import { IContact, ILocation, ISponsor, ISponsorFunc, IVisit, IVisitFunc, IVisitor, IVisitorFunc, RequestStatusEnum, ThreatLevelEnum, IErrorHandlerFunc } from './types'
+import { IContact, ILocation, ISponsor, ISponsorFunc, IVisit, IVisitFunc, IVisitor, IVisitorFunc, RequestStatusEnum, ThreatLevelEnum, IErrorHandlerFunc, ITermsAndConditionsFormValues } from './types'
 import Loading from './loading'
 import Sponsors from './sponsors'
 import Visits from './Visits'
 import Visitors from './Visitors'
 import Contacts from './Contacts'
-import Locations from './Locations'
-import ResponseForm from './ResponseForm';
-
-function ErrorHandler(): JSX.Element {
-  return <span className="bg-danger">Whoops!</span>;
-}
-function SubmitAction(): Promise<void> {
-  return new Promise((resolve) => resolve());
-}
-function SubmitPage(): JSX.Element {
-  return <span className="bg-warning">Will not redirect in example!</span>;
-}
+import Locations from './Locations';
 
 class ExampleComponent extends React.Component {
   render() {
@@ -58,24 +47,7 @@ class ExampleComponent extends React.Component {
                 , "mohammedsaleh@yahoo.com"
               ]} />
             </div>
-            <div className="col-xs-12">
-              <h2>Terms and Conditions</h2>
-            </div>
-            <div className="col-xs-12">
-              <TermsAndConditions
-                ErrorHandler={ErrorHandler}
-                IconUrl={"https://en.wikipedia.org/static/images/project-logos/enwiki-2x.png"}
-                TermsAccepted={false}
-                Redirect={"https://doi.org"}
-                SubmitPageFunc={SubmitPage}
-                SubmitAction={SubmitAction} />
-            </div>
-            <div className="col-xs-12">
-              <h2>Loading</h2>
-            </div>
-            <div className="col-xs-12">
-              <Loading />
-            </div>
+
             <div className="col-xs-12">
               <h2>Sponsors</h2>
             </div>
@@ -162,15 +134,19 @@ class ExampleComponent extends React.Component {
               />
             </div>
             <div className="col-xs-12">
-              <h2>Response Form</h2>
+              <h2>Terms and Conditions</h2>
             </div>
             <div className="col-xs-12">
-              <ResponseForm
-                ErrorHandler={ErrorHandler}
-                Redirect={"https://doi.gov"}
-                SubmitPageFunc={SubmitPage}
-                SubmitAction={SubmitAction}
-              />
+              <TermsAndConditions
+                IconUrl={"https://en.wikipedia.org/static/images/project-logos/enwiki-2x.png"}
+                TermsAccepted={false}
+                Redirect={"https://doi.org"}
+
+                SubmitActionFunc={(formData: ITermsAndConditionsFormValues) => {
+                  if (formData.TermsAccepted) {
+                    alert("Terms and conditions accepted!");
+                  }
+                }} />
             </div>
           </div>
         </div>
@@ -179,5 +155,5 @@ class ExampleComponent extends React.Component {
   }
 }
 
-export { Contacts, EmailAddresses, ExampleComponent, IContact, IErrorHandlerFunc, ILocation, ISponsor, ISponsorFunc, IVisit, IVisitFunc, IVisitor, IVisitorFunc, Loading, RequestStatusEnum, Sponsors, TelephoneNumbers, TermsAndConditions, ThreatLevelEnum, Visits, Visitors }
+export { Contacts, EmailAddresses, ExampleComponent, IContact, IErrorHandlerFunc, ILocation, ISponsor, ISponsorFunc, ITermsAndConditionsFormValues, IVisit, IVisitFunc, IVisitor, IVisitorFunc, Loading, RequestStatusEnum, Sponsors, TelephoneNumbers, TermsAndConditions, ThreatLevelEnum, Visits, Visitors }
 export default { Contacts, EmailAddresses, ExampleComponent, Loading, RequestStatusEnum, Sponsors, TelephoneNumbers, TermsAndConditions, ThreatLevelEnum, Visits, Visitors };

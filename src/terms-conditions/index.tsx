@@ -30,9 +30,7 @@ export default class TermsAndConditions extends React.Component<ITermsAndConditi
                     <TermsAndConditionsWarningList />
                   </div>
                   <TermsAndConditionsForm 
-                    ErrorHandler={this.props.ErrorHandler}
-                    SubmitAction={this.props.SubmitAction}
-                    SubmitPageFunc={this.props.SubmitPageFunc} 
+                    SubmitActionFunc={this.props.SubmitActionFunc} 
                     TermsAccepted={this.props.TermsAccepted}/>
                 </div>
               </div>

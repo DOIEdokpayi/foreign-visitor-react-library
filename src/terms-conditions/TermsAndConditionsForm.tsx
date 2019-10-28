@@ -1,49 +1,44 @@
 import * as React from 'react';
-import { FormTemplate } from "bootstrap3formtemplates";
-import { DOIFormComponent, EnumFieldType, FieldValue, SubmitActionFunc } from "doiforms";
+import { Formik, Field, FormikErrors, FormikHelpers, FormikProps } from "formik";
+import { ITermsAndConditionsFormProps } from './ITermsAndConditionsFormProps';
+import { CheckBoxField } from '../Fields/Checkbox';
+import { ITermsAndConditionsFormValues } from '../types';
 
-export interface ITermsAndConditionsFormProps {
-    ErrorHandler: (ErrorMessage?: string, Stack?: string) => JSX.Element;
-    SubmitPageFunc: () => JSX.Element;
-    SubmitAction: SubmitActionFunc;
-    TermsAccepted: boolean;
-}
-const rejectionMessage: string = "You must accept the terms and conditions!";
+
+
 export class TermsAndConditionsForm extends React.Component<ITermsAndConditionsFormProps> {
-    render() {
 
+    render() {
         return (
-            <DOIFormComponent
-                ErrorHandler={this.props.ErrorHandler}
-                Fields={[
-                    {
-                        DisplayName: "I accept the terms and conditions:",
-                        Id: "TermsAccept",
-                        InitialValue: this.props.TermsAccepted,
-                        Name: "TermsAccept",
-                        Order: 0,
-                        Required: true,
-                        Type: EnumFieldType.checkbox,
-                        Validation: (checkBox: FieldValue) => {
-                            return {
-                                IsError: !checkBox,
-                                Message: rejectionMessage
-                            };
-                        }
-                    },
-                    {
-                        DisplayName: "Continue",
-                        Id: "continue",
-                        Name: "continue",
-                        Order: 1,
-                        Required: true,
-                        Type: EnumFieldType.submit
+            <Formik
+                initialValues={{ TermsAccepted: false }}
+                onSubmit={(values: ITermsAndConditionsFormValues, formikHelpers: FormikHelpers<ITermsAndConditionsFormValues>) => {
+                    this.props.SubmitActionFunc(values);
+                    formikHelpers.setSubmitting(false);
+                }}
+                validate={(values: ITermsAndConditionsFormValues) => {
+                    const errors: FormikErrors<ITermsAndConditionsFormValues> = {};
+                    if (!values.TermsAccepted) {
+                        errors.TermsAccepted = "You must accept the terms and conditions!";
                     }
-                ]}
-                FormTemplate={FormTemplate}
-                SubmitPage={this.props.SubmitPageFunc()}
-                SubmitAction={this.props.SubmitAction}
+                    return errors;
+                }}
+
+                render={(props: FormikProps<ITermsAndConditionsFormValues>) => <form className="form-horizontal">
+                    <Field name="TermsAccept" component={CheckBoxField} />
+                    <div className="form-group">
+                        <div className="col-sm-offset-2 col-sm-10">
+                            <button type="submit" className="btn btn-primary">Continue</button>
+                        </div>
+                    </div>
+                    {
+                        props.errors.TermsAccepted ?
+                            <div className="bg-danger">props.errors.TermsAccepted</div> : undefined
+                    }
+                </form>
+                }
             />
+
         );
     }
 }
