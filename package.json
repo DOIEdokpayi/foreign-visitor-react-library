@@ -22,7 +22,8 @@
     "deploy": "gh-pages -d example/build"
   },
   "dependencies": {
-    "formik": "^2.0.1"
+    "formik": "^2.0.1",
+    "scheduler": "^0.17.0"
   },
   "peerDependencies": {
     "prop-types": "^15.5.4",
