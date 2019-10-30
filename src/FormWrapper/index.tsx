@@ -5,7 +5,7 @@ import { IFieldStatus } from './IFieldStatus';
 import { IFormWrapperContext } from './IFormWrapperContext';
 import { FormFieldStatusEnum } from '../types';
 const emptyStatus = new Map<string, IFieldStatus>();
-export class FormWrapper<formValues extends object> extends React.Component<IFormWrapperProps<formValues>, IFormWrapperState>{
+export class FormWrapper extends React.Component<IFormWrapperProps, IFormWrapperState>{
     private formRef: React.RefObject<HTMLFormElement>;
     private getContext(): IFormWrapperContext {
         return {
@@ -19,7 +19,7 @@ export class FormWrapper<formValues extends object> extends React.Component<IFor
             status: this.state.status || emptyStatus
         };
     }
-    constructor(props: IFormWrapperProps<formValues>) {
+    constructor(props: IFormWrapperProps) {
         super(props);
         this.state = {
             isResetting: false,
@@ -29,15 +29,15 @@ export class FormWrapper<formValues extends object> extends React.Component<IFor
         };
         this.formRef = React.createRef<HTMLFormElement>();
     }
-    public handleFormChange(event:React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement>):void{
-       this.setFieldValue(event.target.id, event.target.value, true);
+    public handleFormChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void {
+        this.setFieldValue(event.target.id, event.target.value, true);
     }
     public setFormDataFromInitialiValues(): FormData {
         const { initialValues } = this.props;
         const formData = new FormData();
         for (const key in initialValues) {
             if (initialValues.hasOwnProperty(key)) {
-                const unKnownData = initialValues[key] as unknown;
+                const unKnownData = initialValues[key];
                 formData.append(key, (unKnownData as object).toString());
             }
         }
@@ -80,7 +80,7 @@ export class FormWrapper<formValues extends object> extends React.Component<IFor
         if (null !== this.formRef.current) {
             for (const key in initialValues) {
                 if (initialValues.hasOwnProperty(key)) {
-                    const element = initialValues[key] as unknown;
+                    const element = initialValues[key];
                     this.setFieldValue(key, element);
                 }
             }
@@ -93,7 +93,7 @@ export class FormWrapper<formValues extends object> extends React.Component<IFor
             convertFieldValue,
             onValidate: handleValidation
         } = this.props;
-        const getValue = convertFieldValue ? convertFieldValue : (key: string, value: any) => value.toString();
+        const getValue = convertFieldValue ? convertFieldValue : (key: string, value: any) => { console.log(key); return value.toString(); };
         if (null !== this.formRef.current) {
             const formElement: HTMLFormElement = this.formRef.current;
             const fieldElement: HTMLInputElement | HTMLTextAreaElement | null = formElement.querySelector("#" + field); // all input elements must set the id attribute
@@ -109,7 +109,7 @@ export class FormWrapper<formValues extends object> extends React.Component<IFor
         this.setState({ isSubmitting: isSubmitting });
     }
 
-    public render(): React.ReactElement<IFormWrapperProps<formValues>> {
+    public render(): React.ReactElement<IFormWrapperProps> {
         const {
             formClassName,
             renderFormFields } = this.props;

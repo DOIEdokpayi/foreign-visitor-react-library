@@ -1,5 +1,4 @@
 import { RequestStatusEnum, ThreatLevelEnum, IErrorHandlerFunc } from "../types";
-import { SubmitActionFunc } from "doiforms";
 
 
 export interface IResponseFormProps {
@@ -18,6 +17,5 @@ export interface IResponseFormProps {
     ResponseDate?: Date;
     Redirect: string;
     Subject?: string;
-    SubmitAction: SubmitActionFunc;
     SubmitPageFunc: () => JSX.Element;
 }

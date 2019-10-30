@@ -1,12 +1,15 @@
 import { IFormWrapperFieldStatus } from "./IFormWrapperFieldStatus";
 import { IFormWrapperContext } from "./IFormWrapperContext";
+export interface IInitialValues{
+    [key: string]: any;
+}
 
-export interface IFormWrapperProps<formValues> {
+export interface IFormWrapperProps{
     convertFieldValue?: (key: string, value: any) => string;
     formClassName?: string;
-    onReset?: (initialValues: formValues) => void;
-    onSubmit: (ctx: IFormWrapperContext<formValues>) => void;
-    onValidate?: (ctx: IFormWrapperContext<formValues>) => IFormWrapperFieldStatus;
-    initialValues: formValues;
-    renderFormFields: (ctx: IFormWrapperContext<formValues>) => JSX.Element;
+    onReset?: (initialValues: IInitialValues) => void;
+    onSubmit: (ctx: IFormWrapperContext) => void;
+    onValidate?: (ctx: IFormWrapperContext) => IFormWrapperFieldStatus;
+    initialValues: IInitialValues;
+    renderFormFields: (ctx: IFormWrapperContext) => JSX.Element;
 }
