@@ -1,16 +1,17 @@
-import { FormFieldStatusEnum } from "../types";
+import { FormWrapperStatusEnum } from "../FormWrapper/FormWrapperStatusEnum";
 
-export function getBootstrapErrorClassName(status: FormFieldStatusEnum): string{
+export function getBootstrapErrorClassName(status: FormWrapperStatusEnum): string{
     let className = "";
         switch (status) {
-            case FormFieldStatusEnum.Success:
+            case FormWrapperStatusEnum.validated:
                 className = "has-success";
                 break;
-            case FormFieldStatusEnum.Warning:
+            case FormWrapperStatusEnum.dirty:
+                    case FormWrapperStatusEnum.touched:
                 className = "has-warning";
                 break;
 
-            case FormFieldStatusEnum.Error:
+            case FormWrapperStatusEnum.error:
                 className = "has-error";
                 break;
         }

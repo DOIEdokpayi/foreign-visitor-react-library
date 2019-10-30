@@ -3,7 +3,7 @@ import * as React from "react";
 
 export interface IFormWrapperContext{    
     formData: FormData;
-    handleChange: React.ChangeEventHandler<HTMLInputElement|HTMLTextAreaElement>;
+    handleChange: React.ChangeEventHandler<HTMLInputElement|HTMLTextAreaElement| HTMLSelectElement>;
     isSubmitting: boolean;
     isValidating: boolean;
     resetForm: () => void;

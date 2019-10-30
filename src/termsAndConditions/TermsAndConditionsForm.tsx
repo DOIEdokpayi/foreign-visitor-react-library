@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { ITermsAndConditionsFormProps } from './ITermsAndConditionsFormProps';
 import { CheckBoxField } from '../Fields/Checkbox';
-import { ITermsAndConditionsFormValues, FormFieldStatusEnum } from '../types';
+import { ITermsAndConditionsFormValues } from '../types';
 import { FormWrapper } from '../FormWrapper';
 import { IFormWrapperContext } from '../FormWrapper/IFormWrapperContext';
+import { FormWrapperStatusEnum } from '../FormWrapper/FormWrapperStatusEnum';
 
 
 
@@ -22,12 +23,12 @@ export function TermsAndConditionsForm(props: ITermsAndConditionsFormProps): JSX
                 if (!values.TermsAccepted) {
                     status.set("TermsAccepted", {
                         error: "You must accept the terms and conditions!",
-                        status: FormFieldStatusEnum.Error
+                        status: FormWrapperStatusEnum.error
                     });
                 }
                 else {
                     status.set("TermsAccepted", {
-                        status: FormFieldStatusEnum.Success
+                        status: FormWrapperStatusEnum.validated
                     });
                 }
                 return status;
@@ -35,12 +36,12 @@ export function TermsAndConditionsForm(props: ITermsAndConditionsFormProps): JSX
 
             renderFormFields={(ctx: IFormWrapperContext) => {
                 const TermsAcceptedStatus = ctx.status.get("TermsAccepted");
-                const hasError = TermsAcceptedStatus ? TermsAcceptedStatus.status === FormFieldStatusEnum.Error : false;
+                const hasError = TermsAcceptedStatus ? TermsAcceptedStatus.status === FormWrapperStatusEnum.error : false;
                 const error = hasError && TermsAcceptedStatus ? TermsAcceptedStatus.error : "";
                 const checked = getValues(ctx).TermsAccepted;
 
                 return <React.Fragment>
-                    <CheckBoxField checked={checked} displayName={"I accept the terms and conditions"} id={"TermsAccepted"} name={"TermsAccepted"} status={TermsAcceptedStatus ? TermsAcceptedStatus.status : FormFieldStatusEnum.Initial} onChange={ctx.handleChange} />
+                    <CheckBoxField checked={checked} displayName={"I accept the terms and conditions"} id={"TermsAccepted"} name={"TermsAccepted"} status={TermsAcceptedStatus ? TermsAcceptedStatus.status : FormWrapperStatusEnum.initial} onChange={ctx.handleChange} />
                     <div className="form-group">
                         <div className="col-sm-offset-2 col-sm-10">
                             <button type="submit" className="btn btn-primary">Continue</button>

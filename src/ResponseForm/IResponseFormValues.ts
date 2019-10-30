@@ -2,17 +2,17 @@ import { RequestStatusEnum, ThreatLevelEnum } from "../types";
 
 export interface IResponseFormValues {
     [key:string]: any;
-    ApprovalAuthoritySignature?: string;
-    AuthorityEmail?: string;
-    Bureau?: string;
-    CC?: string[];
-    Email?: string;    
-    FirstName?: string;
-    Feedback?: string;
-    LastName?: string;
-    Office?: string;
-    RequestStatus?: RequestStatusEnum;
-    ThreatLevel?: ThreatLevelEnum;
-    ResponseDate?: Date;
-    Subject?: string;
+    approvalauthorityaignature?: string;
+    authorityemail?: string;
+    bureau?: string;
+    cc?: string[];
+    email?: string;    
+    firstname?: string;
+    feedback?: string;
+    lastname?: string;
+    office?: string;
+    requeststatus?: RequestStatusEnum;
+    threatlevel?: ThreatLevelEnum;
+    responsedate?: Date;
+    subject?: string;
 }

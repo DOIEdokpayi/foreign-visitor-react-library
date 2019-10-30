@@ -7,7 +7,9 @@ import { IResponseFormProps } from './IResponseFormProps';
 import { FormWrapper } from '../FormWrapper';
 import { IFormWrapperContext } from '../FormWrapper/IFormWrapperContext';
 import { IResponseFormValues } from './IResponseFormValues';
-import { FormFieldStatusEnum } from '../types';
+import { FormGroup } from '../Fields/FormGroup';
+import { FormWrapperStatusEnum } from '../FormWrapper/FormWrapperStatusEnum';
+import { RequestStatusEnum } from '../types';
 
 export default class ResponseForm extends React.Component<IResponseFormProps> {
     public render(): JSX.Element {
@@ -23,24 +25,41 @@ export default class ResponseForm extends React.Component<IResponseFormProps> {
                 onValidate={(ctx: IFormWrapperContext) => {
                     const { status } = ctx;
                     const values = getValues(ctx);
-                    if (!values.TermsAccepted) {
-                        status.set("TermsAccepted", {
-                            error: "You must accept the terms and conditions!",
-                            status: FormFieldStatusEnum.Error
+                    if (!values.requeststatus) {
+                        status.set("requeststatus", {
+                            error: "Request Status is Required!",
+                            status: FormWrapperStatusEnum.error
                         });
                     }
                     else {
-                        status.set("TermsAccepted", {
-                            status: FormFieldStatusEnum.Success
+                        status.set("requeststatus", {
+                            status: FormWrapperStatusEnum.validated
                         });
                     }
                     return status;
                 }}
 
                 renderFormFields={(ctx: IFormWrapperContext) => {
-                    console.log(ctx);
+                    const { handleChange, status } = ctx;
+                    const requestStatus = (status.get("requeststatus") || { status: FormWrapperStatusEnum.initial }).status;
+                    const values = getValues(ctx);
                     return <React.Fragment>
-
+                        <FormGroup associatedFieldId={"requeststatus"} displayName={"Request Status"} status={requestStatus}>
+                            <select
+                                aria-describedby={"requeststatusstatus"}
+                                required={true}
+                                id={"requeststatus"}
+                                name={"requeststatus"}
+                                className="form-control"
+                                value={values.requestStatus}
+                                onChange={handleChange}>
+                                <option value={RequestStatusEnum.Approved}>Approved</option>
+                                <option value={RequestStatusEnum.Incomplete}>Incomplete</option>
+                                <option value={RequestStatusEnum.Invalid}>Invalid</option>
+                                <option value={RequestStatusEnum.NotApplicable}>Not Applicable</option>
+                                <option value={RequestStatusEnum.NotApproved}>Not Approved</option>
+                            </select>
+                        </FormGroup>
                         <div className="form-group">
                             <div className="col-sm-offset-2 col-sm-10">
                                 <button type="submit" className="btn btn-primary">Submit Feedback to Requester</button>

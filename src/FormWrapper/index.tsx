@@ -3,7 +3,7 @@ import { IFormWrapperProps } from './IFormWrapperProps';
 import { IFormWrapperState } from './IFormWrapperState';
 import { IFieldStatus } from './IFieldStatus';
 import { IFormWrapperContext } from './IFormWrapperContext';
-import { FormFieldStatusEnum } from '../types';
+import { FormWrapperStatusEnum } from './FormWrapperStatusEnum';
 const emptyStatus = new Map<string, IFieldStatus>();
 export class FormWrapper extends React.Component<IFormWrapperProps, IFormWrapperState>{
     private formRef: React.RefObject<HTMLFormElement>;
@@ -51,7 +51,7 @@ export class FormWrapper extends React.Component<IFormWrapperProps, IFormWrapper
         const status = handleValidation ? handleValidation(this.getContext()) : emptyStatus
         let isValid: boolean = true;
         status.forEach((fieldStatus: IFieldStatus) => {
-            if (fieldStatus.status === FormFieldStatusEnum.Error) {
+            if (fieldStatus.status === FormWrapperStatusEnum.error) {
                 isValid = false;
             }
         })

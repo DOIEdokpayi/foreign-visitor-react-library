@@ -1,4 +1,4 @@
-enum FormWrapperStatusEnum{
+export enum FormWrapperStatusEnum{
     initial, // after reset or empty form
     touched, // user has touched field
     dirty, // field has changed

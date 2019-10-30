@@ -1,6 +1,6 @@
-import { FormFieldStatusEnum } from "../../types";
+import { FormWrapperStatusEnum } from "../../FormWrapper/FormWrapperStatusEnum";
 
 export interface IFeedbackProps{
-    associatedFieldId: string;
-    status: FormFieldStatusEnum;
+    feedbackId: string;
+    status: FormWrapperStatusEnum;
 }

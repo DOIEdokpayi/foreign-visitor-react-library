@@ -1,3 +1,5 @@
+import { FormWrapperStatusEnum } from "../FormWrapper/FormWrapperStatusEnum";
+
 export interface IContact {
   FirstName: string;
   LastName: string;
@@ -73,6 +75,7 @@ export enum FormFieldStatusEnum {
 
 export interface IBaseFieldProps {
   className?: string;
+  description?: string;
   disabled?: boolean;
   displayName: string;
   error?: string;
@@ -81,6 +84,6 @@ export interface IBaseFieldProps {
   name: string;
   onChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
   required?: boolean;
-  status?: FormFieldStatusEnum;
+  status?: FormWrapperStatusEnum;
   value?: any;
 }
