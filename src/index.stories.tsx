@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { TelephoneNumbers, EmailAddresses, Sponsors, Visits, Loading, Visitors, IVisitor, Contacts, IContact, ILocation, Locations, TermsAndConditions, ITermsAndConditionsFormValues } from '.';
+import { TelephoneNumbers, EmailAddresses, Sponsors, Visits, Loading, Visitors, IVisitor, Contacts, IContact, ILocation, Locations, TermsAndConditions, ITermsAndConditionsFormValues, IResponseFormValues } from '.';
+import ResponseForm from './ResponseForm';
 
 
 export default { title: 'Foreign Visitor React Components' };
@@ -91,3 +92,10 @@ export const LocationsComponent =() =>(<Locations
         alert("Terms and conditions accepted!");
       }
     }} />);
+
+
+    export const ResponseFormComponent = ()=>(
+        <ResponseForm  SubmitPageFunc={(values:IResponseFormValues) => {
+            alert("data submitted is " + JSON.stringify(values))
+        }} />
+    )
