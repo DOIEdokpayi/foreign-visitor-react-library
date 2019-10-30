@@ -63,18 +63,23 @@ export enum ThreatLevelEnum {
 
 }
 
-export enum EnumFormGroupStatus {
+export enum FormFieldStatusEnum {
   Initial,
   Success,
   Warning,
-  Error
+  Error, 
+  Touched
 }
 
 export interface IBaseFieldProps {
-  ClassName?: string;
-  DisplayName: string;
-  Error?: string;
-  HelpText?: string;
-  Index?: number;
-  status: EnumFormGroupStatus;
+  className?: string;
+  disabled?: boolean;
+  displayName: string;
+  error?: string;
+  helpText?: string;  
+  id: string;
+  name: string;    
+  onChange: React.ChangeEventHandler<HTMLInputElement|HTMLTextAreaElement>;
+  status?: FormFieldStatusEnum;
+  value?: any;
 }
