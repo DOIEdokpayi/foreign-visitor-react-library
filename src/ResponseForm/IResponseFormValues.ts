@@ -2,7 +2,8 @@ import { RequestStatusEnum, ThreatLevelEnum } from "../types";
 
 export interface IResponseFormValues {
     [key:string]: any;
-    approvalauthorityaignature?: string;
+    approvalauthoritysignature?: string;
+    attachment?:ArrayBuffer[];
     authorityemail?: string;
     bureau?: string;
     cc?: string[];

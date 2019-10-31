@@ -13,6 +13,11 @@ import { RequestStatusEnum, ThreatLevelEnum } from '../types';
 import { IFormWrapperFieldStatus } from '../FormWrapper/IFormWrapperFieldStatus';
 
 export default class ResponseForm extends React.Component<IResponseFormProps> {
+    private fileInputRef:React.RefObject<HTMLInputElement>;
+    constructor(props: IResponseFormProps){
+        super(props);
+        this.fileInputRef = React.createRef<HTMLInputElement>();
+    }
     public render(): JSX.Element {
         const values: IResponseFormValues = { ...this.props }
         return (
@@ -21,6 +26,25 @@ export default class ResponseForm extends React.Component<IResponseFormProps> {
                 onSubmit={(ctx: IFormWrapperContext) => {
                     const { SubmitPageFunc } = this.props;
                     const values: IResponseFormValues = getValues(ctx);
+                    const fileInput: HTMLInputElement = this.fileInputRef.current as HTMLInputElement;
+                    var reader = new FileReader();
+                    values.attachment = [];
+                    reader.onload = ()=>{
+                        if(values.attachment){
+                            values.attachment.push(reader.result as ArrayBuffer);
+                        }
+                    }
+                    if(fileInput.files){ // not null
+                        
+                        for(let i = 0; i< fileInput.files.length; i++){
+                            const file = fileInput.files[i];
+                            if(file){
+                               reader.readAsArrayBuffer(file);
+                            }
+                            
+                        }
+                    }
+                    
                     SubmitPageFunc(values);
                 }}
                 onValidate={(ctx: IFormWrapperContext) => {
@@ -50,6 +74,10 @@ export default class ResponseForm extends React.Component<IResponseFormProps> {
                     const lastnameStatus = getFieldStatus(status, "lastname");
                     const bureauStatus = getFieldStatus(status, "bureau");
                     const officeStatus = getFieldStatus(status, "office");
+                    const approvalauthoritysignatureStatus = getFieldStatus(status, "approvalauthoritysignature");
+                    const authorityemailStatus = getFieldStatus(status, "authorityemail");
+                    const responsedateStatus = getFieldStatus(status, "responsedate");
+                    const attachmentStatus = getFieldStatus(status, "attachment");
                     const values = getValues(ctx);
                     return <React.Fragment>
                         <FormGroup associatedFieldId={"requeststatus"} displayName={"Request Status"} status={requestStatus}>
@@ -164,7 +192,7 @@ export default class ResponseForm extends React.Component<IResponseFormProps> {
                                                     name={"firstname"}
                                                     onChange={handleChange}
                                                     required={true}
-                                                    value={values.feedback}
+                                                    value={values.firstname}
                                                 />
                                             </FormGroup>
                                         </div>
@@ -177,7 +205,7 @@ export default class ResponseForm extends React.Component<IResponseFormProps> {
                                                     name={"lastname"}
                                                     onChange={handleChange}
                                                     required={true}
-                                                    value={values.feedback}
+                                                    value={values.lastname}
                                                 />
                                             </FormGroup>
                                         </div>
@@ -199,7 +227,7 @@ export default class ResponseForm extends React.Component<IResponseFormProps> {
                                                     name={"bureau"}
                                                     onChange={handleChange}
                                                     required={true}
-                                                    value={values.feedback}
+                                                    value={values.bureau}
                                                 />
                                             </FormGroup>
                                         </div>
@@ -212,7 +240,7 @@ export default class ResponseForm extends React.Component<IResponseFormProps> {
                                                     name={"office"}
                                                     onChange={handleChange}
                                                     required={true}
-                                                    value={values.feedback}
+                                                    value={values.office}
                                                 />
                                             </FormGroup>
                                         </div>
@@ -220,6 +248,57 @@ export default class ResponseForm extends React.Component<IResponseFormProps> {
                                 </div>
                             </div>
                         </div>
+                        <FormGroup associatedFieldId={"approvalauthoritysignature"} displayName={"Approval Authority Signature"} status={approvalauthoritysignatureStatus} >
+                            <input
+                                aria-describedby={"approvalauthoritysignaturestatus"}
+                                className={"form-control"}
+                                id={"approvalauthoritysignature"}
+                                name={"approvalauthoritysignature"}
+                                onChange={handleChange}
+                                type="text"
+                                required={true}
+                                value={values.approvalauthoritysignature}
+                            />
+                        </FormGroup>
+                       
+                        <FormGroup associatedFieldId={"authorityemail"} displayName={"Authority E-mail"} status={authorityemailStatus} >
+                            <input
+                                aria-describedby={"authorityemailstatus"}
+                                className={"form-control"}
+                                id={"authorityemail"}
+                                name={"authorityemail"}
+                                onChange={handleChange}
+                                type="text"
+                                required={true}
+                                value={values.authorityemail}
+                            />
+                        </FormGroup>
+                       
+                        <FormGroup associatedFieldId={"responsedate"} displayName={"Response Date"} status={responsedateStatus} >
+                            <input
+                                aria-describedby={"responsedatestatus"}
+                                className={"form-control"}
+                                id={"responsedate"}
+                                name={"responsedate"}
+                                onChange={handleChange}
+                                type="date"
+                                required={true}
+                                value={dateValue(values.responsedate || new Date)}
+                            />
+                        </FormGroup>
+                        <FormGroup associatedFieldId={"attachment"} displayName={"Attachment"} status={attachmentStatus} >
+                            <input
+                                aria-describedby={"attachmentstatus"}
+                                className={"form-control"}
+                                id={"attachment"}
+                                multiple={true}
+                                name={"attachment"}
+                                type="file"
+                                ref={this.fileInputRef}
+                                required={false}
+                            />
+                        </FormGroup>
+                       
                         <div className="form-group">
                             <div className="col-sm-offset-2 col-sm-10">
                                 <button type="submit" className="btn btn-primary">Submit Feedback to Requester</button>
@@ -246,4 +325,16 @@ function getValues(ctx: IFormWrapperContext) {
     const values: IResponseFormValues = {};
     formData.forEach((value: FormDataEntryValue, key) => values[key] = value.valueOf());
     return values;
+}
+
+function formatDate(date:Date):string{
+    const year = date.getFullYear().toString();
+    const month = date.getMonth().toString().padStart(2, "0");
+    const day = date.getDate().toString().padStart(2,"0");
+    const dash = "-";
+    return year + dash + month + dash + day;
+}
+
+function dateValue(dateValue:string|Date):string{
+    return typeof dateValue === "string" ? dateValue : formatDate(dateValue);
 }
