@@ -6,17 +6,16 @@ import { IFormWrapperContext } from './IFormWrapperContext';
 import { FormWrapperStatusEnum } from './FormWrapperStatusEnum';
 const emptyStatus = new Map<string, IFieldStatus>();
 export class FormWrapper extends React.Component<IFormWrapperProps, IFormWrapperState>{
-    private formRef: React.RefObject<HTMLFormElement>;
     private getContext(): IFormWrapperContext {
         return {
-            formData: this.formRef.current ? new FormData(this.formRef.current) : new FormData(),
             handleChange: this.handleFormChange.bind(this),
             isSubmitting: this.state.isSubmitting !== undefined ? this.state.isSubmitting : false,
             isValidating: this.state.isValidating !== undefined ? this.state.isValidating : false,
             resetForm: this.resetForm.bind(this),
             setFieldValue: this.setFieldValue.bind(this),
             setSubmitting: this.setSubmitting.bind(this),
-            status: this.state.status || emptyStatus
+            status: this.state.status || emptyStatus,
+            values: JSON.parse(this.state.formValuesJSON as string)
         };
     }
     constructor(props: IFormWrapperProps) {
@@ -27,9 +26,8 @@ export class FormWrapper extends React.Component<IFormWrapperProps, IFormWrapper
             isValidating: false,
             status: new Map<string, IFieldStatus>()
         };
-        this.formRef = React.createRef<HTMLFormElement>();
     }
-    public handleFormChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void {
+    public handleFormChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>): void {
         this.setFieldValue(event.target.id, event.target.value, true);
     }
     public setFormDataFromInitialiValues(): FormData {
@@ -77,14 +75,7 @@ export class FormWrapper extends React.Component<IFormWrapperProps, IFormWrapper
         const {
             initialValues
         } = this.props;
-        if (null !== this.formRef.current) {
-            for (const key in initialValues) {
-                if (initialValues.hasOwnProperty(key)) {
-                    const element = initialValues[key];
-                    this.setFieldValue(key, element);
-                }
-            }
-        }
+        this.setState({ formValuesJSON: JSON.stringify(initialValues) });
         this.onResetHandler();
     }
 
@@ -94,17 +85,15 @@ export class FormWrapper extends React.Component<IFormWrapperProps, IFormWrapper
             onValidate: handleValidation
         } = this.props;
         const getValue = convertFieldValue ? convertFieldValue : (key: string, value: any) => { console.log(key); return value.toString(); };
-        if (null !== this.formRef.current) {
-            const formElement: HTMLFormElement = this.formRef.current;
-            const fieldElement: HTMLInputElement | HTMLTextAreaElement | null = formElement.querySelector("#" + field); // all input elements must set the id attribute
-            if (fieldElement) {
-                fieldElement.value = getValue(field, value);
-                if (shouldValidate && handleValidation) {
-                    this.setState({ status: handleValidation(this.getContext()) });
-                }
-            }
+        const values = JSON.parse(this.state.formValuesJSON || "{}");
+        values[field] = getValue(field, value);
+        this.setState({ formValuesJSON: JSON.stringify(values) });
+        if (shouldValidate && handleValidation) {
+            this.setState({ status: handleValidation(this.getContext()) });
         }
     }
+
+
     public setSubmitting(isSubmitting: boolean): void {
         this.setState({ isSubmitting: isSubmitting });
     }
@@ -115,7 +104,6 @@ export class FormWrapper extends React.Component<IFormWrapperProps, IFormWrapper
             renderFormFields } = this.props;
         return <form
             className={formClassName || "form-horizontal"}
-            ref={this.formRef}
             onSubmit={this.onSubmitHandler.bind(this)}
             onReset={this.onResetHandler.bind(this)}
         >

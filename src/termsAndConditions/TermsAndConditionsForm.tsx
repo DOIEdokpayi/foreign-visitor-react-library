@@ -14,12 +14,10 @@ export function TermsAndConditionsForm(props: ITermsAndConditionsFormProps): JSX
         <FormWrapper
             initialValues={{ TermsAccepted: false }}
             onSubmit={(ctx: IFormWrapperContext) => {
-                const values: ITermsAndConditionsFormValues = getValues(ctx);
-                props.SubmitActionFunc(values);
+                props.SubmitActionFunc(ctx.values as ITermsAndConditionsFormValues);
             }}
             onValidate={(ctx: IFormWrapperContext) => {
-                const { status } = ctx;
-                const values = getValues(ctx);
+                const { status, values } = ctx;
                 if (!values.TermsAccepted) {
                     status.set("TermsAccepted", {
                         error: "You must accept the terms and conditions!",
@@ -38,7 +36,7 @@ export function TermsAndConditionsForm(props: ITermsAndConditionsFormProps): JSX
                 const TermsAcceptedStatus = ctx.status.get("TermsAccepted");
                 const hasError = TermsAcceptedStatus ? TermsAcceptedStatus.status === FormWrapperStatusEnum.error : false;
                 const error = hasError && TermsAcceptedStatus ? TermsAcceptedStatus.error : "";
-                const checked = getValues(ctx).TermsAccepted;
+                const checked = (ctx.values as ITermsAndConditionsFormValues).TermsAccepted;
 
                 return <React.Fragment>
                     <CheckBoxField checked={checked} displayName={"I accept the terms and conditions"} id={"TermsAccepted"} name={"TermsAccepted"} status={TermsAcceptedStatus ? TermsAcceptedStatus.status : FormWrapperStatusEnum.initial} onChange={ctx.handleChange} />
@@ -60,9 +58,4 @@ export function TermsAndConditionsForm(props: ITermsAndConditionsFormProps): JSX
     );
 }
 
-function getValues(ctx: IFormWrapperContext) {
-    const values: ITermsAndConditionsFormValues = { TermsAccepted: false };
-    values.TermsAccepted = Boolean(ctx.formData.get("TermsAccepted"));
-    return values;
-}
 

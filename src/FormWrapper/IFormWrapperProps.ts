@@ -1,8 +1,6 @@
 import { IFormWrapperFieldStatus } from "./IFormWrapperFieldStatus";
 import { IFormWrapperContext } from "./IFormWrapperContext";
-export interface IInitialValues{
-    [key: string]: any;
-}
+import { IInitialValues } from "../types";
 
 export interface IFormWrapperProps{
     convertFieldValue?: (key: string, value: any) => string;
