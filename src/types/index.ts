@@ -12,6 +12,10 @@ export interface IContactFunc {
 export interface IErrorHandlerFunc {
   (ErrorMessage?: string, Stack?: string): JSX.Element
 }
+export interface IInitialValues {
+  [key: string]: any;
+}
+
 export interface ISponsor {
   Name: string;
   Telephone: string;
@@ -50,7 +54,7 @@ export interface ILocation {
 export interface ILocationFunc {
   (location: ILocation): void
 }
-export interface ITermsAndConditionsFormValues {
+export interface ITermsAndConditionsFormValues extends IInitialValues {
   TermsAccepted: boolean;
 }
 export interface ITermsAndConditionsFormSubmissionAction {

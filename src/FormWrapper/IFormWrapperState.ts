@@ -5,4 +5,5 @@ export interface IFormWrapperState {
     isSubmitting?: boolean;
     isValidating?: boolean;
     status?:IFormWrapperFieldStatus;
+    formValuesJSON?:string;
 }

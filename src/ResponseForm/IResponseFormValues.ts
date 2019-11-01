@@ -1,6 +1,6 @@
-import { RequestStatusEnum, ThreatLevelEnum } from "../types";
+import { RequestStatusEnum, ThreatLevelEnum, IInitialValues } from "../types";
 
-export interface IResponseFormValues {
+export interface IResponseFormValues extends IInitialValues {
     [key:string]: any;
     approvalauthoritysignature?: string;
     attachment?:ArrayBuffer[];
