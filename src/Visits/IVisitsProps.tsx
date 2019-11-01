@@ -3,4 +3,5 @@ export interface IVisitsProps {
     IsAdmin: boolean;
     Visits: IVisit[];
     ClickHandler: IVisitFunc;
+    SelectHandler: IVisitFunc;
 }

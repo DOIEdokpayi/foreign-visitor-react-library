@@ -13,7 +13,8 @@ export default class Visits extends React.Component<IVisitsProps> {
         const {
             IsAdmin,
             Visits,
-            ClickHandler
+            ClickHandler,
+            SelectHandler
         } = this.props;
         return (
             <table className="table table-hover">
@@ -30,7 +31,7 @@ export default class Visits extends React.Component<IVisitsProps> {
                         Visits.map((visit: IVisit, index: number) =>
                             <tr key={"Visit" + index.toString()}>
                                 <td>
-                                    {printDate(visit.ArrivalDate)}
+                                <a href="#" onClick={() => SelectHandler(visit)}>{printDate(visit.ArrivalDate)}</a>
                                 </td>
                                 <td>
                                     {printDate(visit.DepartureDate)}

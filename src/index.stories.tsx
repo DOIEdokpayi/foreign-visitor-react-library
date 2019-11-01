@@ -34,6 +34,7 @@ export const SponsorsComponent = () => (
 export const VisitsAdminView = () => (<Visits
     ClickHandler={(visit) => alert("You clicked a visit starting on:  " + visit.ArrivalDate.toString())}
     IsAdmin={true}
+    SelectHandler={(visit) => alert("You selected a visit starting on:  " + visit.ArrivalDate.toString())}
     Visits={[
         { ArrivalDate: new Date(2019, 11, 1), DepartureDate: new Date(2019, 11, 2), DownloadLink: "https://www.nps.gov/nationalmallplan/Maps/NMMParks_map.pdf" },
         { ArrivalDate: new Date(2019, 12, 1), DepartureDate: new Date(2019, 12, 2), DownloadLink: "https://www.nps.gov/nationalmallplan/Maps/NMMParks_map.pdf" },
@@ -43,6 +44,8 @@ export const VisitsAdminView = () => (<Visits
 export const VisitsUserView = () => (<Visits
     ClickHandler={(visit) => alert("You clicked a visit starting on:  " + visit.ArrivalDate.toString())}
     IsAdmin={false}
+    SelectHandler={(visit) => alert("You selected a visit starting on:  " + visit.ArrivalDate.toString())}
+
     Visits={[
         { ArrivalDate: new Date(2019, 11, 1), DepartureDate: new Date(2019, 11, 2), DownloadLink: "https://www.nps.gov/nationalmallplan/Maps/NMMParks_map.pdf" },
         { ArrivalDate: new Date(2019, 12, 1), DepartureDate: new Date(2019, 12, 2), DownloadLink: "https://www.nps.gov/nationalmallplan/Maps/NMMParks_map.pdf" },
