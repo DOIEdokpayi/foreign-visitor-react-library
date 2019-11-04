@@ -5,6 +5,7 @@ import { ITermsAndConditionsFormValues } from '../types';
 import { FormWrapper } from '../FormWrapper';
 import { IFormWrapperContext } from '../FormWrapper/IFormWrapperContext';
 import { FormWrapperStatusEnum } from '../FormWrapper/FormWrapperStatusEnum';
+import { ConvertFieldValue } from './ConvertFieldValue';
 
 
 
@@ -12,20 +13,21 @@ export function TermsAndConditionsForm(props: ITermsAndConditionsFormProps): JSX
 
     return (
         <FormWrapper
-            initialValues={{ TermsAccepted: false }}
+            convertFieldValue={ConvertFieldValue}
+            initialValues={{ termsaccepted: false }}
             onSubmit={(ctx: IFormWrapperContext) => {
                 props.SubmitActionFunc(ctx.values as ITermsAndConditionsFormValues);
             }}
             onValidate={(ctx: IFormWrapperContext) => {
                 const { status, values } = ctx;
-                if (!values.TermsAccepted) {
-                    status.set("TermsAccepted", {
+                if (!values.termsaccepted) {
+                    status.set("termsaccepted", {
                         error: "You must accept the terms and conditions!",
                         status: FormWrapperStatusEnum.error
                     });
                 }
                 else {
-                    status.set("TermsAccepted", {
+                    status.set("termsaccepted", {
                         status: FormWrapperStatusEnum.validated
                     });
                 }
@@ -33,13 +35,13 @@ export function TermsAndConditionsForm(props: ITermsAndConditionsFormProps): JSX
             }}
 
             renderFormFields={(ctx: IFormWrapperContext) => {
-                const TermsAcceptedStatus = ctx.status.get("TermsAccepted");
+                const TermsAcceptedStatus = ctx.status.get("termsaccepted");
                 const hasError = TermsAcceptedStatus ? TermsAcceptedStatus.status === FormWrapperStatusEnum.error : false;
                 const error = hasError && TermsAcceptedStatus ? TermsAcceptedStatus.error : "";
-                const checked = (ctx.values as ITermsAndConditionsFormValues).TermsAccepted;
+                const checked = (ctx.values as ITermsAndConditionsFormValues).termsaccepted;
 
                 return <React.Fragment>
-                    <CheckBoxField checked={checked} displayName={"I accept the terms and conditions"} id={"TermsAccepted"} name={"TermsAccepted"} status={TermsAcceptedStatus ? TermsAcceptedStatus.status : FormWrapperStatusEnum.initial} onChange={ctx.handleChange} />
+                    <CheckBoxField checked={checked} displayName={"I accept the terms and conditions"} id={"termsaccepted"} name={"termsaccepted"} status={TermsAcceptedStatus ? TermsAcceptedStatus.status : FormWrapperStatusEnum.initial} onChange={ctx.handleChange} />
                     <div className="form-group">
                         <div className="col-sm-offset-2 col-sm-10">
                             <button type="submit" className="btn btn-primary">Continue</button>

@@ -4,18 +4,36 @@ import { IFormWrapperState } from './IFormWrapperState';
 import { IFieldStatus } from './IFieldStatus';
 import { IFormWrapperContext } from './IFormWrapperContext';
 import { FormWrapperStatusEnum } from './FormWrapperStatusEnum';
+import { parseJSONValues } from './parseJSONValues';
+import { handleChange } from './handleChange';
+import { handleBlur } from './handleBlur';
 const emptyStatus = new Map<string, IFieldStatus>();
 export class FormWrapper extends React.Component<IFormWrapperProps, IFormWrapperState>{
+    private setFieldValueFunc: (field: string, value: any, shouldValidate?: boolean) => void;
     private getContext(): IFormWrapperContext {
         return {
-            handleChange: this.handleFormChange.bind(this),
+            handleChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => handleChange(event, this.setFieldValueFunc),
+            handleBlur: (event: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+                handleBlur(
+                    event,
+                    (
+                        fieldName: string,
+                        fieldStatus: IFieldStatus) => {
+                        const newstatus = this.state.status || new Map<string, IFieldStatus>();
+                        if (fieldStatus.status !== FormWrapperStatusEnum.dirty) {
+                            newstatus.set(fieldName, { status: FormWrapperStatusEnum.dirty });
+                            this.setState({ status: newstatus });
+                        }
+                    },
+                    this.state.status ? this.state.status.get(event.target.name) : undefined);
+            },
             isSubmitting: this.state.isSubmitting !== undefined ? this.state.isSubmitting : false,
             isValidating: this.state.isValidating !== undefined ? this.state.isValidating : false,
             resetForm: this.resetForm.bind(this),
-            setFieldValue: this.setFieldValue.bind(this),
+            setFieldValue: this.setFieldValueFunc,
             setSubmitting: this.setSubmitting.bind(this),
             status: this.state.status || emptyStatus,
-            values: JSON.parse(this.state.formValuesJSON as string)
+            values: parseJSONValues(this.state.formValuesJSON || "{}", this.props.convertFieldValue)
         };
     }
     constructor(props: IFormWrapperProps) {
@@ -24,11 +42,29 @@ export class FormWrapper extends React.Component<IFormWrapperProps, IFormWrapper
             isResetting: false,
             isSubmitting: false,
             isValidating: false,
-            status: new Map<string, IFieldStatus>()
+            status: new Map<string, IFieldStatus>(),
+            formValuesJSON: JSON.stringify(this.props.initialValues)
         };
+        this.setFieldValueFunc = this.setFieldValue.bind(this);
+    }
+    public handleTextFieldChange(target: HTMLInputElement): void {
+        this.setFieldValue(target.name, target.value, true);
+    }
+    public handleCheckBoxChange(target: HTMLInputElement): void {
+        this.setFieldValue(target.name, target.checked, true);
     }
     public handleFormChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>): void {
-        this.setFieldValue(event.target.id, event.target.value, true);
+        switch (event.target.type) {
+            case "text":
+                this.handleTextFieldChange(event.target as HTMLInputElement);
+                break;
+            case "checkbox":
+                this.handleCheckBoxChange(event.target as HTMLInputElement);
+                break;
+            default:
+                this.setFieldValue(event.target.name, event.target.value, true);
+                break;
+        }
     }
     public setFormDataFromInitialiValues(): FormData {
         const { initialValues } = this.props;
@@ -101,13 +137,14 @@ export class FormWrapper extends React.Component<IFormWrapperProps, IFormWrapper
     public render(): React.ReactElement<IFormWrapperProps> {
         const {
             formClassName,
-            renderFormFields } = this.props;
+            renderFormFields
+        } = this.props;
         return <form
             className={formClassName || "form-horizontal"}
             onSubmit={this.onSubmitHandler.bind(this)}
             onReset={this.onResetHandler.bind(this)}
         >
             {renderFormFields(this.getContext())}
-        </form>;
+        </form >;
     }
 }
