@@ -75,7 +75,6 @@ export interface IBaseFieldProps {
   disabled?: boolean;
   displayName: string;
   error?: string;
-  helpText?: string;
   id: string;
   name: string;
   onChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;

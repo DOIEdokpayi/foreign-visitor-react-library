@@ -2,6 +2,7 @@ import * as React from "react";
 import { ICheckBoxFieldProps } from "./ICheckBoxFieldProps";
 import { getBootstrapErrorClassName } from "../GetBootstrapErrorClassName";
 import { FormWrapperStatusEnum } from "../../FormWrapper/FormWrapperStatusEnum";
+import { DescriptionSpan } from "../FormField/descriptionSpan";
 
 export function CheckBoxField(props:ICheckBoxFieldProps): JSX.Element{
         const className = getBootstrapErrorClassName(props.status || FormWrapperStatusEnum.initial);
@@ -13,10 +14,7 @@ export function CheckBoxField(props:ICheckBoxFieldProps): JSX.Element{
                             <input type="checkbox" checked={props.checked} disabled={props.disabled} id={props.id} name={props.name} onChange={props.onChange} />{" "}
                             {props.displayName}
                         </label>
-                        {
-                            props.helpText ?
-                            <span className="help-block">{props.helpText}</span> : undefined
-                        }
+                        <DescriptionSpan descriptionText={props.description}/>
                     </div>
                 </div>
             </div>

@@ -121,9 +121,15 @@ export class FormWrapper extends React.Component<IFormWrapperProps, IFormWrapper
         const getValue = convertFieldValue ? convertFieldValue : (key: string, value: any) => { console.log(key); return value.toString(); };
         const values = JSON.parse(this.state.formValuesJSON || "{}");
         values[field] = getValue(field, value);
-        this.setState({ formValuesJSON: JSON.stringify(values) });
+        const newJSONValues = JSON.stringify(values)
+        this.setState({ formValuesJSON:  newJSONValues});
         if (shouldValidate && handleValidation) {
-            this.setState({ status: handleValidation(this.getContext()) });
+            this.setState({
+                status: handleValidation({
+                    status: this.state.status ? this.state.status : newFormWrapperFieldStatus(),
+                    values: parseJSONValues(newJSONValues)
+                })
+            });
         }
     }
 
