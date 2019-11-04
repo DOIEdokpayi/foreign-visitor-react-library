@@ -28,10 +28,11 @@ export default class ResponseForm extends React.Component<IResponseFormProps> {
                 }
                 onValidate={ResponseFormValidate}
 
-                renderFormFields={(ctx: IFormWrapperContext) => <ResponseFormFields 
-                        handleChange={ctx.handleChange}
-                        status={ctx.status}
-                        values={ctx.values as IResponseFormValues} />
+                renderFormFields={(ctx: IFormWrapperContext) => <ResponseFormFields
+                    handleBlur={ctx.handleBlur}
+                    handleChange={ctx.handleChange}
+                    status={ctx.status}
+                    values={ctx.values as IResponseFormValues} />
 
                 }
             />

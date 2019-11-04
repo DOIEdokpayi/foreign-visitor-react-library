@@ -18,7 +18,7 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
         this.fileInputRef = React.createRef<HTMLInputElement>();
     }
     public render(): JSX.Element {
-        const { handleChange, status, values } = this.props;
+        const { handleBlur, handleChange, status, values } = this.props;
 
                     const requestStatus = getFieldStatus(status, "requeststatus");
                     const subjectStatus = getFieldStatus(status, "subject");
@@ -41,6 +41,7 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                                 className="form-control"
                                 defaultValue={"-1"}
                                 value={values.requestStatus ? RequestStatusEnum[values.requestStatus] : undefined}
+                                onBlur={handleBlur}
                                 onChange={handleChange}>
                                 <option value={"-1"}>Select a Request Status</option>
                                 <option value={RequestStatusEnum.Approved}>Approved</option>
@@ -56,6 +57,7 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                                 className={"form-control"}
                                 id={"subject"}
                                 name={"subject"}
+                                onBlur={handleBlur}
                                 onChange={handleChange}
                                 type="text"
                                 required={true}
@@ -68,6 +70,7 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                                 className={"form-control"}
                                 id={"feedback"}
                                 name={"feedback"}
+                                onBlur={handleBlur}
                                 onChange={handleChange}
                                 required={true}
                                 value={values.feedback||""}
@@ -147,6 +150,7 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                                                     className={"form-control"}
                                                     id={"firstname"}
                                                     name={"firstname"}
+                                                    onBlur={handleBlur}
                                                     onChange={handleChange}
                                                     required={true}
                                                     type={"text"}
@@ -161,6 +165,7 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                                                     className={"form-control"}
                                                     id={"lastname"}
                                                     name={"lastname"}
+                                                    onBlur={handleBlur}
                                                     onChange={handleChange}
                                                     required={true}
                                                     type={"text"}
@@ -184,6 +189,7 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                                                     className={"form-control"}
                                                     id={"bureau"}
                                                     name={"bureau"}
+                                                    onBlur={handleBlur}
                                                     onChange={handleChange}
                                                     required={true}
                                                     type={"text"}
@@ -198,6 +204,7 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                                                     className={"form-control"}
                                                     id={"office"}
                                                     name={"office"}
+                                                    onBlur={handleBlur}
                                                     onChange={handleChange}
                                                     required={true}
                                                     type={"text"}
@@ -215,6 +222,7 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                                 className={"form-control"}
                                 id={"approvalauthoritysignature"}
                                 name={"approvalauthoritysignature"}
+                                onBlur={handleBlur}
                                 onChange={handleChange}
                                 type="text"
                                 required={true}
@@ -227,6 +235,7 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                                 className={"form-control"}
                                 id={"authorityemail"}
                                 name={"authorityemail"}
+                                onBlur={handleBlur}
                                 onChange={handleChange}
                                 type="email"
                                 required={true}
@@ -239,6 +248,7 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                                 className={"form-control"}
                                 id={"responsedate"}
                                 name={"responsedate"}
+                                onBlur={handleBlur}
                                 onChange={handleChange}
                                 type="date"
                                 required={true}
