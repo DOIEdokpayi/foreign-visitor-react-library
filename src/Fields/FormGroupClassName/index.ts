@@ -8,7 +8,6 @@ export function formGroupClassName(status?: FormWrapperStatusEnum): string {
             formGroupClassName = "form-group has-error has-feedback";
             break;
         case FormWrapperStatusEnum.dirty:
-        case FormWrapperStatusEnum.touched:
         case FormWrapperStatusEnum.validated:
             formGroupClassName = "form-group has-success has-feedback";
             break;

@@ -6,6 +6,7 @@ import { FormWrapper } from '../FormWrapper';
 import { IFormWrapperContext } from '../FormWrapper/IFormWrapperContext';
 import { FormWrapperStatusEnum } from '../FormWrapper/FormWrapperStatusEnum';
 import { ConvertFieldValue } from './ConvertFieldValue';
+import { IFormValidateProps } from '../FormWrapper/IFormValidateProps';
 
 
 
@@ -18,8 +19,8 @@ export function TermsAndConditionsForm(props: ITermsAndConditionsFormProps): JSX
             onSubmit={(ctx: IFormWrapperContext) => {
                 props.SubmitActionFunc(ctx.values as ITermsAndConditionsFormValues);
             }}
-            onValidate={(ctx: IFormWrapperContext) => {
-                const { status, values } = ctx;
+            onValidate={(props: IFormValidateProps) => {
+                const { status, values } = props;
                 if (!values.termsaccepted) {
                     status.set("termsaccepted", {
                         error: "You must accept the terms and conditions!",

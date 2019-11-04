@@ -7,7 +7,6 @@ export function getBootstrapErrorClassName(status: FormWrapperStatusEnum): strin
                 className = "has-success";
                 break;
             case FormWrapperStatusEnum.dirty:
-                    case FormWrapperStatusEnum.touched:
                 className = "has-warning";
                 break;
 

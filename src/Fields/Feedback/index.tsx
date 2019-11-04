@@ -34,8 +34,6 @@ export function Feedback(props: IFeedbackProps): JSX.Element {
       );
       break;
     case FormWrapperStatusEnum.dirty:
-    case FormWrapperStatusEnum.dirty:
-    case FormWrapperStatusEnum.touched:
       spanElementFeedback = (
         <React.Fragment>
           <span

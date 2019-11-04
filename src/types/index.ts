@@ -69,14 +69,6 @@ export enum ThreatLevelEnum {
 
 }
 
-export enum FormFieldStatusEnum {
-  Initial,
-  Success,
-  Warning,
-  Error,
-  Touched
-}
-
 export interface IBaseFieldProps {
   className?: string;
   description?: string;
