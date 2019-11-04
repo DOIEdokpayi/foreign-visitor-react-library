@@ -1,31 +1,31 @@
 import * as React from 'react';
-import { IFormWrapperProps } from './IFormWrapperProps';
-import { IFormWrapperState } from './IFormWrapperState';
+import { FormWrapperStatusEnum } from './FormWrapperStatusEnum';
+import { handleBlur } from './handleBlur';
+import { handleChange } from './handleChange';
 import { IFieldStatus } from './IFieldStatus';
 import { IFormWrapperContext } from './IFormWrapperContext';
-import { FormWrapperStatusEnum } from './FormWrapperStatusEnum';
+import { IFormWrapperProps } from './IFormWrapperProps';
+import { IFormWrapperState } from './IFormWrapperState';
+import { newFormWrapperFieldStatus } from './newFormWrapperFieldStatus';
 import { parseJSONValues } from './parseJSONValues';
-import { handleChange } from './handleChange';
-import { handleBlur } from './handleBlur';
+import { IFormValidateProps } from './IFormValidateProps';
+import { IFormWrapperFieldStatus } from './IFormWrapperFieldStatus';
 const emptyStatus = new Map<string, IFieldStatus>();
 export class FormWrapper extends React.Component<IFormWrapperProps, IFormWrapperState>{
     private setFieldValueFunc: (field: string, value: any, shouldValidate?: boolean) => void;
+    private setStatusFunc: (fieldName: string, fieldStatus: IFieldStatus) => void;
     private getContext(): IFormWrapperContext {
         return {
             handleChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => handleChange(event, this.setFieldValueFunc),
             handleBlur: (event: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+                const { onValidate } = this.props;
                 handleBlur(
                     event,
-                    (
-                        fieldName: string,
-                        fieldStatus: IFieldStatus) => {
-                        const newstatus = this.state.status || new Map<string, IFieldStatus>();
-                        if (fieldStatus.status !== FormWrapperStatusEnum.dirty) {
-                            newstatus.set(fieldName, { status: FormWrapperStatusEnum.dirty });
-                            this.setState({ status: newstatus });
-                        }
-                    },
+                    this.setStatusFunc,
                     this.state.status ? this.state.status.get(event.target.name) : undefined);
+                if (onValidate) {
+                    this.handleValidation(onValidate);
+                }
             },
             isSubmitting: this.state.isSubmitting !== undefined ? this.state.isSubmitting : false,
             isValidating: this.state.isValidating !== undefined ? this.state.isValidating : false,
@@ -42,29 +42,27 @@ export class FormWrapper extends React.Component<IFormWrapperProps, IFormWrapper
             isResetting: false,
             isSubmitting: false,
             isValidating: false,
-            status: new Map<string, IFieldStatus>(),
+            status: newFormWrapperFieldStatus(),
             formValuesJSON: JSON.stringify(this.props.initialValues)
         };
         this.setFieldValueFunc = this.setFieldValue.bind(this);
+        this.setStatusFunc = this.setStatus.bind(this);
     }
-    public handleTextFieldChange(target: HTMLInputElement): void {
-        this.setFieldValue(target.name, target.value, true);
+    private handleValidation(onValidate: (props: IFormValidateProps) => IFormWrapperFieldStatus): void {
+        this.setState({ isValidating: true });
+        this.setState({
+            status: onValidate({
+                status: this.state.status ? this.state.status : newFormWrapperFieldStatus(),
+                values: parseJSONValues(this.state.formValuesJSON || "{}", this.props.convertFieldValue)
+            })
+        });
+        this.setState({ isValidating: false });
     }
-    public handleCheckBoxChange(target: HTMLInputElement): void {
-        this.setFieldValue(target.name, target.checked, true);
-    }
-    public handleFormChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>): void {
-        switch (event.target.type) {
-            case "text":
-                this.handleTextFieldChange(event.target as HTMLInputElement);
-                break;
-            case "checkbox":
-                this.handleCheckBoxChange(event.target as HTMLInputElement);
-                break;
-            default:
-                this.setFieldValue(event.target.name, event.target.value, true);
-                break;
-        }
+
+    public setStatus(fieldName: string, fieldStatus: IFieldStatus): void {
+        const newstatus = this.state.status || newFormWrapperFieldStatus();
+        newstatus.set(fieldName, fieldStatus);
+        this.setState({ status: newstatus });
     }
     public setFormDataFromInitialiValues(): FormData {
         const { initialValues } = this.props;
@@ -123,9 +121,15 @@ export class FormWrapper extends React.Component<IFormWrapperProps, IFormWrapper
         const getValue = convertFieldValue ? convertFieldValue : (key: string, value: any) => { console.log(key); return value.toString(); };
         const values = JSON.parse(this.state.formValuesJSON || "{}");
         values[field] = getValue(field, value);
-        this.setState({ formValuesJSON: JSON.stringify(values) });
+        const newJSONValues = JSON.stringify(values)
+        this.setState({ formValuesJSON:  newJSONValues});
         if (shouldValidate && handleValidation) {
-            this.setState({ status: handleValidation(this.getContext()) });
+            this.setState({
+                status: handleValidation({
+                    status: this.state.status ? this.state.status : newFormWrapperFieldStatus(),
+                    values: parseJSONValues(newJSONValues)
+                })
+            });
         }
     }
 
@@ -148,3 +152,6 @@ export class FormWrapper extends React.Component<IFormWrapperProps, IFormWrapper
         </form >;
     }
 }
+
+
+
