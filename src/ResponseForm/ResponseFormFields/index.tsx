@@ -32,7 +32,11 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                     const authorityemailStatus = getFieldStatus(status, "authorityemail");
                     const responsedateStatus = getFieldStatus(status, "responsedate");
                     return <React.Fragment>
-                        <FormGroup associatedFieldId={"requeststatus"} displayName={"Request Status"} status={requestStatus}>
+                        <FormGroup 
+                            associatedFieldId={"requeststatus"} 
+                            description={"Status of Foreign Visitor request set by Counter Intelligence"}
+                            displayName={"Request Status"} 
+                            status={requestStatus}>
                             <select
                                 aria-describedby={"requeststatusstatus"}
                                 required={true}
@@ -51,7 +55,11 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                                 <option value={RequestStatusEnum.NotApproved}>Not Approved</option>
                             </select>
                         </FormGroup>
-                        <FormGroup associatedFieldId={"subject"} displayName={"Subject"} status={subjectStatus} >
+                        <FormGroup 
+                            associatedFieldId={"subject"}                            
+                            description={"Subject of email"}
+                            displayName={"Subject"}
+                            status={subjectStatus} >
                             <input
                                 aria-describedby={"subjectstatus"}
                                 className={"form-control"}
@@ -64,7 +72,11 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                                 value={values.subject||""}
                             />
                         </FormGroup>
-                        <FormGroup associatedFieldId={"feedback"} displayName={"Feedback/Next Steps"} status={feedbackStatus} >
+                        <FormGroup
+                            associatedFieldId={"feedback"}
+                            description={"Feedback from Counter Intelligence regarding visit"}
+                            displayName={"Feedback/Next Steps"}
+                            status={feedbackStatus} >
                             <textarea
                                 aria-describedby={"feedbackstatus"}
                                 className={"form-control"}
@@ -76,7 +88,11 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                                 value={values.feedback||""}
                             />
                         </FormGroup>
-                        <FormGroup associatedFieldId={"threatlevel"} displayName={"Threat Level"} status={threatlevelStatus} >
+                        <FormGroup 
+                            associatedFieldId={"threatlevel"}
+                            description={"Level of threat assigned by Counter Intelligence"}
+                            displayName={"Threat Level"}
+                            status={threatlevelStatus} >
                             <div className="btn-group" data-toggle="buttons">
                                 <label className="btn btn-primary active">
                                     <input
@@ -144,7 +160,11 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                                 <div className="container-fluid">
                                     <div className="row">
                                         <div className="col-sm-6">
-                                            <FormGroup associatedFieldId={"firstname"} displayName={"First Name"} status={firstnameStatus} >
+                                            <FormGroup
+                                                associatedFieldId={"firstname"}
+                                                description={"Requestor's first name"}
+                                                displayName={"First Name"}
+                                                status={firstnameStatus} >
                                                 <input
                                                     aria-describedby={"firstnamestatus"}
                                                     className={"form-control"}
@@ -159,7 +179,11 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                                             </FormGroup>
                                         </div>
                                         <div className="col-sm-6">
-                                            <FormGroup associatedFieldId={"lastname"} displayName={"Last Name"} status={lastnameStatus} >
+                                            <FormGroup
+                                                associatedFieldId={"lastname"}
+                                                description={"Requestor's last name"}
+                                                displayName={"Last Name"}
+                                                status={lastnameStatus} >
                                                 <input
                                                     aria-describedby={"lastnamestatus"}
                                                     className={"form-control"}
@@ -183,7 +207,10 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                                 <div className="container-fluid">
                                     <div className="row">
                                         <div className="col-sm-6">
-                                            <FormGroup associatedFieldId={"bureau"} displayName={"Bureau"} status={bureauStatus} >
+                                            <FormGroup 
+                                                associatedFieldId={"bureau"}
+                                                description={"Requestor's Bureau"}
+                                                displayName={"Bureau"} status={bureauStatus} >
                                                 <input
                                                     aria-describedby={"bureaustatus"}
                                                     className={"form-control"}
@@ -198,7 +225,11 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                                             </FormGroup>
                                         </div>
                                         <div className="col-sm-6">
-                                            <FormGroup associatedFieldId={"office"} displayName={"Office"} status={officeStatus} >
+                                            <FormGroup
+                                                associatedFieldId={"office"}
+                                                description={"Requestor's office information"}
+                                                displayName={"Office"}
+                                                status={officeStatus} >
                                                 <input
                                                     aria-describedby={"officestatus"}
                                                     className={"form-control"}
@@ -216,7 +247,11 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                                 </div>
                             </div>
                         </div>
-                        <FormGroup associatedFieldId={"approvalauthoritysignature"} displayName={"Approval Authority Signature"} status={approvalauthoritysignatureStatus} >
+                        <FormGroup 
+                            associatedFieldId={"approvalauthoritysignature"}
+                            description={"First name and last name of approving authority"}
+                            displayName={"Approval Authority Signature"}
+                            status={approvalauthoritysignatureStatus} >
                             <input
                                 aria-describedby={"approvalauthoritysignaturestatus"}
                                 className={"form-control"}
@@ -229,7 +264,11 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                                 value={values.approvalauthoritysignature||""}
                             />
                         </FormGroup>
-                        <FormGroup associatedFieldId={"authorityemail"} displayName={"Authority E-mail"} status={authorityemailStatus} >
+                        <FormGroup
+                            associatedFieldId={"authorityemail"}
+                            description={"Authority's email address"}
+                            displayName={"Authority E-mail"}
+                            status={authorityemailStatus} >
                             <input
                                 aria-describedby={"authorityemailstatus"}
                                 className={"form-control"}
@@ -242,7 +281,11 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                                 value={values.authorityemail||""}
                             />
                         </FormGroup>
-                        <FormGroup associatedFieldId={"responsedate"} displayName={"Response Date"} status={responsedateStatus} >
+                        <FormGroup
+                            associatedFieldId={"responsedate"}
+                            description={"Date of response"}
+                            displayName={"Response Date"}
+                            status={responsedateStatus} >
                             <input
                                 aria-describedby={"responsedatestatus"}
                                 className={"form-control"}
@@ -255,7 +298,11 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                                 value={dateValue(values.responsedate || new Date)}
                             />
                         </FormGroup>
-                        <FormGroup associatedFieldId={"attachment"} displayName={"Attachment"} status={FormWrapperStatusEnum.initial} >
+                        <FormGroup 
+                            associatedFieldId={"attachment"}
+                            description={"supporting documents"}
+                            displayName={"Attachment"}
+                            status={FormWrapperStatusEnum.initial} >
                             <input
                                 aria-describedby={"attachmentstatus"}
                                 className={"form-control"}
