@@ -22,6 +22,7 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
 
                     const requestStatus = getFieldStatus(status, "requeststatus");
                     const subjectStatus = getFieldStatus(status, "subject");
+                    const feedbackStatus = getFieldStatus(status, "feedback");
                     const threatlevelStatus = getFieldStatus(status, "threatlevel");
                     const firstnameStatus = getFieldStatus(status, "firstname");
                     const lastnameStatus = getFieldStatus(status, "lastname");
@@ -38,9 +39,10 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                                 id={"requeststatus"}
                                 name={"requeststatus"}
                                 className="form-control"
-                                value={values.requestStatus || -1}
+                                defaultValue={"-1"}
+                                value={values.requestStatus ? RequestStatusEnum[values.requestStatus] : undefined}
                                 onChange={handleChange}>
-                                <option value={-1}>Select a Request Status</option>
+                                <option value={"-1"}>Select a Request Status</option>
                                 <option value={RequestStatusEnum.Approved}>Approved</option>
                                 <option value={RequestStatusEnum.Incomplete}>Incomplete</option>
                                 <option value={RequestStatusEnum.Invalid}>Invalid</option>
@@ -60,7 +62,7 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                                 value={values.subject||""}
                             />
                         </FormGroup>
-                        <FormGroup associatedFieldId={"feedback"} displayName={"Feedback/Next Steps"} status={subjectStatus} >
+                        <FormGroup associatedFieldId={"feedback"} displayName={"Feedback/Next Steps"} status={feedbackStatus} >
                             <textarea
                                 aria-describedby={"feedbackstatus"}
                                 className={"form-control"}
@@ -77,53 +79,56 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                                     <input
                                         type="radio"
                                         onChange={handleChange}
-                                        value={ThreatLevelEnum.Urgent}
                                         name="threatlevel"
                                         id="threatlevel1"
-                                        checked={threatLevelOptionChecked(ThreatLevelEnum.Urgent, values.threatlevel)} /> Urgent
+                                        value={ThreatLevelEnum.Urgent}
+                                        checked={threatLevelOptionChecked(
+                                                ThreatLevelEnum.Urgent, 
+                                                values.threatlevel)} /> Urgent
                                 </label>
                                 <label className="btn btn-primary">
                                     <input
                                         type="radio"
                                         onChange={handleChange}
-                                        value={ThreatLevelEnum.High}
+                                        onClick={()=>alert("THreat Level High!")}
                                         name="threatlevel"
                                         id="threatlevel2"
+                                        value={ThreatLevelEnum.High}
                                         checked={threatLevelOptionChecked(ThreatLevelEnum.High, values.threatlevel)} /> High
                                 </label>
                                 <label className="btn btn-primary">
                                     <input
                                         type="radio"
                                         onChange={handleChange}
-                                        value={ThreatLevelEnum.Medium}
                                         name="threatlevel"
                                         id="threatlevel3"
+                                        value={ThreatLevelEnum.Medium}
                                         checked={threatLevelOptionChecked(ThreatLevelEnum.Medium, values.threatlevel)} /> Medium
                                 </label>
                                 <label className="btn btn-primary">
                                     <input
                                         type="radio"
                                         onChange={handleChange}
-                                        value={ThreatLevelEnum.Low}
                                         name="threatlevel"
                                         id="threatlevel3"
+                                        value={ThreatLevelEnum.Low}
                                         checked={threatLevelOptionChecked(ThreatLevelEnum.Low, values.threatlevel)} /> Low
                                 </label>
                                 <label className="btn btn-primary">
                                     <input
                                         type="radio"
                                         onChange={handleChange}
-                                        value={ThreatLevelEnum.None}
                                         name="threatlevel"
-                                        id="threatlevel3"
+                                        id="threatlevel3"                                        
+                                        value={ThreatLevelEnum.None}
                                         checked={threatLevelOptionChecked(ThreatLevelEnum.None, values.threatlevel)} /> None
                                 </label>
                                 <label className="btn btn-primary">
                                     <input
                                         type="radio"
                                         onChange={handleChange}
-                                        value={ThreatLevelEnum.NotApplicable}
                                         name="threatlevel"
+                                        value={ThreatLevelEnum.NotApplicable}
                                         id="threatlevel3"
                                         checked={threatLevelOptionChecked(ThreatLevelEnum.NotApplicable, values.threatlevel)} /> Not Applicable
                                 </label>
@@ -223,7 +228,7 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                                 id={"authorityemail"}
                                 name={"authorityemail"}
                                 onChange={handleChange}
-                                type="text"
+                                type="email"
                                 required={true}
                                 value={values.authorityemail||""}
                             />

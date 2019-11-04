@@ -10,6 +10,7 @@ import { IResponseFormValues } from './IResponseFormValues';
 import ResponseFormFields from './ResponseFormFields';
 import { ResponseFormSubmit } from './ResponseFormSubmit';
 import { ResponseFormValidate } from "./ResponseFormValidate";
+import { ConvertFieldValue } from './ResponseFormFields/ConvertFieldValue';
 export default class ResponseForm extends React.Component<IResponseFormProps> {
     private fileInputRef: React.RefObject<HTMLInputElement>;
     constructor(props: IResponseFormProps) {
@@ -20,6 +21,7 @@ export default class ResponseForm extends React.Component<IResponseFormProps> {
         const values: IResponseFormValues = { ...this.props }
         return (
             <FormWrapper
+                convertFieldValue={ConvertFieldValue}
                 initialValues={values}
                 onSubmit={(ctx: IFormWrapperContext) =>
                     ResponseFormSubmit({ ctx: ctx, fileInput: this.fileInputRef.current as HTMLInputElement, submitPageFunc: this.props.SubmitPageFunc })
@@ -27,7 +29,7 @@ export default class ResponseForm extends React.Component<IResponseFormProps> {
                 onValidate={ResponseFormValidate}
 
                 renderFormFields={(ctx: IFormWrapperContext) => <ResponseFormFields 
-                        handleChange={ctx.handleChange} 
+                        handleChange={ctx.handleChange}
                         status={ctx.status}
                         values={ctx.values as IResponseFormValues} />
 

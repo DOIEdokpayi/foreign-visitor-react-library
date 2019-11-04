@@ -3,7 +3,7 @@ import { IFormWrapperContext } from "./IFormWrapperContext";
 import { IInitialValues } from "../types";
 
 export interface IFormWrapperProps{
-    convertFieldValue?: (key: string, value: any) => string;
+    convertFieldValue?: (key: string, value: any) => any;
     formClassName?: string;
     onReset?: (initialValues: IInitialValues) => void;
     onSubmit: (ctx: IFormWrapperContext) => void;

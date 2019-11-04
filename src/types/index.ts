@@ -55,7 +55,7 @@ export interface ILocationFunc {
   (location: ILocation): void
 }
 export interface ITermsAndConditionsFormValues extends IInitialValues {
-  TermsAccepted: boolean;
+  termsaccepted: boolean;
 }
 export interface ITermsAndConditionsFormSubmissionAction {
   (formData: ITermsAndConditionsFormValues): void
