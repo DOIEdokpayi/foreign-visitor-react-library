@@ -7,10 +7,9 @@ import { FormGroup } from '../../Fields/FormGroup';
 import { RequestStatusEnum, ThreatLevelEnum } from '../..';
 import { FormWrapperStatusEnum } from '../../FormWrapper/FormWrapperStatusEnum';
 import { getFieldStatus } from '../getFieldStatus';
-import { threatLevelOptionChecked, threatLevelOptionCheckedClasName } from '../threatLevelOptionChecked';
+import { threatLevelOptionChecked} from '../threatLevelOptionChecked';
 import { dateValue } from '../dateValue';
 import { IResponseFormFieldsProps } from './IResponseFormFieldsProps';
-import { radioButtonClick } from '../../Fields/RadioButton/RadioButtonClick';
 import { RadioButton } from '../../Fields/RadioButton';
 
 export default class ResponseFormFields extends React.Component<IResponseFormFieldsProps>{
