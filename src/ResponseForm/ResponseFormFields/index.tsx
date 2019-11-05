@@ -7,7 +7,7 @@ import { FormGroup } from '../../Fields/FormGroup';
 import { RequestStatusEnum, ThreatLevelEnum } from '../..';
 import { FormWrapperStatusEnum } from '../../FormWrapper/FormWrapperStatusEnum';
 import { getFieldStatus } from '../getFieldStatus';
-import { threatLevelOptionChecked} from '../threatLevelOptionChecked';
+import { threatLevelOptionChecked } from '../threatLevelOptionChecked';
 import { dateValue } from '../dateValue';
 import { IResponseFormFieldsProps } from './IResponseFormFieldsProps';
 import { RadioButton } from '../../Fields/RadioButton';
@@ -102,7 +102,7 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                         label={"Urgent"}
                         threatLevel={ThreatLevelEnum.Urgent}
                         setFieldValue={setFieldValue}
-                         />
+                    />
                     <RadioButton
                         checked={threatLevelOptionChecked(ThreatLevelEnum.High, values.threatlevel)}
                         fieldName={"threatlevel"}
@@ -110,7 +110,7 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                         label={"High"}
                         threatLevel={ThreatLevelEnum.High}
                         setFieldValue={setFieldValue}
-                         />
+                    />
                     <RadioButton
                         checked={threatLevelOptionChecked(ThreatLevelEnum.Medium, values.threatlevel)}
                         fieldName={"threatlevel"}
@@ -118,7 +118,7 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                         label={"Medium"}
                         threatLevel={ThreatLevelEnum.Medium}
                         setFieldValue={setFieldValue}
-                         />
+                    />
                     <RadioButton
                         checked={threatLevelOptionChecked(ThreatLevelEnum.Low, values.threatlevel)}
                         fieldName={"threatlevel"}
@@ -126,16 +126,15 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                         label={"Low"}
                         threatLevel={ThreatLevelEnum.Low}
                         setFieldValue={setFieldValue}
-                         />
+                    />
                     <RadioButton
-                        isDefaultOption
-                        checked={threatLevelOptionChecked(ThreatLevelEnum.None, values.threatlevel)}
+                        checked={threatLevelOptionChecked(ThreatLevelEnum.None, values.threatlevel) || (undefined === values.threatlevel)}
                         fieldName={"threatlevel"}
-                        handleChange={handleChange}
+                        handleChange={handleChange} 
                         label={"None"}
                         threatLevel={ThreatLevelEnum.None}
                         setFieldValue={setFieldValue}
-                         />
+                    />
                     <RadioButton
                         checked={threatLevelOptionChecked(ThreatLevelEnum.NotApplicable, values.threatlevel)}
                         fieldName={"threatlevel"}
@@ -143,7 +142,7 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                         label={"Not Applicable"}
                         threatLevel={ThreatLevelEnum.NotApplicable}
                         setFieldValue={setFieldValue}
-                         />
+                    />
                 </div>
             </FormGroup>
 
