@@ -31,6 +31,7 @@ export default class ResponseForm extends React.Component<IResponseFormProps> {
                 renderFormFields={(ctx: IFormWrapperContext) => <ResponseFormFields
                     handleBlur={ctx.handleBlur}
                     handleChange={ctx.handleChange}
+                    setFieldValue={ctx.setFieldValue}
                     status={ctx.status}
                     values={ctx.values as IResponseFormValues} />
 

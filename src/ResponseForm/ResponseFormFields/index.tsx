@@ -10,6 +10,8 @@ import { getFieldStatus } from '../getFieldStatus';
 import { threatLevelOptionChecked, threatLevelOptionCheckedClasName } from '../threatLevelOptionChecked';
 import { dateValue } from '../dateValue';
 import { IResponseFormFieldsProps } from './IResponseFormFieldsProps';
+import { radioButtonClick } from '../../Fields/RadioButton/RadioButtonClick';
+import { RadioButton } from '../../Fields/RadioButton';
 
 export default class ResponseFormFields extends React.Component<IResponseFormFieldsProps>{
     private fileInputRef: React.RefObject<HTMLInputElement>;
@@ -18,7 +20,7 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
         this.fileInputRef = React.createRef<HTMLInputElement>();
     }
     public render(): JSX.Element {
-        const { handleBlur, handleChange, status, values } = this.props;
+        const { handleBlur, handleChange, setFieldValue, status, values } = this.props;
 
         const requestStatus = getFieldStatus(status, "requeststatus");
         const subjectStatus = getFieldStatus(status, "subject");
@@ -94,75 +96,55 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                 displayName={"Threat Level"}
                 status={threatlevelStatus} >
                 <div className="btn-group" data-toggle="buttons">
-                    <label className={"btn btn-primary" + threatLevelOptionCheckedClasName(
-                        ThreatLevelEnum.Urgent,
-                        values.threatlevel)}>
-                        <input
-                            type="radio"
-                            onChange={handleChange}
-                            name="threatlevel"
-                            id="threatlevel1"
-                            value={ThreatLevelEnum.Urgent}
-                            checked={threatLevelOptionChecked(
-                                ThreatLevelEnum.Urgent,
-                                values.threatlevel)} /> Urgent
-                                </label>
-                    <label className={"btn btn-primary" + threatLevelOptionCheckedClasName(
-                        ThreatLevelEnum.High,
-                        values.threatlevel)}>
-                        <input
-                            type="radio"
-                            onChange={handleChange}
-                            onClick={() => alert("THreat Level High!")}
-                            name="threatlevel"
-                            id="threatlevel2"
-                            value={ThreatLevelEnum.High}
-                            checked={threatLevelOptionChecked(ThreatLevelEnum.High, values.threatlevel)} /> High
-                                </label>
-                    <label className={"btn btn-primary" + threatLevelOptionCheckedClasName(
-                        ThreatLevelEnum.Medium,
-                        values.threatlevel)}>
-                        <input
-                            type="radio"
-                            onChange={handleChange}
-                            name="threatlevel"
-                            id="threatlevel3"
-                            value={ThreatLevelEnum.Medium}
-                            checked={threatLevelOptionChecked(ThreatLevelEnum.Medium, values.threatlevel)} /> Medium
-                                </label>
-                    <label className={"btn btn-primary" + threatLevelOptionCheckedClasName(
-                        ThreatLevelEnum.Low,
-                        values.threatlevel)}>
-                        <input
-                            type="radio"
-                            onChange={handleChange}
-                            name="threatlevel"
-                            id="threatlevel3"
-                            value={ThreatLevelEnum.Low}
-                            checked={threatLevelOptionChecked(ThreatLevelEnum.Low, values.threatlevel)} /> Low
-                                </label>
-                    <label className={"btn btn-primary" + threatLevelOptionCheckedClasName(
-                        ThreatLevelEnum.None,
-                        values.threatlevel)}>
-                        <input
-                            type="radio"
-                            onChange={handleChange}
-                            name="threatlevel"
-                            id="threatlevel3"
-                            value={ThreatLevelEnum.None}
-                            checked={threatLevelOptionChecked(ThreatLevelEnum.None, values.threatlevel)} /> None
-                                </label>
-                    <label className={"btn btn-primary" + threatLevelOptionCheckedClasName(
-                        ThreatLevelEnum.NotApplicable,
-                        values.threatlevel)}>
-                        <input
-                            type="radio"
-                            onChange={handleChange}
-                            name="threatlevel"
-                            value={ThreatLevelEnum.NotApplicable}
-                            id="threatlevel3"
-                            checked={threatLevelOptionChecked(ThreatLevelEnum.NotApplicable, values.threatlevel)} /> Not Applicable
-                                </label>
+                    <RadioButton
+                        checked={threatLevelOptionChecked(ThreatLevelEnum.Urgent, values.threatlevel)}
+                        fieldName={"threatlevel"}
+                        handleChange={handleChange}
+                        label={"Urgent"}
+                        threatLevel={ThreatLevelEnum.Urgent}
+                        setFieldValue={setFieldValue}
+                         />
+                    <RadioButton
+                        checked={threatLevelOptionChecked(ThreatLevelEnum.High, values.threatlevel)}
+                        fieldName={"threatlevel"}
+                        handleChange={handleChange}
+                        label={"High"}
+                        threatLevel={ThreatLevelEnum.High}
+                        setFieldValue={setFieldValue}
+                         />
+                    <RadioButton
+                        checked={threatLevelOptionChecked(ThreatLevelEnum.Medium, values.threatlevel)}
+                        fieldName={"threatlevel"}
+                        handleChange={handleChange}
+                        label={"Medium"}
+                        threatLevel={ThreatLevelEnum.Medium}
+                        setFieldValue={setFieldValue}
+                         />
+                    <RadioButton
+                        checked={threatLevelOptionChecked(ThreatLevelEnum.Low, values.threatlevel)}
+                        fieldName={"threatlevel"}
+                        handleChange={handleChange}
+                        label={"Low"}
+                        threatLevel={ThreatLevelEnum.Low}
+                        setFieldValue={setFieldValue}
+                         />
+                    <RadioButton
+                        isDefaultOption
+                        checked={threatLevelOptionChecked(ThreatLevelEnum.None, values.threatlevel)}
+                        fieldName={"threatlevel"}
+                        handleChange={handleChange}
+                        label={"None"}
+                        threatLevel={ThreatLevelEnum.None}
+                        setFieldValue={setFieldValue}
+                         />
+                    <RadioButton
+                        checked={threatLevelOptionChecked(ThreatLevelEnum.NotApplicable, values.threatlevel)}
+                        fieldName={"threatlevel"}
+                        handleChange={handleChange}
+                        label={"Not Applicable"}
+                        threatLevel={ThreatLevelEnum.NotApplicable}
+                        setFieldValue={setFieldValue}
+                         />
                 </div>
             </FormGroup>
 
