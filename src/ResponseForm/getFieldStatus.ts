@@ -1,5 +1,6 @@
 import { FormWrapperStatusEnum } from '../FormWrapper/FormWrapperStatusEnum';
 import { IFormWrapperFieldStatus } from '../FormWrapper/IFormWrapperFieldStatus';
-export function getFieldStatus(status: IFormWrapperFieldStatus, fieldName: string) {
-    return (status.get(fieldName) || { status: FormWrapperStatusEnum.initial }).status;
+import { IFieldStatus } from '../FormWrapper/IFieldStatus';
+export function getFieldStatus(status: IFormWrapperFieldStatus, fieldName: string): IFieldStatus {
+    return (status.get(fieldName) || { status: FormWrapperStatusEnum.initial });
 }

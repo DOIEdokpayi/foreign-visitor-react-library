@@ -10,17 +10,31 @@ export function ResponseFormValidate(props: IFormValidateProps): IFormWrapperFie
     if (!isInitial(status, "requeststatus")) {
         validateRequestStatus(formValues, values, status);
     }
-    if (!isInitial(status, "subject")) {
-        validateSubject(values, status);
-    }
+    validateRequiredField(status, "subject", values, "Subject is Required!");
+    validateRequiredField(status, "feedback", values, "Feedback is Required!");
+    validateRequiredField(status, "approvalauthoritysignature", values, "Approval Authority Signature is Required!");
+    validateRequiredField(status, "authorityemail", values, "Authority Email is Required!");
+    validateRequiredField(status, "bureau", values, "Bureau is Required!");
+    validateRequiredField(status, "email", values, "Email address is Required!");
+    validateRequiredField(status, "firstname", values, "First name is Required!");
+    validateRequiredField(status, "lastname", values, "Last name is Required!");
+    validateRequiredField(status, "office", values, "Office is Required!");
+    validateRequiredField(status, "responsedate", values, "Response Date is Required!");    
+    validateRequiredField(status, "threatlevel", values, "Threat Level is Required!");
     return status;
 }
 
-function validateSubject(values: IResponseFormValues, status: IFormWrapperFieldStatus) {
+export function validateRequiredField(status: IFormWrapperFieldStatus, fieldName: string, values: IInitialValues, errorMessage: string) {
+    if (!isInitial(status, fieldName)) {
+        validateRequired(values, status, fieldName, errorMessage);
+    }
+}
+
+export function validateRequired(values: IResponseFormValues, status: IFormWrapperFieldStatus, field:string, errorMessage: string) {
     if (
         undefined === values.subject) {
-        status.set("subject", {
-            error: "Subject is Required!",
+        status.set(field, {
+            error: errorMessage,
             status: FormWrapperStatusEnum.error
         });
     }
@@ -35,7 +49,7 @@ export function isInitial(status: IFormWrapperFieldStatus, fieldName: string): b
     return (status.get(fieldName) || { status: FormWrapperStatusEnum.initial }).status === FormWrapperStatusEnum.initial;
 }
 
-function validateRequestStatus(formValues: IResponseFormValues, values: IInitialValues, status: IFormWrapperFieldStatus) {
+export function validateRequestStatus(formValues: IResponseFormValues, values: IInitialValues, status: IFormWrapperFieldStatus) {
     if (
         (undefined === formValues.requeststatus ||
             formValues.requeststatus === -1 ||

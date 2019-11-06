@@ -36,9 +36,9 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
         return <React.Fragment>
             <FormGroup
                 associatedFieldId={"requeststatus"}
-                description={"Status of Foreign Visitor request set by Counter Intelligence"}
+                description={requestStatus.error || "Status of Foreign Visitor request set by Counter Intelligence"}
                 displayName={"Request Status"}
-                status={requestStatus}>
+                status={requestStatus.status}>
                 <select
                     aria-describedby={"requeststatusstatus"}
                     required={true}
@@ -59,9 +59,9 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
             </FormGroup>
             <FormGroup
                 associatedFieldId={"subject"}
-                description={"Subject of email"}
+                description={subjectStatus.error || "Subject of email"}
                 displayName={"Subject"}
-                status={subjectStatus} >
+                status={subjectStatus.status} >
                 <input
                     aria-describedby={"subjectstatus"}
                     className={"form-control"}
@@ -76,9 +76,9 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
             </FormGroup>
             <FormGroup
                 associatedFieldId={"feedback"}
-                description={"Feedback from Counter Intelligence regarding visit"}
+                description={feedbackStatus.error || "Feedback from Counter Intelligence regarding visit"}
                 displayName={"Feedback/Next Steps"}
-                status={feedbackStatus} >
+                status={feedbackStatus.status} >
                 <textarea
                     aria-describedby={"feedbackstatus"}
                     className={"form-control"}
@@ -92,14 +92,14 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
             </FormGroup>
             <FormGroup
                 associatedFieldId={"threatlevel"}
-                description={"Level of threat assigned by Counter Intelligence"}
+                description={threatlevelStatus.error || "Level of threat assigned by Counter Intelligence"}
                 displayName={"Threat Level"}
-                status={threatlevelStatus} >
+                status={threatlevelStatus.status} >
                 <div className="btn-group" data-toggle="buttons">
                     <RadioButton
                         checked={threatLevelOptionChecked(ThreatLevelEnum.Urgent, values.threatlevel)}
                         fieldName={"threatlevel"}
-                        handleChange={handleChange}
+                        id={"threatlevel1"}
                         label={"Urgent"}
                         setFieldValue={setFieldValue}
                         value={ThreatLevelEnum.Urgent}
@@ -108,7 +108,7 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                     <RadioButton
                         checked={threatLevelOptionChecked(ThreatLevelEnum.High, values.threatlevel)}
                         fieldName={"threatlevel"}
-                        handleChange={handleChange}
+                        id={"threatlevel2"}
                         label={"High"}
                         setFieldValue={setFieldValue}
                         value={ThreatLevelEnum.High}
@@ -117,7 +117,7 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                     <RadioButton
                         checked={threatLevelOptionChecked(ThreatLevelEnum.Medium, values.threatlevel)}
                         fieldName={"threatlevel"}
-                        handleChange={handleChange}
+                        id={"threatlevel3"}
                         label={"Medium"}
                         setFieldValue={setFieldValue}
                         value={ThreatLevelEnum.Medium}
@@ -126,8 +126,8 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                     <RadioButton
                         checked={threatLevelOptionChecked(ThreatLevelEnum.Low, values.threatlevel)}
                         fieldName={"threatlevel"}
-                        handleChange={handleChange}
-                        label={"Low"}                        
+                        id={"threatlevel4"}
+                        label={"Low"}
                         setFieldValue={setFieldValue}
                         value={ThreatLevelEnum.Low}
                         valueConverter={threatLevelValueConvert}
@@ -135,7 +135,7 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                     <RadioButton
                         checked={threatLevelOptionChecked(ThreatLevelEnum.None, values.threatlevel)}
                         fieldName={"threatlevel"}
-                        handleChange={handleChange}
+                        id={"threatlevel5"}
                         label={"None"}
                         setFieldValue={setFieldValue}
                         value={ThreatLevelEnum.None}
@@ -144,10 +144,10 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                     <RadioButton
                         checked={threatLevelOptionChecked(ThreatLevelEnum.NotApplicable, values.threatlevel)}
                         fieldName={"threatlevel"}
-                        handleChange={handleChange}
+                        id={"threatlevel6"}
                         label={"Not Applicable"}
                         setFieldValue={setFieldValue}
-                        value={ThreatLevelEnum.NotApplicable}                        
+                        value={ThreatLevelEnum.NotApplicable}
                         valueConverter={threatLevelValueConvert}
                     />
                 </div>
@@ -161,9 +161,9 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                             <div className="col-sm-6">
                                 <FormGroup
                                     associatedFieldId={"firstname"}
-                                    description={"Requestor's first name"}
+                                    description={firstnameStatus.error || "Requestor's first name"}
                                     displayName={"First Name"}
-                                    status={firstnameStatus} >
+                                    status={firstnameStatus.status} >
                                     <input
                                         aria-describedby={"firstnamestatus"}
                                         className={"form-control"}
@@ -180,9 +180,9 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                             <div className="col-sm-6">
                                 <FormGroup
                                     associatedFieldId={"lastname"}
-                                    description={"Requestor's last name"}
+                                    description={lastnameStatus.error || "Requestor's last name"}
                                     displayName={"Last Name"}
-                                    status={lastnameStatus} >
+                                    status={lastnameStatus.status} >
                                     <input
                                         aria-describedby={"lastnamestatus"}
                                         className={"form-control"}
@@ -208,8 +208,8 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                             <div className="col-sm-6">
                                 <FormGroup
                                     associatedFieldId={"bureau"}
-                                    description={"Requestor's Bureau"}
-                                    displayName={"Bureau"} status={bureauStatus} >
+                                    description={bureauStatus.error || "Requestor's Bureau"}
+                                    displayName={"Bureau"} status={bureauStatus.status} >
                                     <input
                                         aria-describedby={"bureaustatus"}
                                         className={"form-control"}
@@ -226,9 +226,9 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                             <div className="col-sm-6">
                                 <FormGroup
                                     associatedFieldId={"office"}
-                                    description={"Requestor's office information"}
+                                    description={officeStatus.error || "Requestor's office information"}
                                     displayName={"Office"}
-                                    status={officeStatus} >
+                                    status={officeStatus.status} >
                                     <input
                                         aria-describedby={"officestatus"}
                                         className={"form-control"}
@@ -248,9 +248,9 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
             </div>
             <FormGroup
                 associatedFieldId={"approvalauthoritysignature"}
-                description={"First name and last name of approving authority"}
+                description={approvalauthoritysignatureStatus.error || "First name and last name of approving authority"}
                 displayName={"Approval Authority Signature"}
-                status={approvalauthoritysignatureStatus} >
+                status={approvalauthoritysignatureStatus.status} >
                 <input
                     aria-describedby={"approvalauthoritysignaturestatus"}
                     className={"form-control"}
@@ -265,9 +265,9 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
             </FormGroup>
             <FormGroup
                 associatedFieldId={"authorityemail"}
-                description={"Authority's email address"}
+                description={authorityemailStatus.error || "Authority's email address"}
                 displayName={"Authority E-mail"}
-                status={authorityemailStatus} >
+                status={authorityemailStatus.status} >
                 <input
                     aria-describedby={"authorityemailstatus"}
                     className={"form-control"}
@@ -282,9 +282,9 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
             </FormGroup>
             <FormGroup
                 associatedFieldId={"responsedate"}
-                description={"Date of response"}
+                description={responsedateStatus.error || "Date of response"}
                 displayName={"Response Date"}
-                status={responsedateStatus} >
+                status={responsedateStatus.status} >
                 <input
                     aria-describedby={"responsedatestatus"}
                     className={"form-control"}

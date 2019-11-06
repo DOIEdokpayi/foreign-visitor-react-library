@@ -24,7 +24,6 @@
   },
   "dependencies": {
     "@storybook/addon-info": "^5.2.5",
-    "@types/sinon": "^7.5.0",
     "awesome-typescript-loader": "^5.2.1",
     "canvas": "^2.6.0",
     "react-date-picker": "^7.8.2",
@@ -47,6 +46,7 @@
     "@types/jest": "^24.0.21",
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.3",
+    "@types/sinon": "^7.5.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.6",
     "babel-runtime": "^6.26.0",

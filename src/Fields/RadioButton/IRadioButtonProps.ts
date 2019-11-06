@@ -1,9 +1,7 @@
 export interface IRadioButtonProps<T> {
     className?: string;
-    checked?: boolean;
-    isDefaultOption?: boolean;
+    checked: boolean;
     fieldName: string;
-    handleChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>;
     id?: string;
     label: string;
     setFieldValue: (field: string, value: T) => void;
