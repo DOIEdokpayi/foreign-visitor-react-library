@@ -133,7 +133,7 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                         valueConverter={threatLevelValueConvert}
                     />
                     <RadioButton
-                        checked={threatLevelOptionChecked(ThreatLevelEnum.None, values.threatlevel) || (undefined === values.threatlevel)}
+                        checked={threatLevelOptionChecked(ThreatLevelEnum.None, values.threatlevel)}
                         fieldName={"threatlevel"}
                         handleChange={handleChange}
                         label={"None"}
