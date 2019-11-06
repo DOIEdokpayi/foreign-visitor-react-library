@@ -32,6 +32,7 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
         const approvalauthoritysignatureStatus = getFieldStatus(status, "approvalauthoritysignature");
         const authorityemailStatus = getFieldStatus(status, "authorityemail");
         const responsedateStatus = getFieldStatus(status, "responsedate");
+        const threatLevelValueConvert = (value: ThreatLevelEnum) => ThreatLevelEnum[value].toString();
         return <React.Fragment>
             <FormGroup
                 associatedFieldId={"requeststatus"}
@@ -100,48 +101,54 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                         fieldName={"threatlevel"}
                         handleChange={handleChange}
                         label={"Urgent"}
-                        threatLevel={ThreatLevelEnum.Urgent}
                         setFieldValue={setFieldValue}
+                        value={ThreatLevelEnum.Urgent}
+                        valueConverter={threatLevelValueConvert}
                     />
                     <RadioButton
                         checked={threatLevelOptionChecked(ThreatLevelEnum.High, values.threatlevel)}
                         fieldName={"threatlevel"}
                         handleChange={handleChange}
                         label={"High"}
-                        threatLevel={ThreatLevelEnum.High}
                         setFieldValue={setFieldValue}
+                        value={ThreatLevelEnum.High}
+                        valueConverter={threatLevelValueConvert}
                     />
                     <RadioButton
                         checked={threatLevelOptionChecked(ThreatLevelEnum.Medium, values.threatlevel)}
                         fieldName={"threatlevel"}
                         handleChange={handleChange}
                         label={"Medium"}
-                        threatLevel={ThreatLevelEnum.Medium}
                         setFieldValue={setFieldValue}
+                        value={ThreatLevelEnum.Medium}
+                        valueConverter={threatLevelValueConvert}
                     />
                     <RadioButton
                         checked={threatLevelOptionChecked(ThreatLevelEnum.Low, values.threatlevel)}
                         fieldName={"threatlevel"}
                         handleChange={handleChange}
-                        label={"Low"}
-                        threatLevel={ThreatLevelEnum.Low}
+                        label={"Low"}                        
                         setFieldValue={setFieldValue}
+                        value={ThreatLevelEnum.Low}
+                        valueConverter={threatLevelValueConvert}
                     />
                     <RadioButton
                         checked={threatLevelOptionChecked(ThreatLevelEnum.None, values.threatlevel) || (undefined === values.threatlevel)}
                         fieldName={"threatlevel"}
-                        handleChange={handleChange} 
+                        handleChange={handleChange}
                         label={"None"}
-                        threatLevel={ThreatLevelEnum.None}
                         setFieldValue={setFieldValue}
+                        value={ThreatLevelEnum.None}
+                        valueConverter={threatLevelValueConvert}
                     />
                     <RadioButton
                         checked={threatLevelOptionChecked(ThreatLevelEnum.NotApplicable, values.threatlevel)}
                         fieldName={"threatlevel"}
                         handleChange={handleChange}
                         label={"Not Applicable"}
-                        threatLevel={ThreatLevelEnum.NotApplicable}
                         setFieldValue={setFieldValue}
+                        value={ThreatLevelEnum.NotApplicable}                        
+                        valueConverter={threatLevelValueConvert}
                     />
                 </div>
             </FormGroup>
