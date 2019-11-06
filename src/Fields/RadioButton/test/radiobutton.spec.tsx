@@ -7,6 +7,45 @@ function handleChange(event:React.ChangeEvent<HTMLInputElement | HTMLTextAreaEle
     console.log("checked :" + (event.target as HTMLInputElement).checked)
 }
 
+test('Radio Button renders', () => {
+    const _setfieldVal= (f:string,v:string)=>{ 
+        console.log("field :"+f);
+        console.log("value: " + v);
+    }
+    const radioButton =   shallow(    <RadioButton 
+                                        checked
+                                        fieldName="test"
+                                        handleChange={handleChange}
+                                        label="test"
+                                        setFieldValue={_setfieldVal}
+                                        value="test"
+                                        valueConverter={(value:string)=>value} />);
+    
+    
+    expect(radioButton).not.toBeNull();
+    expect(radioButton.length>0).toBe(true);
+});
+
+
+test('Radio Button renders input of type radio', () => {
+    const _setfieldVal= (f:string,v:string)=>{ 
+        console.log("field :"+f);
+        console.log("value: " + v);
+    }
+    const radioButton =   shallow(    <RadioButton 
+                                        checked
+                                        fieldName="test"
+                                        handleChange={handleChange}
+                                        label="test"
+                                        setFieldValue={_setfieldVal}
+                                        value="test"
+                                        valueConverter={(value:string)=>value} />);
+
+    // Interaction demo
+    const inputElement = radioButton.find("input[type='radio']");
+    expect(inputElement).not.toBeNull();
+    expect(inputElement.length>0).toBe(true);
+});
 test('Radio Button checks radio button', () => {
     const _setfieldVal= (f:string,v:string)=>{ 
         console.log("field :"+f);
@@ -22,7 +61,7 @@ test('Radio Button checks radio button', () => {
                                         valueConverter={(value:string)=>value} />);
 
     // Interaction demo
-    const inputElement = radioButton.find('input');
-    expect(inputElement.getElement().props().toHaveProperty("checked", true));
-
+    const inputElement = radioButton.find('input[checked]');
+    expect(inputElement).not.toBeNull();
+    expect(inputElement.length>0).toBe(true);
 });
