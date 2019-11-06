@@ -41,7 +41,6 @@ test('Radio Button renders input of type radio', () => {
                                         value="test"
                                         valueConverter={(value:string)=>value} />);
 
-    // Interaction demo
     const inputElement = radioButton.find("input[type='radio']");
     expect(inputElement).not.toBeNull();
     expect(inputElement.length>0).toBe(true);
@@ -59,8 +58,7 @@ test('Radio Button checks radio button', () => {
                                         setFieldValue={_setfieldVal}
                                         value="test"
                                         valueConverter={(value:string)=>value} />);
-
-    // Interaction demo
+                                        
     const inputElement = radioButton.find('input[checked]');
     expect(inputElement).not.toBeNull();
     expect(inputElement.length>0).toBe(true);
