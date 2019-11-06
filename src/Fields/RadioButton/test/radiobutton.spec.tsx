@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import { RadioButton } from '../Fields/RadioButton';
+import { RadioButton } from '..';
 
 function handleChange(event:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>):void{
     console.log("value :" +event.target.value);
