@@ -1,6 +1,4 @@
-import { ThreatLevelEnum } from "../../types";
-
-export interface IRadioButtonProps {
+export interface IRadioButtonProps<T> {
     className?: string;
     checked?: boolean;
     isDefaultOption?: boolean;
@@ -8,6 +6,7 @@ export interface IRadioButtonProps {
     handleChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>;
     id?: string;
     label: string;
-    threatLevel: ThreatLevelEnum;
-    setFieldValue: (field: string, value: any, shouldValidate?: boolean | undefined) => void;
+    setFieldValue: (field: string, value: T) => void;
+    value: T;
+    valueConverter: (value: T) => string | number;
 }

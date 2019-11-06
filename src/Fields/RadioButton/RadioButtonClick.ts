@@ -1,5 +1,3 @@
-import { ThreatLevelEnum } from "../../types";
-
-export function radioButtonClick(value: ThreatLevelEnum, fieldName: string, setFieldValue: (field: string, value: any, shouldValidate?: boolean) => void): void {
-    setFieldValue(fieldName, value, true);
+export function radioButtonClick<T>(value: T, fieldName: string, setFieldValue: (field: string, value: T) => void): void {
+    setFieldValue(fieldName, value);
 }
