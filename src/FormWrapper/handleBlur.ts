@@ -1,5 +1,6 @@
 import { IFieldStatus } from "./IFieldStatus";
-import { FormWrapperStatusEnum } from "./FormWrapperStatusEnum";
+import { FormWrapperStatusEnum } from "../types";
+
 
 export function handleBlur(event: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>, setStatus: (fieldName: string, status: IFieldStatus) => void, fieldStatus?: IFieldStatus, ): void {
     const fieldName = event.target.name;

@@ -1,4 +1,4 @@
-import { FormWrapperStatusEnum } from "./FormWrapperStatusEnum";
+import { FormWrapperStatusEnum } from "../types";
 
 export interface IFieldStatus{
     error?: string;

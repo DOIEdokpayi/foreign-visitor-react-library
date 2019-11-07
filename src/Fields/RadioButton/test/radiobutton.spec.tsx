@@ -1,10 +1,9 @@
-import * as React from 'react';
 import { mount, shallow } from 'enzyme';
-import { RadioButton } from '..';
-import { FormGroup } from '../../FormGroup';
-import { FormWrapperStatusEnum } from '../../../FormWrapper/FormWrapperStatusEnum';
-import { ThreatLevelEnum } from '../../../types';
+import * as React from 'react';
 import * as sinon from 'sinon';
+import { RadioButton } from '..';
+import { FormWrapperStatusEnum, ThreatLevelEnum } from '../../../types';
+import { FormGroup } from '../../FormGroup';
 
 test('Radio Button renders', () => {
     const _setfieldVal = (f: string, v: string) => {

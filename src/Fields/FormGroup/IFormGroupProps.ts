@@ -1,4 +1,4 @@
-import { FormWrapperStatusEnum } from "../../FormWrapper/FormWrapperStatusEnum";
+import { FormWrapperStatusEnum } from "../../types";
 
 export interface IFormGroupProps {
     associatedFieldId: string;

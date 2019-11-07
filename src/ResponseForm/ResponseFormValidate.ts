@@ -1,7 +1,6 @@
-import { FormWrapperStatusEnum } from "../FormWrapper/FormWrapperStatusEnum";
 import { IFormValidateProps } from "../FormWrapper/IFormValidateProps";
 import { IFormWrapperFieldStatus } from "../FormWrapper/IFormWrapperFieldStatus";
-import { IInitialValues } from "../types";
+import { FormWrapperStatusEnum, IInitialValues } from "../types";
 import { IResponseFormValues } from "./IResponseFormValues";
 
 export function ResponseFormValidate(props: IFormValidateProps): IFormWrapperFieldStatus {

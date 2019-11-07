@@ -1,15 +1,15 @@
 import * as React from 'react';
-import { FormWrapperStatusEnum } from './FormWrapperStatusEnum';
+import { FormWrapperStatusEnum } from '../types';
 import { handleBlur } from './handleBlur';
 import { handleChange } from './handleChange';
 import { IFieldStatus } from './IFieldStatus';
+import { IFormValidateProps } from './IFormValidateProps';
 import { IFormWrapperContext } from './IFormWrapperContext';
+import { IFormWrapperFieldStatus } from './IFormWrapperFieldStatus';
 import { IFormWrapperProps } from './IFormWrapperProps';
 import { IFormWrapperState } from './IFormWrapperState';
 import { newFormWrapperFieldStatus } from './newFormWrapperFieldStatus';
 import { parseJSONValues } from './parseJSONValues';
-import { IFormValidateProps } from './IFormValidateProps';
-import { IFormWrapperFieldStatus } from './IFormWrapperFieldStatus';
 const emptyStatus = new Map<string, IFieldStatus>();
 export class FormWrapper extends React.Component<IFormWrapperProps, IFormWrapperState>{
     private setFieldValueFunc: (field: string, value: any, shouldValidate?: boolean) => void;

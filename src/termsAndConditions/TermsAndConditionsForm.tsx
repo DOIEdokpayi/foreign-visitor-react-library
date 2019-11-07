@@ -1,12 +1,11 @@
 import * as React from 'react';
-import { ITermsAndConditionsFormProps } from './ITermsAndConditionsFormProps';
 import { CheckBoxField } from '../Fields/Checkbox';
-import { ITermsAndConditionsFormValues } from '../types';
 import { FormWrapper } from '../FormWrapper';
-import { IFormWrapperContext } from '../FormWrapper/IFormWrapperContext';
-import { FormWrapperStatusEnum } from '../FormWrapper/FormWrapperStatusEnum';
-import { ConvertFieldValue } from './ConvertFieldValue';
 import { IFormValidateProps } from '../FormWrapper/IFormValidateProps';
+import { IFormWrapperContext } from '../FormWrapper/IFormWrapperContext';
+import { FormWrapperStatusEnum, ITermsAndConditionsFormValues } from '../types';
+import { ConvertFieldValue } from './ConvertFieldValue';
+import { ITermsAndConditionsFormProps } from './ITermsAndConditionsFormProps';
 
 
 

@@ -1,6 +1,7 @@
-import { FormWrapperStatusEnum } from "../FormWrapper/FormWrapperStatusEnum";
-
-export interface IContact {
+export interface ISPListId{
+  Id: number;
+}
+export interface IContact extends ISPListId {
   FirstName: string;
   LastName: string;
   EMail: string;
@@ -16,7 +17,7 @@ export interface IInitialValues {
   [key: string]: any;
 }
 
-export interface ISponsor {
+export interface ISponsor  extends ISPListId{
   Name: string;
   Telephone: string;
   Email: string
@@ -26,7 +27,7 @@ export interface ISponsorFunc {
   (sponsor: ISponsor): void
 }
 
-export interface IVisit {
+export interface IVisit  extends ISPListId{
   ArrivalDate: Date;
   DepartureDate: Date;
   DownloadLink: string;
@@ -36,7 +37,7 @@ export interface IVisitFunc {
   (visit: IVisit): void
 }
 
-export interface IVisitor {
+export interface IVisitor  extends ISPListId{
   FirstName: string;
   LastName: string;
   PlaceOfBirth: string;
@@ -45,7 +46,7 @@ export interface IVisitorFunc {
   (visitor: IVisitor): void
 }
 
-export interface ILocation {
+export interface ILocation  extends ISPListId{
   Facility: string;
   StreetAddress: string;
   City: string;
@@ -68,7 +69,12 @@ export enum ThreatLevelEnum {
   Urgent, High, Medium, Low, None, NotApplicable
 
 }
-
+export enum FormWrapperStatusEnum{
+  initial, // after reset or empty form
+  dirty, // field has changed
+  error, // field has error
+  validated // field has been validated
+}
 export interface IBaseFieldProps {
   className?: string;
   description?: string;

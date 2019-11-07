@@ -1,4 +1,4 @@
-import { FormWrapperStatusEnum } from "../../FormWrapper/FormWrapperStatusEnum";
+import { FormWrapperStatusEnum } from "../../types";
 
 export function formGroupClassName(status?: FormWrapperStatusEnum): string {
     status = status || FormWrapperStatusEnum.initial;

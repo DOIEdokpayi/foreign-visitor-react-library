@@ -1,8 +1,8 @@
 import * as React from "react";
 import { ICheckBoxFieldProps } from "./ICheckBoxFieldProps";
 import { getBootstrapErrorClassName } from "../GetBootstrapErrorClassName";
-import { FormWrapperStatusEnum } from "../../FormWrapper/FormWrapperStatusEnum";
 import { DescriptionSpan } from "../FormField/descriptionSpan";
+import { FormWrapperStatusEnum } from "../../types";
 
 export function CheckBoxField(props:ICheckBoxFieldProps): JSX.Element{
         const className = getBootstrapErrorClassName(props.status || FormWrapperStatusEnum.initial);

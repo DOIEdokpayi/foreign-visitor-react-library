@@ -4,16 +4,15 @@
 
 import * as React from 'react';
 import { FormGroup } from '../../Fields/FormGroup';
-import { RequestStatusEnum, ThreatLevelEnum } from '../..';
-import { FormWrapperStatusEnum } from '../../FormWrapper/FormWrapperStatusEnum';
+import { RadioButton } from '../../Fields/RadioButton';
+import { FormWrapperStatusEnum, RequestStatusEnum, ThreatLevelEnum } from '../../types';
+import { dateValue } from '../dateValue';
 import { getFieldStatus } from '../getFieldStatus';
 import { threatLevelOptionChecked } from '../threatLevelOptionChecked';
-import { dateValue } from '../dateValue';
-import { IResponseFormFieldsProps } from './IResponseFormFieldsProps';
-import { RadioButton } from '../../Fields/RadioButton';
 import { ccHandler } from './ccHandler';
 import { ccRemoveHandler } from './ccRemoveHandler';
 import { ccUpdateHandler } from './ccUpdateHandler';
+import { IResponseFormFieldsProps } from './IResponseFormFieldsProps';
 
 export default class ResponseFormFields extends React.Component<IResponseFormFieldsProps>{
     private fileInputRef: React.RefObject<HTMLInputElement>;

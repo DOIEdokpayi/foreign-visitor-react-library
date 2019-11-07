@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { IFeedbackProps } from "./IFeedbackProps";
-import { FormWrapperStatusEnum } from '../../FormWrapper/FormWrapperStatusEnum';
+import { FormWrapperStatusEnum } from '../../types';
 
 export function Feedback(props: IFeedbackProps): JSX.Element {
   const { feedbackId,

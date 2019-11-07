@@ -1,4 +1,5 @@
-import { FormWrapperStatusEnum } from "../FormWrapper/FormWrapperStatusEnum";
+import { FormWrapperStatusEnum } from "../types";
+
 
 export function getBootstrapErrorClassName(status: FormWrapperStatusEnum): string{
     let className = "";
