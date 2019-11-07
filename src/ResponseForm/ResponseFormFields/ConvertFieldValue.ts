@@ -1,12 +1,12 @@
 import { RequestStatusEnum, ThreatLevelEnum } from "../../types";
 
-export function ConvertFieldValue(key: string, value: any): boolean {
+export function ConvertFieldValue(key: string, value: any): any {
     const stringConverter = (value: string) => value;
     const converter = {
         "approvalauthoritysignature": stringConverter,
         "authorityemail": stringConverter,
         "bureau": stringConverter,
-        "cc": (value: string[]) => JSON.stringify(value),
+        "cc": (value: string[]) => value,
         "email": stringConverter,
         "firstname": stringConverter,
         "feedback": stringConverter,

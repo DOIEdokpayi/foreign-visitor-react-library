@@ -11,6 +11,8 @@ import { threatLevelOptionChecked } from '../threatLevelOptionChecked';
 import { dateValue } from '../dateValue';
 import { IResponseFormFieldsProps } from './IResponseFormFieldsProps';
 import { RadioButton } from '../../Fields/RadioButton';
+import { ccHandler } from './ccHandler';
+import { ccRemoveHandler } from './ccRemoveHandler';
 
 export default class ResponseFormFields extends React.Component<IResponseFormFieldsProps>{
     private fileInputRef: React.RefObject<HTMLInputElement>;
@@ -32,6 +34,8 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
         const approvalauthoritysignatureStatus = getFieldStatus(status, "approvalauthoritysignature");
         const authorityemailStatus = getFieldStatus(status, "authorityemail");
         const responsedateStatus = getFieldStatus(status, "responsedate");
+        const emailStatus = getFieldStatus(status, "email");
+        const ccStatus = getFieldStatus(status, "cc");
         const threatLevelValueConvert = (value: ThreatLevelEnum) => ThreatLevelEnum[value].toString();
         return <React.Fragment>
             <FormGroup
@@ -246,6 +250,76 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                     </div>
                 </div>
             </div>
+            <FormGroup
+                associatedFieldId={"email"}
+                description={emailStatus.error || "Requestor Email address"}
+                displayName="Email Address"
+                status={emailStatus.status}>
+                <input
+                    aria-describedby={"emailstatus"}
+                    className={"form-control"}
+                    id={"email"}
+                    name={"email"}
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    type="text"
+                    required={true}
+                    value={values.email || ""}
+                />
+            </FormGroup>
+            {
+                values.cc ? values.cc.map((emailAddress: string, index: number) =>
+                    <div className="container-fluid">
+                        <div className="row">
+                            <div className="col-sm-10">
+                                <FormGroup
+                                    associatedFieldId={"cc" + index.toString()}
+                                    description={ccStatus.error || "Carbon Copy Email Address"}
+                                    displayName={"CC"}
+                                    key={"ccformgroup" + index.toString()}
+                                    status={ccStatus.status} >
+                                    <input
+                                        aria-describedby={"cc" + index.toString() + "status"}
+                                        className={"form-control"}
+                                        id={"cc" + index.toString()}
+                                        name={"cc" + index.toString()}
+                                        onBlur={handleBlur}
+                                        onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                                            console.log(event)
+                                        }
+                                        type="email"
+                                        required={true}
+                                        value={emailAddress}
+                                    />
+                                </FormGroup>
+                            </div>
+                            <div className="col-sm-2">
+                                <a
+                                    className={"btn btn-primary"}
+                                    href="#"
+                                    onClick={() => ccRemoveHandler({
+                                        index: index,
+                                        setFieldValue: setFieldValue,
+                                        values: values
+                                    })}><i className="fa fa-trash" aria-hidden="true"></i> Remove CC </a>
+                            </div>
+                        </div>
+                    </div>
+                ) : undefined
+            }
+            <FormGroup
+                associatedFieldId="ccaddbtn"
+                description="Add an email address who will be Carbon Copied"
+                displayName="New Carbon Copy"
+                status={ccStatus.status}>
+                <a
+                    className={"btn btn-primary"}
+                    href="#"
+                    id={"ccadbtn"}
+                    onClick={() => ccHandler({ setFieldValue: setFieldValue, values: values })}>
+                    <i className="fa fa-plus-circle" aria-hidden="true"></i> New CC
+                </a>
+            </FormGroup>
             <FormGroup
                 associatedFieldId={"approvalauthoritysignature"}
                 description={approvalauthoritysignatureStatus.error || "First name and last name of approving authority"}
