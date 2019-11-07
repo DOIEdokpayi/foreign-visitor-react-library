@@ -27,14 +27,20 @@ export class AdminPageImpl extends React.Component<IAdminPageImplProps, IAdminPa
     public render(): React.ReactElement<IAdminPageImplProps> {
         const { handleError } = this.props;
         return this.state.sponsors ?
-            <Sponsors
-                Sponsors={this.state.sponsors}
-                ClickHandler={(sponsor: ISponsor) => {
-                    const { visitsService } = this.props;
-                    visitsService(sponsor.Id)
-                        .then((visits: IVisit[]) => this.setState({ visits: visits }))
-                        .catch(handleError);
-                }} /> :
+            <div className="container-fluid">
+                <div className="row">
+                    <div className="col-md-4 colxs-12">
+                        <Sponsors
+                            Sponsors={this.state.sponsors}
+                            ClickHandler={(sponsor: ISponsor) => {
+                                const { visitsService } = this.props;
+                                visitsService(sponsor.Id)
+                                    .then((visits: IVisit[]) => this.setState({ visits: visits }))
+                                    .catch(handleError);
+                            }} />
+                    </div>
+                </div>
+            </div> :
             <Loading />
     }
 }
