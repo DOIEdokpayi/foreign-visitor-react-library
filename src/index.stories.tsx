@@ -1,6 +1,8 @@
 import * as React from 'react';
-import { TelephoneNumbers, EmailAddresses, Sponsors, Visits, Loading, Visitors, IVisitor, Contacts, IContact, ILocation, Locations, TermsAndConditions, ITermsAndConditionsFormValues, IResponseFormValues } from '.';
+import { TelephoneNumbers, EmailAddresses, Sponsors, Visits, Loading, Visitors, IVisitor, Contacts, IContact, ILocation, Locations, TermsAndConditions, ITermsAndConditionsFormValues, IResponseFormValues, ISponsor } from '.';
 import ResponseForm from './ResponseForm';
+import { AdminPage } from './AdminPage';
+import { IVisit } from './types';
 
 
 export default { title: 'Foreign Visitor React Components' };
@@ -21,25 +23,27 @@ export const EmailAddressComponent = () => (
     ]} />
 );
 
+const mockSponsors = [
+    { Id: 1, Name: "John Doe", Telephone: "(703) 987-1234", Email: "john_doe@ios.doi.com" },
+    { Id: 2, Name: "Jane Doe", Telephone: "(703) 987-0234", Email: "jane_doe@ios.doi.com" },
+    { Id: 3, Name: "John Q Public", Telephone: "(703) 987-0934", Email: "john_public@ios.doi.com" }
+];
 export const SponsorsComponent = () => (
     <Sponsors
-        Sponsors={[
-            { Id: 1, Name: "John Doe", Telephone: "(703) 987-1234", Email: "john_doe@ios.doi.com" },
-            { Id: 2, Name: "Jane Doe", Telephone: "(703) 987-0234", Email: "jane_doe@ios.doi.com" },
-            { Id: 3, Name: "John Q Public", Telephone: "(703) 987-0934", Email: "john_public@ios.doi.com" }
-        ]}
+        Sponsors={mockSponsors}
         ClickHandler={(sponsor) => alert("You clicked: " + sponsor.Name)}
     />);
 
+const mockVisits = [
+    { Id: 1, ArrivalDate: new Date(2019, 11, 1), DepartureDate: new Date(2019, 11, 2), DownloadLink: "https://www.nps.gov/nationalmallplan/Maps/NMMParks_map.pdf" },
+    { Id: 2, ArrivalDate: new Date(2019, 12, 1), DepartureDate: new Date(2019, 12, 2), DownloadLink: "https://www.nps.gov/nationalmallplan/Maps/NMMParks_map.pdf" },
+    { Id: 3, ArrivalDate: new Date(2020, 1, 10), DepartureDate: new Date(2020, 1, 11), DownloadLink: "https://www.nps.gov/nationalmallplan/Maps/NMMParks_map.pdf" },
+];
 export const VisitsAdminView = () => (<Visits
     ClickHandler={(visit) => alert("You clicked a visit starting on:  " + visit.ArrivalDate.toString())}
     IsAdmin={true}
     SelectHandler={(visit) => alert("You selected a visit starting on:  " + visit.ArrivalDate.toString())}
-    Visits={[
-        { Id: 1, ArrivalDate: new Date(2019, 11, 1), DepartureDate: new Date(2019, 11, 2), DownloadLink: "https://www.nps.gov/nationalmallplan/Maps/NMMParks_map.pdf" },
-        { Id: 2, ArrivalDate: new Date(2019, 12, 1), DepartureDate: new Date(2019, 12, 2), DownloadLink: "https://www.nps.gov/nationalmallplan/Maps/NMMParks_map.pdf" },
-        { Id: 3, ArrivalDate: new Date(2020, 1, 10), DepartureDate: new Date(2020, 1, 11), DownloadLink: "https://www.nps.gov/nationalmallplan/Maps/NMMParks_map.pdf" },
-    ]} />);
+    Visits={mockVisits} />);
 
 export const VisitsUserView = () => (<Visits
     ClickHandler={(visit) => alert("You clicked a visit starting on:  " + visit.ArrivalDate.toString())}
@@ -101,4 +105,18 @@ export const ResponseFormComponent = () => (
     <ResponseForm SubmitPageFunc={(values: IResponseFormValues) => {
         alert("data submitted is " + JSON.stringify(values))
     }} />
-)
+);
+
+export const AdminPageComponent =()=>(
+    <AdminPage
+        sponsorsService={()=>new Promise<ISponsor[]>(
+            (resolve:(sponsors:ISponsor[])=>void)=>{
+            setTimeout(()=>
+                resolve(mockSponsors), 300)
+        })}
+        visitsService={()=>new Promise<IVisit[]>(
+            (resolve:(sponsors:IVisit[])=>void)=>{
+            setTimeout(()=>
+                resolve(mockVisits), 300)
+        })} />
+);
