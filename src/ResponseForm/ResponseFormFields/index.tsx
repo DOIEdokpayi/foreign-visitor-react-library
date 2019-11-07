@@ -13,6 +13,7 @@ import { IResponseFormFieldsProps } from './IResponseFormFieldsProps';
 import { RadioButton } from '../../Fields/RadioButton';
 import { ccHandler } from './ccHandler';
 import { ccRemoveHandler } from './ccRemoveHandler';
+import { ccUpdateHandler } from './ccUpdateHandler';
 
 export default class ResponseFormFields extends React.Component<IResponseFormFieldsProps>{
     private fileInputRef: React.RefObject<HTMLInputElement>;
@@ -269,14 +270,15 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
             </FormGroup>
             {
                 values.cc ? values.cc.map((emailAddress: string, index: number) =>
-                    <div className="container-fluid">
+                    <div
+                        className="container-fluid"
+                        key={"ccformgroup" + index.toString()}>
                         <div className="row">
                             <div className="col-sm-10">
                                 <FormGroup
                                     associatedFieldId={"cc" + index.toString()}
                                     description={ccStatus.error || "Carbon Copy Email Address"}
                                     displayName={"CC"}
-                                    key={"ccformgroup" + index.toString()}
                                     status={ccStatus.status} >
                                     <input
                                         aria-describedby={"cc" + index.toString() + "status"}
@@ -285,7 +287,12 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                                         name={"cc" + index.toString()}
                                         onBlur={handleBlur}
                                         onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-                                            console.log(event)
+                                            ccUpdateHandler({
+                                                emailAddress: event.target.value,
+                                                index: index,
+                                                setFieldValue: setFieldValue,
+                                                values: values
+                                            })
                                         }
                                         type="email"
                                         required={true}
