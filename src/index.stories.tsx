@@ -4,7 +4,6 @@ import ResponseForm from './ResponseForm';
 import { AdminPage } from './AdminPage';
 import { IVisit } from './types';
 
-
 export default { title: 'Foreign Visitor React Components' };
 
 export const TelephoneNumberComponent = () => (<TelephoneNumbers TelephoneNumbers={[
@@ -59,13 +58,13 @@ export const VisitsUserView = () => (<Visits
 
 export const LoadingComponent = () => (<Loading />);
 
+const mockVisitors = [
+    { Id: 1, FirstName: "Mohammed", LastName: "Saleh", PlaceOfBirth: "Riyadh, Saudi Arabia" },
+    { Id: 2, FirstName: "Xi", LastName: "Ping", PlaceOfBirth: "Beijing, China" },
+    { Id: 3, FirstName: "Malcom", LastName: "O'Donnell", PlaceOfBirth: "Ireland" }
+];
 export const VisitorsComponent = () => (<Visitors
-    Visitors={[
-        { Id: 1, FirstName: "Mohammed", LastName: "Saleh", PlaceOfBirth: "Riyadh, Saudi Arabia" },
-        { Id: 2, FirstName: "Xi", LastName: "Ping", PlaceOfBirth: "Beijing, China" },
-        { Id: 3, FirstName: "Malcom", LastName: "O'Donnell", PlaceOfBirth: "Ireland" }
-
-    ]}
+    Visitors={mockVisitors}
     ClickHandler={(visitor: IVisitor) => alert("You clicked a visitor named:  " + visitor.FirstName + " " + visitor.LastName)}
 />);
 
@@ -107,16 +106,37 @@ export const ResponseFormComponent = () => (
     }} />
 );
 
-export const AdminPageComponent =()=>(
+export const AdminPageComponent = () => (
     <AdminPage
-        sponsorsService={()=>new Promise<ISponsor[]>(
-            (resolve:(sponsors:ISponsor[])=>void)=>{
-            setTimeout(()=>
-                resolve(mockSponsors), 300)
-        })}
-        visitsService={()=>new Promise<IVisit[]>(
-            (resolve:(sponsors:IVisit[])=>void)=>{
-            setTimeout(()=>
-                resolve(mockVisits), 300)
-        })} />
+        IsAdmin={true}
+        getResponseFormValuesService={(sponsor: ISponsor, visit: IVisit) => new Promise<IResponseFormValues>(
+            (resolve: (responseForm: IResponseFormValues) => void) => {
+                setTimeout(() => resolve({
+                    approvalauthoritysignature: "Idaho Edokpayi",
+                    authorityemail: "idaho_edokayi@ios.doi.gov",
+                    email: sponsor.Email,
+                    subject: "Visit starting on " + visit.ArrivalDate.toDateString()
+                }), 300)
+            })}
+        saveResponseFormValuesService={() => new Promise<void>(
+            (resolve: () => void) => {
+                setTimeout(resolve, 300);
+            }
+        )}
+        sponsorsService={() => new Promise<ISponsor[]>(
+            (resolve: (sponsors: ISponsor[]) => void) => {
+                setTimeout(() =>
+                    resolve(mockSponsors), 300)
+            })}
+        visitorsService={() => new Promise<IVisitor[]>(
+            (resolve: (visitors: IVisitor[]) => void) => {
+                setTimeout(() =>
+                    resolve(mockVisitors), 300)
+            }
+        )}
+        visitsService={() => new Promise<IVisit[]>(
+            (resolve: (visits: IVisit[]) => void) => {
+                setTimeout(() =>
+                    resolve(mockVisits), 300)
+            })} />
 );
