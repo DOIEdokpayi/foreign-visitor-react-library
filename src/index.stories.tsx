@@ -6,20 +6,23 @@ import { IVisit } from './types';
 
 export default { title: 'Foreign Visitor React Components' };
 
-export const TelephoneNumberComponent = () => (<TelephoneNumbers TelephoneNumbers={[
-    "+966 011123 4567"
-    , "+966 011123 1567"
-    , "+966 011123 2567"
-    , "+966 011123 3567"
-    , "+966 011123 4567"
-    , "+966 011123 5567"]} />);
+const mockTelephoneNumbers = [
+    "+966 011123 4567",
+    "+966 011123 1567",
+    "+966 011123 2567",
+    "+966 011123 3567",
+    "+966 011123 4567",
+    "+966 011123 5567"
+];
+export const TelephoneNumberComponent = () => (<TelephoneNumbers TelephoneNumbers={mockTelephoneNumbers} />);
 
+const mockEmailAddresses = [
+    "mo.saleh@gmail.com",
+    "msaleh@outlook.com",
+    "mohammedsaleh@yahoo.com"
+];
 export const EmailAddressComponent = () => (
-    <EmailAddresses EmailAddresses={[
-        "mo.saleh@gmail.com"
-        , "msaleh@outlook.com"
-        , "mohammedsaleh@yahoo.com"
-    ]} />
+    <EmailAddresses EmailAddresses={mockEmailAddresses} />
 );
 
 const mockSponsors = [
@@ -108,6 +111,11 @@ export const ResponseFormComponent = () => (
 
 export const AdminPageComponent = () => (
     <AdminPage
+        emailAddressesService={()=> new Promise<string[]>(
+            (resolve:(emailAddresses:string[])=>void)=>{
+                setTimeout(()=>resolve(mockEmailAddresses), 300)
+            }
+        )}
         IsAdmin={true}
         getResponseFormValuesService={(sponsor: ISponsor, visit: IVisit) => new Promise<IResponseFormValues>(
             (resolve: (responseForm: IResponseFormValues) => void) => {
@@ -128,6 +136,11 @@ export const AdminPageComponent = () => (
                 setTimeout(() =>
                     resolve(mockSponsors), 300)
             })}
+        telephonesService={()=> new Promise<string[]>(
+                (resolve:(telephoneNumbers:string[])=>void)=>{
+                    setTimeout(()=>resolve(mockTelephoneNumbers), 300)
+                }
+            )}
         visitorsService={() => new Promise<IVisitor[]>(
             (resolve: (visitors: IVisitor[]) => void) => {
                 setTimeout(() =>
