@@ -15,10 +15,12 @@ import { ccUpdateHandler } from './ccUpdateHandler';
 import { IResponseFormFieldsProps } from './IResponseFormFieldsProps';
 
 export default class ResponseFormFields extends React.Component<IResponseFormFieldsProps>{
+    private lastCCInputRef: React.RefObject<HTMLInputElement>;
     private fileInputRef: React.RefObject<HTMLInputElement>;
     constructor(props: IResponseFormFieldsProps) {
         super(props);
         this.fileInputRef = React.createRef<HTMLInputElement>();
+        this.lastCCInputRef = React.createRef<HTMLInputElement>();
     }
     public render(): JSX.Element {
         const { handleBlur, handleChange, setFieldValue, status, values } = this.props;
@@ -281,7 +283,7 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                                     status={ccStatus.status} >
                                     <input
                                         aria-describedby={"cc" + index.toString() + "status"}
-                                        autoFocus={index === (values.cc || []).length - 1}
+                                        ref={index === (values.cc || []).length - 1 ? this.lastCCInputRef : undefined}
                                         className={"form-control"}
                                         id={"cc" + index.toString()}
                                         name={"cc" + index.toString()}
@@ -402,5 +404,9 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
             </div>
         </React.Fragment>;
     }
-
+    public componentDidMount(): void {
+        if (this.props.values.cc && this.props.values.cc.length > 0 && this.lastCCInputRef.current) {
+            this.lastCCInputRef.current.focus();
+        }
+    }
 }
