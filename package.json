@@ -29,6 +29,7 @@
     "react-date-picker": "^7.8.2",
     "react-datetime-picker": "^2.7.1",
     "react-docgen-typescript-loader": "^3.3.0",
+    "react-responsive-modal": "^4.0.1",
     "typescript": "^3.6.4",
     "webpack": "^4.41.2"
   },

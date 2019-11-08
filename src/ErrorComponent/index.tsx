@@ -1,0 +1,43 @@
+/**
+ * @function ErrorComponent
+ */
+
+import * as React from 'react';
+export interface IErrorComponentProps {
+    errorMessage: string;
+    error?: Error;
+    errorInfo?: React.ErrorInfo;
+}
+export function ErrorComponent(props: IErrorComponentProps): React.ReactElement<IErrorComponentProps> {
+    const { errorMessage, error, errorInfo } = props;
+    return <div className="container-fluid">
+        <div className="row">
+            <div className="col-sm-12">
+                <p className={"bg-danger"}>{errorMessage}</p>
+            </div>
+            {
+                error ?
+                    <div className={"col-sm-12"}>
+
+                        <p className="text-danger">
+                            <h3>{error.name}</h3>
+                            {error.message}
+                        </p>
+                        <p className="bg-info">
+                            {error.stack}
+                        </p>
+                    </div> : undefined
+            }
+            {
+                errorInfo ?
+                    <div className={"col-sm-12"}>
+
+                        <p className="text-danger">
+                            <h3>Component Stack</h3>
+                            {errorInfo.componentStack}
+                        </p>
+                    </div> : undefined
+            }
+        </div>
+    </div>;
+}
