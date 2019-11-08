@@ -51,12 +51,7 @@ export const VisitsUserView = () => (<Visits
     ClickHandler={(visit) => alert("You clicked a visit starting on:  " + visit.ArrivalDate.toString())}
     IsAdmin={false}
     SelectHandler={(visit) => alert("You selected a visit starting on:  " + visit.ArrivalDate.toString())}
-
-    Visits={[
-        { Id: 1, ArrivalDate: new Date(2019, 11, 1), DepartureDate: new Date(2019, 11, 2), DownloadLink: "https://www.nps.gov/nationalmallplan/Maps/NMMParks_map.pdf" },
-        { Id: 2, ArrivalDate: new Date(2019, 12, 1), DepartureDate: new Date(2019, 12, 2), DownloadLink: "https://www.nps.gov/nationalmallplan/Maps/NMMParks_map.pdf" },
-        { Id: 3, ArrivalDate: new Date(2020, 1, 10), DepartureDate: new Date(2020, 1, 11), DownloadLink: "https://www.nps.gov/nationalmallplan/Maps/NMMParks_map.pdf" },
-    ]}
+    Visits={mockVisits}
 />);
 
 export const LoadingComponent = () => (<Loading />);
@@ -71,23 +66,24 @@ export const VisitorsComponent = () => (<Visitors
     ClickHandler={(visitor: IVisitor) => alert("You clicked a visitor named:  " + visitor.FirstName + " " + visitor.LastName)}
 />);
 
+const mockContacts = [
+    { Id: 1, FirstName: "John", LastName: "Brown", EMail: "john_brown@ios.doi.gov", BusinessPhone: "(202) 345-2299" },
+    { Id: 2, FirstName: "JoAnne", LastName: "Simpson", EMail: "joanne_simpson@ios.doi.gov", BusinessPhone: "(703) 321-0622" },
+    { Id: 3, FirstName: "Hillary", LastName: "Malliot", EMail: "hillary_malliot@ios.doi.gov", BusinessPhone: "(202) 399-2200" },
+    { Id: 4, FirstName: "Tina", LastName: "Practiss", EMail: "tina_practiss@ios.doi.gov", BusinessPhone: "(202) 345-1111" },
+];
 export const ContactsComponent = () => (<Contacts
-    Contacts={[
-        { Id: 1, FirstName: "John", LastName: "Brown", EMail: "john_brown@ios.doi.gov", BusinessPhone: "(202) 345-2299" },
-        { Id: 2, FirstName: "JoAnne", LastName: "Simpson", EMail: "joanne_simpson@ios.doi.gov", BusinessPhone: "(703) 321-0622" },
-        { Id: 3, FirstName: "Hillary", LastName: "Malliot", EMail: "hillary_malliot@ios.doi.gov", BusinessPhone: "(202) 399-2200" },
-        { Id: 4, FirstName: "Tina", LastName: "Practiss", EMail: "tina_practiss@ios.doi.gov", BusinessPhone: "(202) 345-1111" },
-
-    ]}
+    Contacts={mockContacts}
     ClickHandler={(contact: IContact) => alert("You clicked a contact named:  " + contact.FirstName + " " + contact.LastName)}
 />);
 
+const mockLocations = [
+    { Id: 1, Facility: "Main Interior Building", StreetAddress: "Eighteenth and C Sts. NW", City: "Washington", State: "District of Columbia" },
+    { Id: 2, Facility: "United States Geological Survey HQ", StreetAddress: "12201 Sunrise Valley Dr", City: "Reston", State: "Virginia" },
+    { Id: 3, Facility: "USFWS Partners for Fish and Wildlife Program", StreetAddress: "5275 Leesburg Pike", City: "Falls Church", State: "Virginia" },
+];
 export const LocationsComponent = () => (<Locations
-    Locations={[
-        { Id: 1, Facility: "Main Interior Building", StreetAddress: "Eighteenth and C Sts. NW", City: "Washington", State: "District of Columbia" },
-        { Id: 2, Facility: "United States Geological Survey HQ", StreetAddress: "12201 Sunrise Valley Dr", City: "Reston", State: "Virginia" },
-        { Id: 3, Facility: "USFWS Partners for Fish and Wildlife Program", StreetAddress: "5275 Leesburg Pike", City: "Falls Church", State: "Virginia" },
-    ]}
+    Locations={mockLocations}
     ClickHandler={(location: ILocation) => alert("You clicked a location named:  " + location.Facility)}
 />);
 
@@ -111,9 +107,14 @@ export const ResponseFormComponent = () => (
 
 export const AdminPageComponent = () => (
     <AdminPage
-        emailAddressesService={()=> new Promise<string[]>(
-            (resolve:(emailAddresses:string[])=>void)=>{
-                setTimeout(()=>resolve(mockEmailAddresses), 300)
+        emailAddressesService={() => new Promise<string[]>(
+            (resolve: (emailAddresses: string[]) => void) => {
+                setTimeout(() => resolve(mockEmailAddresses), 300)
+            }
+        )}
+        escortsService={() => new Promise<IContact[]>(
+            (resolve: (escorts: IContact[]) => void) => {
+                setTimeout(() => resolve(mockContacts), 300)
             }
         )}
         IsAdmin={true}
@@ -126,6 +127,11 @@ export const AdminPageComponent = () => (
                     subject: "Visit starting on " + visit.ArrivalDate.toDateString()
                 }), 300)
             })}
+        locationsService={()=>new Promise<ILocation[]>(
+            (resolve: (locations: ILocation[]) => void) => {
+                setTimeout(() => resolve(mockLocations), 300)
+            }
+        )}
         saveResponseFormValuesService={() => new Promise<void>(
             (resolve: () => void) => {
                 setTimeout(resolve, 300);
@@ -136,11 +142,16 @@ export const AdminPageComponent = () => (
                 setTimeout(() =>
                     resolve(mockSponsors), 300)
             })}
-        telephonesService={()=> new Promise<string[]>(
-                (resolve:(telephoneNumbers:string[])=>void)=>{
-                    setTimeout(()=>resolve(mockTelephoneNumbers), 300)
-                }
-            )}
+        telephonesService={() => new Promise<string[]>(
+            (resolve: (telephoneNumbers: string[]) => void) => {
+                setTimeout(() => resolve(mockTelephoneNumbers), 300)
+            }
+        )}
+        translatorsService={() => new Promise<IContact[]>(
+            (resolve: (escorts: IContact[]) => void) => {
+                setTimeout(() => resolve(mockContacts), 300)
+            }
+        )}
         visitorsService={() => new Promise<IVisitor[]>(
             (resolve: (visitors: IVisitor[]) => void) => {
                 setTimeout(() =>

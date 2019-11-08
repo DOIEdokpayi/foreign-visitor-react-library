@@ -1,8 +1,10 @@
-import { ISponsor, IVisit, IVisitor } from "../types";
+import { ISponsor, IVisit, IVisitor, IContact, ILocation } from "../types";
 import { IResponseFormValues } from "../ResponseForm/IResponseFormValues";
 
 export interface IAdminPageImplState {
     emailAddresses?: string[];
+    escorts?: IContact[];
+    locations?: ILocation[];
     responseFormData?: IResponseFormValues;
     selectedSponsor?: ISponsor;
     selectedVisit?: IVisit;
@@ -11,6 +13,7 @@ export interface IAdminPageImplState {
     showVisitorInfo?: boolean;
     sponsors?: ISponsor[];
     telephoneNumbers?: string[];
+    translators?: IContact[];
     visits?: IVisit[];
     visitors?: IVisitor[];
 }

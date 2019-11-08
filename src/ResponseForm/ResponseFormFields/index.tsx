@@ -281,6 +281,7 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                                     status={ccStatus.status} >
                                     <input
                                         aria-describedby={"cc" + index.toString() + "status"}
+                                        autoFocus={index === (values.cc || []).length - 1}
                                         className={"form-control"}
                                         id={"cc" + index.toString()}
                                         name={"cc" + index.toString()}
