@@ -3,6 +3,7 @@ import { TelephoneNumbers, EmailAddresses, Sponsors, Visits, Loading, Visitors, 
 import ResponseForm from './ResponseForm';
 import { AdminPage } from './AdminPage';
 import { IVisit } from './types';
+import Confirmation from './Confirmation';
 
 export default { title: 'Foreign Visitor React Components' };
 
@@ -103,6 +104,13 @@ export const ResponseFormComponent = () => (
     <ResponseForm SubmitPageFunc={(values: IResponseFormValues) => {
         alert("data submitted is " + JSON.stringify(values))
     }} />
+);
+
+export const ConfirmationComponent = () =>(
+    <Confirmation 
+        date={new Date(2020, 0, 23)}
+        cc={["jim_brown@ios.doi.gov", "hector_lima@fws.gov", "jane_spencer@usgs.gov"]}
+        sponsor="Janine Doektsky" />
 );
 
 export const AdminPageComponent = () => (

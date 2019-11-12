@@ -1,7 +1,9 @@
 import { ISponsor, IVisit, IVisitor, IContact, ILocation } from "../types";
 import { IResponseFormValues } from "../ResponseForm/IResponseFormValues";
+import { IConfirmationProps } from "../Confirmation/IConfirmationProps";
 
 export interface IAdminPageImplState {    
+    confirmation?: IConfirmationProps;
     emailAddresses?: string[];
     escorts?: IContact[];
     locations?: ILocation[];
@@ -11,6 +13,7 @@ export interface IAdminPageImplState {
     selectedSponsor?: ISponsor;
     selectedVisit?: IVisit;
     selectedVisitor?: IVisitor;
+    showConfirmation?: boolean;
     showLocation?: boolean;
     showPeopleSearch?: boolean;
     showResponseForm?: boolean;

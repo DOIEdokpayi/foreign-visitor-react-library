@@ -17,10 +17,12 @@ import TelephoneNumbers from "../telephone-numbers";
 import EmailAddresses from "../email-addresses";
 import { LocationsWrapper } from "./LocationsWrapper";
 import { ContactsWrapper } from "./ContactsWrapper";
+import Confirmation from "../Confirmation";
+import { IConfirmationProps } from "../Confirmation/IConfirmationProps";
 
 export class AdminPageImpl extends React.Component<IAdminPageImplProps, IAdminPageImplState>  {
     private locationHandlerFunc: ILocationFunc;
-    private locationHandler(location: ILocation):void {
+    private locationHandler(location: ILocation): void {
         const streetAddressInfo = location.StreetAddress.split(" ").join("+");
         const url = "https://www.google.com/maps/place/" + streetAddressInfo + ",+" + location.City + ",+ " + location.State;
         window.open(url, "_blank");
@@ -30,7 +32,16 @@ export class AdminPageImpl extends React.Component<IAdminPageImplProps, IAdminPa
         const url = "https://www.linkedin.com/search/results/all/?keywords=" + contact.FirstName + "%20" + contact.LastName;
         window.open(url, "_blank");
     }
-   
+
+    private closeConfirmationFunc: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+    private confirmationCloseFunc: () => void;
+    private closeConfirmation(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
+        this.confirmationClose();
+        event.preventDefault();
+    }
+    private confirmationClose(): void {
+        this.setState({ showConfirmation: false });
+    }
     private closeVisitorInfoFunc: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
     private visitorInfoCloseFunc: () => void;
     private closeVisitorInfo(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
@@ -56,8 +67,10 @@ export class AdminPageImpl extends React.Component<IAdminPageImplProps, IAdminPa
         this.responseFormCloseFunc = this.responseFormClose.bind(this);
         this.closeVisitorInfoFunc = this.closeVisitorInfo.bind(this);
         this.visitorInfoCloseFunc = this.visitorInfoClose.bind(this);
-        this.contactHandlerFunc = this.contactHandler.bind(this);      
+        this.contactHandlerFunc = this.contactHandler.bind(this);
         this.locationHandlerFunc = this.locationHandler.bind(this);
+        this.closeConfirmationFunc = this.closeConfirmation.bind(this);
+        this.confirmationCloseFunc = this.confirmationClose.bind(this);
     }
     public componentDidMount(): void {
         const { handleError, sponsorsService } = this.props;
@@ -67,7 +80,7 @@ export class AdminPageImpl extends React.Component<IAdminPageImplProps, IAdminPa
     }
     public render(): React.ReactElement<IAdminPageImplProps> {
         const { emailAddressesService, escortsService, handleError, IsAdmin, getResponseFormValuesService, locationsService, telephonesService, translatorsService, saveResponseFormValuesService, visitorsService } = this.props;
-        const { emailAddresses, escorts, locations, showResponseForm, showVisitorInfo, sponsors, telephoneNumbers, translators, visitors, visits } = this.state;
+        const { confirmation, emailAddresses, escorts, locations, showConfirmation, showResponseForm, showVisitorInfo, sponsors, telephoneNumbers, translators, visitors, visits } = this.state;
         return sponsors ?
             <div className="container-fluid">
                 <div className="row">
@@ -158,7 +171,15 @@ export class AdminPageImpl extends React.Component<IAdminPageImplProps, IAdminPa
                             <ResponseForm
                                 SubmitPageFunc={(values: IResponseFormValues) => {
                                     saveResponseFormValuesService(values);
-                                    this.setState({ showResponseForm: false });
+                                    this.setState({
+                                        confirmation: {
+                                            date: values.responsedate as Date,
+                                            cc: values.cc as string[],
+                                            sponsor: values.firstname + " " + values.lastname,
+                                        },
+                                        showConfirmation: true,
+                                        showResponseForm: false
+                                    });
                                 }
                                 } />
                         </div>
@@ -185,7 +206,16 @@ export class AdminPageImpl extends React.Component<IAdminPageImplProps, IAdminPa
                         </div>
                     </div>
                 </Modal>
-               
+                <Modal onClose={this.confirmationCloseFunc} open={(undefined != showConfirmation ? showConfirmation : false) && Boolean(confirmation)}>
+                    <div className="row">
+                        <div className="col-sm-12 bg-success text-light">
+                            <Confirmation {...confirmation as IConfirmationProps} />
+                        </div>
+                        <div className="col-sm-offset-3 col-sm-3">
+                            <button className={"btn btn-default"} onClick={this.closeConfirmationFunc}>Return to Admin Page</button>
+                        </div>
+                    </div>
+                </Modal>
             </div> :
             <Loading />
     }
