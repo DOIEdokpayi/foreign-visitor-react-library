@@ -5,9 +5,10 @@ module.exports = ({ file, options, env }) => ({
       stage: 0,
       browsers: 'last 2 versions'
     },
-    'postcss-url':{},
+    'postcss-url': {},
     'postcss-import': { root: file.dirname },
     'cssnano': env === 'production' ? options.cssnano : false,
-    'postcss-nested': {}
+    'postcss-nested': {},
+    'postcss-modules': {}
   }
 })

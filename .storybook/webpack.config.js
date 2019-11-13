@@ -1,3 +1,6 @@
+const postcssPartialImport = require('postcss-partial-import');
+const postcssMixins = require('postcss-mixins');
+
 module.exports = ({ config }) => {
   config.module.rules.push({
     test: /\.(ts|tsx)$/,
@@ -13,16 +16,14 @@ module.exports = ({ config }) => {
   },
     {
       test: /\.css$/,
-      use: [
-        {
-          loader: 'postcss-loader',
-          options: {
-            sourceMap: true,
-            config: {
-              path: './.storybook/'
-            }
+      use: [{
+        loader: 'postcss-loader',
+        options: {
+          config: {
+            path: './.storybook'
           }
-        }]
+        }
+      }]
     });
   config.resolve.extensions.push('.ts', '.tsx');
   return config;
