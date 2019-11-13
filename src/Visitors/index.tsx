@@ -26,13 +26,13 @@ export default function Visitors(props: IVisitorProps): React.ReactElement<IVisi
                     Visitors.map((visitor: IVisitor, index: number) =>
                         <tr key={"Visitor" + index.toString()}>
                             <td>
-                                <a className={styles.foreignVisitorAnchorTag} href="#" onClick={() => { ClickHandler(visitor) }}>{visitor.LastName}</a>
+                                <a className={styles.foreignVisitorAnchorTag} href="#" onClick={() => { ClickHandler(visitor) }}>{visitor.Title}</a>
                             </td>
                             <td>
-                                {visitor.FirstName}
+                                {visitor.LEPortalVisitorFirstName}
                             </td>
                             <td>
-                                {visitor.PlaceOfBirth}
+                                {visitor.LEPortalPlaceofBirth}
                             </td>
                         </tr>)
                 }

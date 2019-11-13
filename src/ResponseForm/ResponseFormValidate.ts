@@ -1,6 +1,6 @@
 import { IFormValidateProps } from "../FormWrapper/IFormValidateProps";
 import { IFormWrapperFieldStatus } from "../FormWrapper/IFormWrapperFieldStatus";
-import { FormWrapperStatusEnum, IInitialValues } from "../types";
+import { FormWrapperStatusEnum, IStringIndexable } from "../types";
 import { IResponseFormValues } from "./IResponseFormValues";
 
 export function ResponseFormValidate(props: IFormValidateProps): IFormWrapperFieldStatus {
@@ -23,7 +23,7 @@ export function ResponseFormValidate(props: IFormValidateProps): IFormWrapperFie
     return status;
 }
 
-export function validateRequiredField(status: IFormWrapperFieldStatus, fieldName: string, values: IInitialValues, errorMessage: string) {
+export function validateRequiredField(status: IFormWrapperFieldStatus, fieldName: string, values: IStringIndexable, errorMessage: string) {
     if (!isInitial(status, fieldName)) {
         validateRequired(values, status, fieldName, errorMessage);
     }
@@ -48,7 +48,7 @@ export function isInitial(status: IFormWrapperFieldStatus, fieldName: string): b
     return (status.get(fieldName) || { status: FormWrapperStatusEnum.initial }).status === FormWrapperStatusEnum.initial;
 }
 
-export function validateRequestStatus(formValues: IResponseFormValues, values: IInitialValues, status: IFormWrapperFieldStatus) {
+export function validateRequestStatus(formValues: IResponseFormValues, values: IStringIndexable, status: IFormWrapperFieldStatus) {
     if (
         (undefined === formValues.requeststatus ||
             formValues.requeststatus === -1 ||

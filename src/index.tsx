@@ -16,6 +16,9 @@ import Visitors from './Visitors'
 import Confirmation from "./Confirmation";
 import Contacts from './Contacts'
 import Locations from './Locations';
+import ProgressBar from "./ProgressBar";
+import VisitorsMasterDetail from "./VisitorsMasterDetail";
+
 import { IResponseFormValues } from './ResponseForm/IResponseFormValues'
 
 
@@ -30,5 +33,5 @@ function bootstrap3PreviewContainer(children: JSX.Element): JSX.Element {
 }
 
 
-export { bootstrap3PreviewContainer, Confirmation, Contacts, EmailAddresses, IContact, IErrorHandlerFunc, ILocation, IResponseFormValues, ISponsor, ISponsorFunc, ITermsAndConditionsFormValues, IVisit, IVisitFunc, IVisitor, IVisitorFunc, Loading, Locations, RequestStatusEnum, Sponsors, styles, TelephoneNumbers, TermsAndConditions, ThreatLevelEnum, Visits, Visitors }
-export default { bootstrap3PreviewContainer, Confirmation, Contacts, EmailAddresses, Loading, Locations, RequestStatusEnum, Sponsors, styles, TelephoneNumbers, TermsAndConditions, ThreatLevelEnum, Visits, Visitors };
+export { bootstrap3PreviewContainer, Confirmation, Contacts, EmailAddresses, IContact, IErrorHandlerFunc, ILocation, IResponseFormValues, ISponsor, ISponsorFunc, ITermsAndConditionsFormValues, IVisit, IVisitFunc, IVisitor, IVisitorFunc, Loading, Locations, RequestStatusEnum, ProgressBar, Sponsors, styles, TelephoneNumbers, TermsAndConditions, ThreatLevelEnum, Visits, Visitors, VisitorsMasterDetail }
+export default { bootstrap3PreviewContainer, Confirmation, Contacts, EmailAddresses, Loading, Locations, ProgressBar, RequestStatusEnum, Sponsors, styles, TelephoneNumbers, TermsAndConditions, ThreatLevelEnum, Visits, Visitors, VisitorsMasterDetail };

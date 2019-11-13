@@ -1,0 +1,3 @@
+interface IIdParam{
+    id?: string;
+}

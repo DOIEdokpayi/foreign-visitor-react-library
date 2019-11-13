@@ -1,4 +1,4 @@
-import { IVisitor, IVisitorFunc } from "../../types";
+import { IVisitorFunc, IVisitor } from "../../types";
 
 export interface IVisitorsWrapperProps{
     visitors?: IVisitor[];

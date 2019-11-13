@@ -8,7 +8,7 @@ import Loading from "../loading";
 import ResponseForm from "../ResponseForm";
 import { IResponseFormValues } from "../ResponseForm/IResponseFormValues";
 import Sponsors from "../sponsors";
-import { ISponsor, IVisit, IVisitor, IContact, ILocation, IContactFunc, ILocationFunc } from "../types";
+import { ISponsor, IVisit, IContact, ILocation, IContactFunc, ILocationFunc, IVisitor } from "../types";
 import { IAdminPageImplProps } from "./IAdminPageImplProps";
 import { IAdminPageImplState } from "./IAdminPageImplState";
 import { VisitorsWrapper } from "./VisitorsWrapper";
@@ -91,7 +91,7 @@ export class AdminPageImpl extends React.Component<IAdminPageImplProps, IAdminPa
                             ClickHandler={(sponsor: ISponsor) => {
                                 const { visitsService } = this.props;
                                 this.setState({ selectedSponsor: sponsor });
-                                visitsService(sponsor.Id)
+                                visitsService(sponsor.id as string)
                                     .then((visits: IVisit[]) => this.setState({ visits: visits }))
                                     .catch(handleError);
                             }} />
@@ -111,16 +111,16 @@ export class AdminPageImpl extends React.Component<IAdminPageImplProps, IAdminPa
                             }
                             IsAdmin={IsAdmin}
                             SelectHandler={(visit: IVisit) => {
-                                escortsService(visit.Id)
+                                escortsService(visit.id as string)
                                     .then((escortContacts: IContact[]) => this.setState({ escorts: escortContacts }))
                                     .catch(handleError);
-                                translatorsService(visit.Id)
+                                translatorsService(visit.id as string)
                                     .then((translatorContacts: IContact[]) => this.setState({ translators: translatorContacts }))
                                     .catch(handleError);
-                                locationsService(visit.Id)
+                                locationsService(visit.id as string)
                                     .then((locationInformation: ILocation[]) => this.setState({ locations: locationInformation }))
                                     .catch(handleError);
-                                visitorsService(visit.Id)
+                                visitorsService(visit.id as string)
                                     .then((visitors: IVisitor[]) => this.setState({ visitors: visitors }))
                                     .catch(handleError);
                             }
@@ -130,11 +130,11 @@ export class AdminPageImpl extends React.Component<IAdminPageImplProps, IAdminPa
                     <div className="col-md-4 col-xs-12">
                         <VisitorsWrapper
                             ClickHandler={(visitor: IVisitor) => {
-                                emailAddressesService(visitor.Id)
+                                emailAddressesService(visitor.id as string)
                                     .then((emails: string[]) => this.setState({ emailAddresses: emails }))
                                     .catch(handleError);
 
-                                telephonesService(visitor.Id)
+                                telephonesService(visitor.id as string)
                                     .then((telephones: string[]) => this.setState({ telephoneNumbers: telephones }))
                                     .catch(handleError);
                                 this.setState({

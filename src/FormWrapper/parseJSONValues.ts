@@ -1,7 +1,7 @@
-import { IInitialValues } from "../types";
+import { IStringIndexable } from "../types";
 
-export function parseJSONValues(json:string, convertFieldValue?: (key: string, value: any) => any): IInitialValues{
-    const data:IInitialValues = JSON.parse(json);
+export function parseJSONValues(json:string, convertFieldValue?: (key: string, value: any) => any): IStringIndexable{
+    const data:IStringIndexable = JSON.parse(json);
     if(convertFieldValue){
         for (const prop in data) {
             if (data.hasOwnProperty(prop)) {

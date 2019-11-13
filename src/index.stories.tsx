@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { TelephoneNumbers, EmailAddresses, Sponsors, Visits, Loading, Visitors, IVisitor, Contacts, IContact, ILocation, Locations, TermsAndConditions, ITermsAndConditionsFormValues, IResponseFormValues, ISponsor } from '.';
+import { TelephoneNumbers, EmailAddresses, Sponsors, Visits, Loading, Visitors, IVisitor, Contacts, IContact, ILocation, Locations, TermsAndConditions, ITermsAndConditionsFormValues, IResponseFormValues, ISponsor, VisitorsMasterDetail } from '.';
 import ResponseForm from './ResponseForm';
 import { AdminPage } from './AdminPage';
 import { IVisit } from './types';
@@ -58,9 +58,9 @@ export const VisitsUserView = () => (<Visits
 export const LoadingComponent = () => (<Loading />);
 
 const mockVisitors = [
-    { Id: 1, FirstName: "Mohammed", LastName: "Saleh", PlaceOfBirth: "Riyadh, Saudi Arabia" },
-    { Id: 2, FirstName: "Xi", LastName: "Ping", PlaceOfBirth: "Beijing, China" },
-    { Id: 3, FirstName: "Malcom", LastName: "O'Donnell", PlaceOfBirth: "Ireland" }
+    { id: 1, LEPortalVisitorFirstName: "Mohammed", Title: "Saleh", LEPortalPlaceofBirth: "Riyadh, Saudi Arabia" },
+    { id: 2, LEPortalVisitorFirstName: "Xi", Title: "Ping", LEPortalPlaceofBirth: "Beijing, China" },
+    { id: 3, LEPortalVisitorFirstName: "Malcom", Title: "O'Donnell", LEPortalPlaceofBirth: "Ireland" }
 ];
 export const VisitorsComponent = () => (<Visitors
     Visitors={mockVisitors}
@@ -79,9 +79,9 @@ export const ContactsComponent = () => (<Contacts
 />);
 
 const mockLocations = [
-    { Id: 1, Facility: "Main Interior Building", StreetAddress: "Eighteenth and C Sts. NW", City: "Washington", State: "District of Columbia" },
-    { Id: 2, Facility: "United States Geological Survey HQ", StreetAddress: "12201 Sunrise Valley Dr", City: "Reston", State: "Virginia" },
-    { Id: 3, Facility: "USFWS Partners for Fish and Wildlife Program", StreetAddress: "5275 Leesburg Pike", City: "Falls Church", State: "Virginia" },
+    { id: 1, Title: "Main Interior Building", LEPortalForeignVisitorStreetAddr: "Eighteenth and C Sts. NW", LEPortalForeignVisitorFacilityCi: "Washington", LEPortalUSStatesAndTerritories: "District of Columbia" },
+    { id: 2, Title: "United States Geological Survey HQ", LEPortalForeignVisitorStreetAddr: "12201 Sunrise Valley Dr", LEPortalForeignVisitorFacilityCi: "Reston", LEPortalUSStatesAndTerritories: "Virginia" },
+    { id: 3, Title: "USFWS Partners for Fish and Wildlife Program", LEPortalForeignVisitorStreetAddr: "5275 Leesburg Pike", LEPortalForeignVisitorFacilityCi: "Falls Church", LEPortalUSStatesAndTerritories: "Virginia" },
 ];
 export const LocationsComponent = () => (<Locations
     Locations={mockLocations}
@@ -106,8 +106,8 @@ export const ResponseFormComponent = () => (
     }} />
 );
 
-export const ConfirmationComponent = () =>(
-    <Confirmation 
+export const ConfirmationComponent = () => (
+    <Confirmation
         date={new Date(2020, 0, 23)}
         cc={["jim_brown@ios.doi.gov", "hector_lima@fws.gov", "jane_spencer@usgs.gov"]}
         sponsor="Janine Doektsky" />
@@ -135,7 +135,7 @@ export const AdminPageComponent = () => (
                     subject: "Visit starting on " + visit.ArrivalDate.toDateString()
                 }), 300)
             })}
-        locationsService={()=>new Promise<ILocation[]>(
+        locationsService={() => new Promise<ILocation[]>(
             (resolve: (locations: ILocation[]) => void) => {
                 setTimeout(() => resolve(mockLocations), 300)
             }
@@ -172,3 +172,9 @@ export const AdminPageComponent = () => (
                     resolve(mockVisits), 300)
             })} />
 );
+
+export const VisitorsMasterDetailComponent = () => {
+    return <VisitorsMasterDetail
+        Visitors={new Map<string, IVisitor>(mockVisitors.map((visitor: IVisitor, index: number) => [index.toString(), visitor]))}
+        EditVisitorUrl="EditVisitorUrl" DispatchDelete={(id: string) => alert("Attempted to delete visitor with id: " + id)} />
+}

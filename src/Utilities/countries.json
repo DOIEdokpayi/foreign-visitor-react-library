@@ -1,0 +1,1247 @@
+[
+  {
+    "Code": "AD",
+    "English Name": "Andorra",
+    "French Name": "Andorre"
+  },
+  {
+    "Code": "AE",
+    "English Name": "United Arab Emirates",
+    "French Name": "�mirats arabes unis"
+  },
+  {
+    "Code": "AF",
+    "English Name": "Afghanistan",
+    "French Name": "Afghanistan"
+  },
+  {
+    "Code": "AG",
+    "English Name": "Antigua and Barbuda",
+    "French Name": "Antigua-et-Barbuda"
+  },
+  {
+    "Code": "AI",
+    "English Name": "Anguilla",
+    "French Name": "Anguilla"
+  },
+  {
+    "Code": "AL",
+    "English Name": "Albania",
+    "French Name": "Albanie"
+  },
+  {
+    "Code": "AM",
+    "English Name": "Armenia",
+    "French Name": "Arm�nie"
+  },
+  {
+    "Code": "AO",
+    "English Name": "Angola",
+    "French Name": "Angola"
+  },
+  {
+    "Code": "AQ",
+    "English Name": "Antarctica",
+    "French Name": "Antarctique"
+  },
+  {
+    "Code": "AR",
+    "English Name": "Argentina",
+    "French Name": "Argentine"
+  },
+  {
+    "Code": "AS",
+    "English Name": "American Samoa",
+    "French Name": "Samoa am�ricaine"
+  },
+  {
+    "Code": "AT",
+    "English Name": "Austria",
+    "French Name": "Autriche"
+  },
+  {
+    "Code": "AU",
+    "English Name": "Australia",
+    "French Name": "Australie"
+  },
+  {
+    "Code": "AW",
+    "English Name": "Aruba",
+    "French Name": "Aruba"
+  },
+  {
+    "Code": "AX",
+    "English Name": "Åland Islands",
+    "French Name": "�les d' Åland"
+  },
+  {
+    "Code": "AZ",
+    "English Name": "Azerbaijan",
+    "French Name": "Azerba�djan"
+  },
+  {
+    "Code": "BA",
+    "English Name": "Bosnia and Herzegovina",
+    "French Name": "Bosnie-Herz�govine"
+  },
+  {
+    "Code": "BB",
+    "English Name": "Barbados",
+    "French Name": "Barbade"
+  },
+  {
+    "Code": "BD",
+    "English Name": "Bangladesh",
+    "French Name": "Bangladesh"
+  },
+  {
+    "Code": "BE",
+    "English Name": "Belgium",
+    "French Name": "Belgique"
+  },
+  {
+    "Code": "BF",
+    "English Name": "Burkina Faso",
+    "French Name": "Burkina Faso"
+  },
+  {
+    "Code": "BG",
+    "English Name": "Bulgaria",
+    "French Name": "Bulgarie"
+  },
+  {
+    "Code": "BH",
+    "English Name": "Bahrain",
+    "French Name": "Bahre�n"
+  },
+  {
+    "Code": "BI",
+    "English Name": "Burundi",
+    "French Name": "Burundi"
+  },
+  {
+    "Code": "BJ",
+    "English Name": "Benin",
+    "French Name": "B�nin"
+  },
+  {
+    "Code": "BL",
+    "English Name": "Saint Barthélemy",
+    "French Name": "Saint-Barth�lemy"
+  },
+  {
+    "Code": "BM",
+    "English Name": "Bermuda",
+    "French Name": "Bermudes"
+  },
+  {
+    "Code": "BN",
+    "English Name": "Brunei Darussalam",
+    "French Name": "Brunei Darussalam"
+  },
+  {
+    "Code": "BO",
+    "English Name": "Bolivia",
+    "French Name": "Bolivie"
+  },
+  {
+    "Code": "BQ",
+    "English Name": "Caribbean Netherlands ",
+    "French Name": "Pays-Bas carib�ens"
+  },
+  {
+    "Code": "BR",
+    "English Name": "Brazil",
+    "French Name": "Br�sil"
+  },
+  {
+    "Code": "BS",
+    "English Name": "Bahamas",
+    "French Name": "Bahamas"
+  },
+  {
+    "Code": "BT",
+    "English Name": "Bhutan",
+    "French Name": "Bhoutan"
+  },
+  {
+    "Code": "BV",
+    "English Name": "Bouvet Island",
+    "French Name": "�le Bouvet"
+  },
+  {
+    "Code": "BW",
+    "English Name": "Botswana",
+    "French Name": "Botswana"
+  },
+  {
+    "Code": "BY",
+    "English Name": "Belarus",
+    "French Name": "B�larus"
+  },
+  {
+    "Code": "BZ",
+    "English Name": "Belize",
+    "French Name": "Belize"
+  },
+  {
+    "Code": "CA",
+    "English Name": "Canada",
+    "French Name": "Canada"
+  },
+  {
+    "Code": "CC",
+    "English Name": "Cocos (Keeling) Islands",
+    "French Name": "�les Cocos (Keeling)"
+  },
+  {
+    "Code": "CD",
+    "English Name": "Congo, Democratic Republic of",
+    "French Name": "Congo, R�publique d�mocratique du"
+  },
+  {
+    "Code": "CF",
+    "English Name": "Central African Republic",
+    "French Name": "R�publique centrafricaine"
+  },
+  {
+    "Code": "CG",
+    "English Name": "Congo",
+    "French Name": "Congo"
+  },
+  {
+    "Code": "CH",
+    "English Name": "Switzerland",
+    "French Name": "Suisse"
+  },
+  {
+    "Code": "CI",
+    "English Name": "Côte d'Ivoire",
+    "French Name": "C�te d'Ivoire"
+  },
+  {
+    "Code": "CK",
+    "English Name": "Cook Islands",
+    "French Name": "�les Cook"
+  },
+  {
+    "Code": "CL",
+    "English Name": "Chile",
+    "French Name": "Chili"
+  },
+  {
+    "Code": "CM",
+    "English Name": "Cameroon",
+    "French Name": "Cameroun"
+  },
+  {
+    "Code": "CN",
+    "English Name": "China",
+    "French Name": "Chine"
+  },
+  {
+    "Code": "CO",
+    "English Name": "Colombia",
+    "French Name": "Colombie"
+  },
+  {
+    "Code": "CR",
+    "English Name": "Costa Rica",
+    "French Name": "Costa Rica"
+  },
+  {
+    "Code": "CU",
+    "English Name": "Cuba",
+    "French Name": "Cuba"
+  },
+  {
+    "Code": "CV",
+    "English Name": "Cape Verde",
+    "French Name": "Cap-Vert"
+  },
+  {
+    "Code": "CW",
+    "English Name": "Curaçao",
+    "French Name": "Cura�ao"
+  },
+  {
+    "Code": "CX",
+    "English Name": "Christmas Island",
+    "French Name": "�le Christmas"
+  },
+  {
+    "Code": "CY",
+    "English Name": "Cyprus",
+    "French Name": "Chypre"
+  },
+  {
+    "Code": "CZ",
+    "English Name": "Czech Republic",
+    "French Name": "R�publique tch�que"
+  },
+  {
+    "Code": "DE",
+    "English Name": "Germany",
+    "French Name": "Allemagne"
+  },
+  {
+    "Code": "DJ",
+    "English Name": "Djibouti",
+    "French Name": "Djibouti"
+  },
+  {
+    "Code": "DK",
+    "English Name": "Denmark",
+    "French Name": "Danemark"
+  },
+  {
+    "Code": "DM",
+    "English Name": "Dominica",
+    "French Name": "Dominique"
+  },
+  {
+    "Code": "DO",
+    "English Name": "Dominican Republic",
+    "French Name": "R�publique dominicaine"
+  },
+  {
+    "Code": "DZ",
+    "English Name": "Algeria",
+    "French Name": "Alg�rie"
+  },
+  {
+    "Code": "EC",
+    "English Name": "Ecuador",
+    "French Name": "�quateur"
+  },
+  {
+    "Code": "EE",
+    "English Name": "Estonia",
+    "French Name": "Estonie"
+  },
+  {
+    "Code": "EG",
+    "English Name": "Egypt",
+    "French Name": "�gypte"
+  },
+  {
+    "Code": "EH",
+    "English Name": "Western Sahara",
+    "French Name": "Sahara Occidental"
+  },
+  {
+    "Code": "ER",
+    "English Name": "Eritrea",
+    "French Name": "�rythr�e"
+  },
+  {
+    "Code": "ES",
+    "English Name": "Spain",
+    "French Name": "Espagne"
+  },
+  {
+    "Code": "ET",
+    "English Name": "Ethiopia",
+    "French Name": "�thiopie"
+  },
+  {
+    "Code": "FI",
+    "English Name": "Finland",
+    "French Name": "Finlande"
+  },
+  {
+    "Code": "FJ",
+    "English Name": "Fiji",
+    "French Name": "Fidji"
+  },
+  {
+    "Code": "FK",
+    "English Name": "Falkland Islands",
+    "French Name": "�les Malouines"
+  },
+  {
+    "Code": "FM",
+    "English Name": "Micronesia, Federated States of",
+    "French Name": "Micron�sie, �tats f�d�r�s de"
+  },
+  {
+    "Code": "FO",
+    "English Name": "Faroe Islands",
+    "French Name": "�les F�ro�"
+  },
+  {
+    "Code": "FR",
+    "English Name": "France",
+    "French Name": "France"
+  },
+  {
+    "Code": "GA",
+    "English Name": "Gabon",
+    "French Name": "Gabon"
+  },
+  {
+    "Code": "GB",
+    "English Name": "United Kingdom",
+    "French Name": "Royaume-Uni"
+  },
+  {
+    "Code": "GD",
+    "English Name": "Grenada",
+    "French Name": "Grenade"
+  },
+  {
+    "Code": "GE",
+    "English Name": "Georgia",
+    "French Name": "G�orgie"
+  },
+  {
+    "Code": "GF",
+    "English Name": "French Guiana",
+    "French Name": "Guyane fran�aise"
+  },
+  {
+    "Code": "GG",
+    "English Name": "Guernsey",
+    "French Name": "Guernesey"
+  },
+  {
+    "Code": "GH",
+    "English Name": "Ghana",
+    "French Name": "Ghana"
+  },
+  {
+    "Code": "GI",
+    "English Name": "Gibraltar",
+    "French Name": "Gibraltar"
+  },
+  {
+    "Code": "GL",
+    "English Name": "Greenland",
+    "French Name": "Groenland"
+  },
+  {
+    "Code": "GM",
+    "English Name": "Gambia",
+    "French Name": "Gambie"
+  },
+  {
+    "Code": "GN",
+    "English Name": "Guinea",
+    "French Name": "Guin�e"
+  },
+  {
+    "Code": "GP",
+    "English Name": "Guadeloupe",
+    "French Name": "Guadeloupe"
+  },
+  {
+    "Code": "GQ",
+    "English Name": "Equatorial Guinea",
+    "French Name": "Guin�e �quatoriale"
+  },
+  {
+    "Code": "GR",
+    "English Name": "Greece",
+    "French Name": "Gr�ce"
+  },
+  {
+    "Code": "GS",
+    "English Name": "South Georgia and the South Sandwich Islands",
+    "French Name": "G�orgie du Sud et les �les Sandwich du Sud"
+  },
+  {
+    "Code": "GT",
+    "English Name": "Guatemala",
+    "French Name": "Guatemala"
+  },
+  {
+    "Code": "GU",
+    "English Name": "Guam",
+    "French Name": "Guam"
+  },
+  {
+    "Code": "GW",
+    "English Name": "Guinea-Bissau",
+    "French Name": "Guin�e-Bissau"
+  },
+  {
+    "Code": "GY",
+    "English Name": "Guyana",
+    "French Name": "Guyana"
+  },
+  {
+    "Code": "HK",
+    "English Name": "Hong Kong",
+    "French Name": "Hong Kong"
+  },
+  {
+    "Code": "HM",
+    "English Name": "Heard and McDonald Islands",
+    "French Name": "�les Heard et McDonald"
+  },
+  {
+    "Code": "HN",
+    "English Name": "Honduras",
+    "French Name": "Honduras"
+  },
+  {
+    "Code": "HR",
+    "English Name": "Croatia",
+    "French Name": "Croatie"
+  },
+  {
+    "Code": "HT",
+    "English Name": "Haiti",
+    "French Name": "Ha�ti"
+  },
+  {
+    "Code": "HU",
+    "English Name": "Hungary",
+    "French Name": "Hongrie"
+  },
+  {
+    "Code": "ID",
+    "English Name": "Indonesia",
+    "French Name": "Indon�sie"
+  },
+  {
+    "Code": "IE",
+    "English Name": "Ireland",
+    "French Name": "Irlande"
+  },
+  {
+    "Code": "IL",
+    "English Name": "Israel",
+    "French Name": "Isra�l"
+  },
+  {
+    "Code": "IM",
+    "English Name": "Isle of Man",
+    "French Name": "�le de Man"
+  },
+  {
+    "Code": "IN",
+    "English Name": "India",
+    "French Name": "Inde"
+  },
+  {
+    "Code": "IO",
+    "English Name": "British Indian Ocean Territory",
+    "French Name": "Territoire britannique de l'oc�an Indien"
+  },
+  {
+    "Code": "IQ",
+    "English Name": "Iraq",
+    "French Name": "Irak"
+  },
+  {
+    "Code": "IR",
+    "English Name": "Iran",
+    "French Name": "Iran"
+  },
+  {
+    "Code": "IS",
+    "English Name": "Iceland",
+    "French Name": "Islande"
+  },
+  {
+    "Code": "IT",
+    "English Name": "Italy",
+    "French Name": "Italie"
+  },
+  {
+    "Code": "JE",
+    "English Name": "Jersey",
+    "French Name": "Jersey"
+  },
+  {
+    "Code": "JM",
+    "English Name": "Jamaica",
+    "French Name": "Jama�que"
+  },
+  {
+    "Code": "JO",
+    "English Name": "Jordan",
+    "French Name": "Jordanie"
+  },
+  {
+    "Code": "JP",
+    "English Name": "Japan",
+    "French Name": "Japon"
+  },
+  {
+    "Code": "KE",
+    "English Name": "Kenya",
+    "French Name": "Kenya"
+  },
+  {
+    "Code": "KG",
+    "English Name": "Kyrgyzstan",
+    "French Name": "Kirghizistan"
+  },
+  {
+    "Code": "KH",
+    "English Name": "Cambodia",
+    "French Name": "Cambodge"
+  },
+  {
+    "Code": "KI",
+    "English Name": "Kiribati",
+    "French Name": "Kiribati"
+  },
+  {
+    "Code": "KM",
+    "English Name": "Comoros",
+    "French Name": "Comores"
+  },
+  {
+    "Code": "KN",
+    "English Name": "Saint Kitts and Nevis",
+    "French Name": "Saint-Kitts-et-Nevis"
+  },
+  {
+    "Code": "KP",
+    "English Name": "North Korea",
+    "French Name": "Cor�e du Nord"
+  },
+  {
+    "Code": "KR",
+    "English Name": "South Korea",
+    "French Name": "Cor�e du Sud"
+  },
+  {
+    "Code": "KW",
+    "English Name": "Kuwait",
+    "French Name": "Kowe�t"
+  },
+  {
+    "Code": "KY",
+    "English Name": "Cayman Islands",
+    "French Name": "�les Ca�mans"
+  },
+  {
+    "Code": "KZ",
+    "English Name": "Kazakhstan",
+    "French Name": "Kazakhstan"
+  },
+  {
+    "Code": "LA",
+    "English Name": "Lao People's Democratic Republic",
+    "French Name": "Laos"
+  },
+  {
+    "Code": "LB",
+    "English Name": "Lebanon",
+    "French Name": "Liban"
+  },
+  {
+    "Code": "LC",
+    "English Name": "Saint Lucia",
+    "French Name": "Sainte-Lucie"
+  },
+  {
+    "Code": "LI",
+    "English Name": "Liechtenstein",
+    "French Name": "Liechtenstein"
+  },
+  {
+    "Code": "LK",
+    "English Name": "Sri Lanka",
+    "French Name": "Sri Lanka"
+  },
+  {
+    "Code": "LR",
+    "English Name": "Liberia",
+    "French Name": "Lib�ria"
+  },
+  {
+    "Code": "LS",
+    "English Name": "Lesotho",
+    "French Name": "Lesotho"
+  },
+  {
+    "Code": "LT",
+    "English Name": "Lithuania",
+    "French Name": "Lituanie"
+  },
+  {
+    "Code": "LU",
+    "English Name": "Luxembourg",
+    "French Name": "Luxembourg"
+  },
+  {
+    "Code": "LV",
+    "English Name": "Latvia",
+    "French Name": "Lettonie"
+  },
+  {
+    "Code": "LY",
+    "English Name": "Libya",
+    "French Name": "Libye"
+  },
+  {
+    "Code": "MA",
+    "English Name": "Morocco",
+    "French Name": "Maroc"
+  },
+  {
+    "Code": "MC",
+    "English Name": "Monaco",
+    "French Name": "Monaco"
+  },
+  {
+    "Code": "MD",
+    "English Name": "Moldova",
+    "French Name": "Moldavie"
+  },
+  {
+    "Code": "ME",
+    "English Name": "Montenegro",
+    "French Name": "Mont�n�gro"
+  },
+  {
+    "Code": "MF",
+    "English Name": "Saint-Martin (France)",
+    "French Name": "Saint-Martin (France)"
+  },
+  {
+    "Code": "MG",
+    "English Name": "Madagascar",
+    "French Name": "Madagascar"
+  },
+  {
+    "Code": "MH",
+    "English Name": "Marshall Islands",
+    "French Name": "�les Marshall"
+  },
+  {
+    "Code": "MK",
+    "English Name": "Macedonia",
+    "French Name": "Mac�doine"
+  },
+  {
+    "Code": "ML",
+    "English Name": "Mali",
+    "French Name": "Mali"
+  },
+  {
+    "Code": "MM",
+    "English Name": "Myanmar",
+    "French Name": "Myanmar"
+  },
+  {
+    "Code": "MN",
+    "English Name": "Mongolia",
+    "French Name": "Mongolie"
+  },
+  {
+    "Code": "MO",
+    "English Name": "Macau",
+    "French Name": "Macao"
+  },
+  {
+    "Code": "MP",
+    "English Name": "Northern Mariana Islands",
+    "French Name": "Mariannes du Nord"
+  },
+  {
+    "Code": "MQ",
+    "English Name": "Martinique",
+    "French Name": "Martinique"
+  },
+  {
+    "Code": "MR",
+    "English Name": "Mauritania",
+    "French Name": "Mauritanie"
+  },
+  {
+    "Code": "MS",
+    "English Name": "Montserrat",
+    "French Name": "Montserrat"
+  },
+  {
+    "Code": "MT",
+    "English Name": "Malta",
+    "French Name": "Malte"
+  },
+  {
+    "Code": "MU",
+    "English Name": "Mauritius",
+    "French Name": "Maurice"
+  },
+  {
+    "Code": "MV",
+    "English Name": "Maldives",
+    "French Name": "Maldives"
+  },
+  {
+    "Code": "MW",
+    "English Name": "Malawi",
+    "French Name": "Malawi"
+  },
+  {
+    "Code": "MX",
+    "English Name": "Mexico",
+    "French Name": "Mexique"
+  },
+  {
+    "Code": "MY",
+    "English Name": "Malaysia",
+    "French Name": "Malaisie"
+  },
+  {
+    "Code": "MZ",
+    "English Name": "Mozambique",
+    "French Name": "Mozambique"
+  },
+  {
+    "Code": "NA",
+    "English Name": "Namibia",
+    "French Name": "Namibie"
+  },
+  {
+    "Code": "NC",
+    "English Name": "New Caledonia",
+    "French Name": "Nouvelle-Cal�donie"
+  },
+  {
+    "Code": "NE",
+    "English Name": "Niger",
+    "French Name": "Niger"
+  },
+  {
+    "Code": "NF",
+    "English Name": "Norfolk Island",
+    "French Name": "�le Norfolk"
+  },
+  {
+    "Code": "NG",
+    "English Name": "Nigeria",
+    "French Name": "Nigeria"
+  },
+  {
+    "Code": "NI",
+    "English Name": "Nicaragua",
+    "French Name": "Nicaragua"
+  },
+  {
+    "Code": "NL",
+    "English Name": "The Netherlands",
+    "French Name": "Pays-Bas"
+  },
+  {
+    "Code": "NO",
+    "English Name": "Norway",
+    "French Name": "Norv�ge"
+  },
+  {
+    "Code": "NP",
+    "English Name": "Nepal",
+    "French Name": "N�pal"
+  },
+  {
+    "Code": "NR",
+    "English Name": "Nauru",
+    "French Name": "Nauru"
+  },
+  {
+    "Code": "NU",
+    "English Name": "Niue",
+    "French Name": "Niue"
+  },
+  {
+    "Code": "NZ",
+    "English Name": "New Zealand",
+    "French Name": "Nouvelle-Z�lande"
+  },
+  {
+    "Code": "OM",
+    "English Name": "Oman",
+    "French Name": "Oman"
+  },
+  {
+    "Code": "PA",
+    "English Name": "Panama",
+    "French Name": "Panama"
+  },
+  {
+    "Code": "PE",
+    "English Name": "Peru",
+    "French Name": "P�rou"
+  },
+  {
+    "Code": "PF",
+    "English Name": "French Polynesia",
+    "French Name": "Polyn�sie fran�aise"
+  },
+  {
+    "Code": "PG",
+    "English Name": "Papua New Guinea",
+    "French Name": "Papouasie-Nouvelle-Guin�e"
+  },
+  {
+    "Code": "PH",
+    "English Name": "Philippines",
+    "French Name": "Philippines"
+  },
+  {
+    "Code": "PK",
+    "English Name": "Pakistan",
+    "French Name": "Pakistan"
+  },
+  {
+    "Code": "PL",
+    "English Name": "Poland",
+    "French Name": "Pologne"
+  },
+  {
+    "Code": "PM",
+    "English Name": "St. Pierre and Miquelon",
+    "French Name": "Saint-Pierre-et-Miquelon"
+  },
+  {
+    "Code": "PN",
+    "English Name": "Pitcairn",
+    "French Name": "Pitcairn"
+  },
+  {
+    "Code": "PR",
+    "English Name": "Puerto Rico",
+    "French Name": "Puerto Rico"
+  },
+  {
+    "Code": "PS",
+    "English Name": "Palestine, State of",
+    "French Name": "Palestine"
+  },
+  {
+    "Code": "PT",
+    "English Name": "Portugal",
+    "French Name": "Portugal"
+  },
+  {
+    "Code": "PW",
+    "English Name": "Palau",
+    "French Name": "Palau"
+  },
+  {
+    "Code": "PY",
+    "English Name": "Paraguay",
+    "French Name": "Paraguay"
+  },
+  {
+    "Code": "QA",
+    "English Name": "Qatar",
+    "French Name": "Qatar"
+  },
+  {
+    "Code": "RE",
+    "English Name": "Réunion",
+    "French Name": "R�union"
+  },
+  {
+    "Code": "RO",
+    "English Name": "Romania",
+    "French Name": "Roumanie"
+  },
+  {
+    "Code": "RS",
+    "English Name": "Serbia",
+    "French Name": "Serbie"
+  },
+  {
+    "Code": "RU",
+    "English Name": "Russian Federation",
+    "French Name": "Russie"
+  },
+  {
+    "Code": "RW",
+    "English Name": "Rwanda",
+    "French Name": "Rwanda"
+  },
+  {
+    "Code": "SA",
+    "English Name": "Saudi Arabia",
+    "French Name": "Arabie saoudite"
+  },
+  {
+    "Code": "SB",
+    "English Name": "Solomon Islands",
+    "French Name": "�les Salomon"
+  },
+  {
+    "Code": "SC",
+    "English Name": "Seychelles",
+    "French Name": "Seychelles"
+  },
+  {
+    "Code": "SD",
+    "English Name": "Sudan",
+    "French Name": "Soudan"
+  },
+  {
+    "Code": "SE",
+    "English Name": "Sweden",
+    "French Name": "Su�de"
+  },
+  {
+    "Code": "SG",
+    "English Name": "Singapore",
+    "French Name": "Singapour"
+  },
+  {
+    "Code": "SH",
+    "English Name": "Saint Helena",
+    "French Name": "Sainte-H�l�ne"
+  },
+  {
+    "Code": "SI",
+    "English Name": "Slovenia",
+    "French Name": "Slov�nie"
+  },
+  {
+    "Code": "SJ",
+    "English Name": "Svalbard and Jan Mayen Islands",
+    "French Name": "Svalbard et �le de Jan Mayen"
+  },
+  {
+    "Code": "SK",
+    "English Name": "Slovakia",
+    "French Name": "Slovaquie"
+  },
+  {
+    "Code": "SL",
+    "English Name": "Sierra Leone",
+    "French Name": "Sierra Leone"
+  },
+  {
+    "Code": "SM",
+    "English Name": "San Marino",
+    "French Name": "Saint-Marin"
+  },
+  {
+    "Code": "SN",
+    "English Name": "Senegal",
+    "French Name": "S�n�gal"
+  },
+  {
+    "Code": "SO",
+    "English Name": "Somalia",
+    "French Name": "Somalie"
+  },
+  {
+    "Code": "SR",
+    "English Name": "Suriname",
+    "French Name": "Suriname"
+  },
+  {
+    "Code": "SS",
+    "English Name": "South Sudan",
+    "French Name": "Soudan du Sud"
+  },
+  {
+    "Code": "ST",
+    "English Name": "Sao Tome and Principe",
+    "French Name": "Sao Tom�-et-Principe"
+  },
+  {
+    "Code": "SV",
+    "English Name": "El Salvador",
+    "French Name": "El Salvador"
+  },
+  {
+    "Code": "SX",
+    "English Name": "Sint Maarten (Dutch part)",
+    "French Name": "Saint-Martin (Pays-Bas)"
+  },
+  {
+    "Code": "SY",
+    "English Name": "Syria",
+    "French Name": "Syrie"
+  },
+  {
+    "Code": "SZ",
+    "English Name": "Swaziland",
+    "French Name": "Swaziland"
+  },
+  {
+    "Code": "TC",
+    "English Name": "Turks and Caicos Islands",
+    "French Name": "�les Turks et Caicos"
+  },
+  {
+    "Code": "TD",
+    "English Name": "Chad",
+    "French Name": "Tchad"
+  },
+  {
+    "Code": "TF",
+    "English Name": "French Southern Territories",
+    "French Name": "Terres australes fran�aises"
+  },
+  {
+    "Code": "TG",
+    "English Name": "Togo",
+    "French Name": "Togo"
+  },
+  {
+    "Code": "TH",
+    "English Name": "Thailand",
+    "French Name": "Tha�lande"
+  },
+  {
+    "Code": "TJ",
+    "English Name": "Tajikistan",
+    "French Name": "Tadjikistan"
+  },
+  {
+    "Code": "TK",
+    "English Name": "Tokelau",
+    "French Name": "Tokelau"
+  },
+  {
+    "Code": "TL",
+    "English Name": "Timor-Leste",
+    "French Name": "Timor-Leste"
+  },
+  {
+    "Code": "TM",
+    "English Name": "Turkmenistan",
+    "French Name": "Turkm�nistan"
+  },
+  {
+    "Code": "TN",
+    "English Name": "Tunisia",
+    "French Name": "Tunisie"
+  },
+  {
+    "Code": "TO",
+    "English Name": "Tonga",
+    "French Name": "Tonga"
+  },
+  {
+    "Code": "TR",
+    "English Name": "Turkey",
+    "French Name": "Turquie"
+  },
+  {
+    "Code": "TT",
+    "English Name": "Trinidad and Tobago",
+    "French Name": "Trinit�-et-Tobago"
+  },
+  {
+    "Code": "TV",
+    "English Name": "Tuvalu",
+    "French Name": "Tuvalu"
+  },
+  {
+    "Code": "TW",
+    "English Name": "Taiwan",
+    "French Name": "Ta�wan"
+  },
+  {
+    "Code": "TZ",
+    "English Name": "Tanzania",
+    "French Name": "Tanzanie"
+  },
+  {
+    "Code": "UA",
+    "English Name": "Ukraine",
+    "French Name": "Ukraine"
+  },
+  {
+    "Code": "UG",
+    "English Name": "Uganda",
+    "French Name": "Ouganda"
+  },
+  {
+    "Code": "UM",
+    "English Name": "United States Minor Outlying Islands",
+    "French Name": "�les mineures �loign�es des �tats-Unis"
+  },
+  {
+    "Code": "US",
+    "English Name": "United States",
+    "French Name": "�tats-Unis"
+  },
+  {
+    "Code": "UY",
+    "English Name": "Uruguay",
+    "French Name": "Uruguay"
+  },
+  {
+    "Code": "UZ",
+    "English Name": "Uzbekistan",
+    "French Name": "Ouzb�kistan"
+  },
+  {
+    "Code": "VA",
+    "English Name": "Vatican",
+    "French Name": "Vatican"
+  },
+  {
+    "Code": "VC",
+    "English Name": "Saint Vincent and the Grenadines",
+    "French Name": "Saint-Vincent-et-les-Grenadines"
+  },
+  {
+    "Code": "VE",
+    "English Name": "Venezuela",
+    "French Name": "Venezuela"
+  },
+  {
+    "Code": "VG",
+    "English Name": "Virgin Islands (British)",
+    "French Name": "�les Vierges britanniques"
+  },
+  {
+    "Code": "VI",
+    "English Name": "Virgin Islands (U.S.)",
+    "French Name": "�les Vierges am�ricaines"
+  },
+  {
+    "Code": "VN",
+    "English Name": "Vietnam",
+    "French Name": "Vietnam"
+  },
+  {
+    "Code": "VU",
+    "English Name": "Vanuatu",
+    "French Name": "Vanuatu"
+  },
+  {
+    "Code": "WF",
+    "English Name": "Wallis and Futuna Islands",
+    "French Name": "�les Wallis-et-Futuna"
+  },
+  {
+    "Code": "WS",
+    "English Name": "Samoa",
+    "French Name": "Samoa"
+  },
+  {
+    "Code": "YE",
+    "English Name": "Yemen",
+    "French Name": "Y�men"
+  },
+  {
+    "Code": "YT",
+    "English Name": "Mayotte",
+    "French Name": "Mayotte"
+  },
+  {
+    "Code": "ZA",
+    "English Name": "South Africa",
+    "French Name": "Afrique du Sud"
+  },
+  {
+    "Code": "ZM",
+    "English Name": "Zambia",
+    "French Name": "Zambie"
+  },
+  {
+    "Code": "ZW",
+    "English Name": "Zimbabwe",
+    "French Name": "Zimbabwe"
+  }
+]

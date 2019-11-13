@@ -1,4 +1,4 @@
-import { ISponsor, IVisit, IVisitor, IContact, ILocation } from "../types";
+import { ISponsor, IVisit, IContact, ILocation, IVisitor } from "../types";
 import { IResponseFormValues } from "../ResponseForm/IResponseFormValues";
 import { IConfirmationProps } from "../Confirmation/IConfirmationProps";
 
