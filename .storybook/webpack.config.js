@@ -1,6 +1,3 @@
-const postcssPartialImport = require('postcss-partial-import');
-const postcssMixins = require('postcss-mixins');
-
 module.exports = ({ config }) => {
   config.module.rules.push({
     test: /\.(ts|tsx)$/,
@@ -11,12 +8,19 @@ module.exports = ({ config }) => {
       // Optional
       {
         loader: require.resolve('react-docgen-typescript-loader'),
-      },
+      },{
+        loader:'string-replace-loader',
+        options:{
+          search:'.css',
+          replace:'.css.json'
+        }
+      }
     ],
   },
     {
       test: /\.css$/,
-      use: [{
+      use: [
+      {
         loader: 'postcss-loader',
         options: {
           config: {
