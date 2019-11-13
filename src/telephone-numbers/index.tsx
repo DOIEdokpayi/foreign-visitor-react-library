@@ -6,22 +6,20 @@ import * as React from 'react'
 import styles from "../styles.css";
 import { ITelephoneNumbersProps } from './ITelephoneNumbersProps';
 
-export default class TelephoneNumbers extends React.Component<ITelephoneNumbersProps> {
-  render() {
-    const {
-      TelephoneNumbers
-    } = this.props;
+export default function TelephoneNumbers(props: ITelephoneNumbersProps): React.ReactElement<ITelephoneNumbersProps> {
+  const {
+    TelephoneNumbers
+  } = props;
 
-    return (
-      <div className={styles.foreignVisitorComponent}>
-        <ul className={"list-unstyled"}>
+  return (
+    <div className={styles.foreignVisitorComponent}>
+      <ul className={"list-unstyled"}>
         {
           TelephoneNumbers.map((telephoneNumber: string, index: number) =>
-            <li key={"ForeignVisitorTelephoneNumber" + index.toString()}><a href={"tel:"+telephoneNumber}>{telephoneNumber}</a></li>
+            <li key={"ForeignVisitorTelephoneNumber" + index.toString()}><a href={"tel:" + telephoneNumber}>{telephoneNumber}</a></li>
           )
         }
-        </ul>
-      </div>
-    )
-  }
+      </ul>
+    </div>
+  );
 }

@@ -36,6 +36,6 @@ export default function TermsAndConditions(props: ITermsAndConditionsProps): JSX
         </div>
       </div>
     </div>
-  )
+  );
 }
 
