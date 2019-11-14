@@ -222,7 +222,7 @@ export enum FormWrapperStatusEnum {
 
 export type Sex = "Female" | "Male";
 
-export interface SPUserProfileResponse{
+export interface SPUserProfileResponse {
   d: SPUserProfile;
 }
 
@@ -244,14 +244,14 @@ export interface SPUserProfile {
   Email: string;
   ExtendedManagers: { results: string[] };
   ExtendedReports: {
-      results: string;
-      __metadata: ISPListItemMetadata;
+    results: string;
+    __metadata: ISPListItemMetadata;
   }
   IsFollowed: boolean;
   LatestPost: string;
   Peers: {
-      results: string[];
-      __metadata: ISPListItemMetadata;
+    results: string[];
+    __metadata: ISPListItemMetadata;
   }
   PersonalUrl: string;
   PictureUrl: string;
@@ -311,10 +311,10 @@ export class FileData {
   Name: string;
   Error?: any;
   constructor(file: File) {
-      this.Name = file.name;
-      getFileBuffer(file)
-          .then((buffer: ArrayBuffer) => this.Buffer = buffer)
-          .catch((reason: any) => this.Error = reason);
+    this.Name = file.name;
+    getFileBuffer(file)
+      .then((buffer: ArrayBuffer) => this.Buffer = buffer)
+      .catch((reason: any) => this.Error = reason);
   }
 }
 
@@ -373,30 +373,30 @@ export class SPContact implements IHasMetadata {
   WebPage?: ISPHyperLinkField;
   Comments?: string;
   constructor(contact: IContact, defaultType?: string) {
-      this.__metadata = !!contact.__metadata ? contact.__metadata :
-          { type: defaultType as string };
-      this.Title = contact.Title as string;
-      this.FirstName = contact.FirstName as string;
-      this.EMail = contact.EMail as string;
-      this.FullName = contact.FullName;
-      this.Company = contact.Company;
-      this.JobTitle = contact.JobTitle;
-      this.WorkPhone = contact.WorkPhone;
-      this.HomePhone = contact.HomePhone;
-      this.CellPhone = contact.CellPhone;
-      this.WorkFax = contact.WorkFax;
-      this.WorkAddress = contact.WorkAddress;
-      this.WorkCity = contact.WorkCity;
-      this.WorkAddress = contact.WorkAddress;
-      this.WorkState = contact.WorkState;
-      this.WorkZip = contact.WorkZip;
-      this.WorkCountry = contact.WorkCountry;
-      this.WebPage = !!contact.WebPage ? {
-          __metadata: { type: "SP.FieldUrlValue" },
-          Description: this.FirstName + " " + this.Title,
-          Url: contact.WebPage
-      } : undefined;
-      this.Comments = contact.Comments;
+    this.__metadata = !!contact.__metadata ? contact.__metadata :
+      { type: defaultType as string };
+    this.Title = contact.Title as string;
+    this.FirstName = contact.FirstName as string;
+    this.EMail = contact.EMail as string;
+    this.FullName = contact.FullName;
+    this.Company = contact.Company;
+    this.JobTitle = contact.JobTitle;
+    this.WorkPhone = contact.WorkPhone;
+    this.HomePhone = contact.HomePhone;
+    this.CellPhone = contact.CellPhone;
+    this.WorkFax = contact.WorkFax;
+    this.WorkAddress = contact.WorkAddress;
+    this.WorkCity = contact.WorkCity;
+    this.WorkAddress = contact.WorkAddress;
+    this.WorkState = contact.WorkState;
+    this.WorkZip = contact.WorkZip;
+    this.WorkCountry = contact.WorkCountry;
+    this.WebPage = !!contact.WebPage ? {
+      __metadata: { type: "SP.FieldUrlValue" },
+      Description: this.FirstName + " " + this.Title,
+      Url: contact.WebPage
+    } : undefined;
+    this.Comments = contact.Comments;
   }
 }
 
@@ -405,10 +405,24 @@ export interface IValidationResult {
   Message?: string;
 }
 
-export interface IFormFieldsBase{
+export interface IFormFieldsBase {
   handleBlur: React.FocusEventHandler<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>;
   handleChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>;
   setFieldValue: (field: string, value: any, shouldValidate?: boolean) => void;
   status: IFormWrapperFieldStatus;
 }
 
+export interface ISPUser {
+  email?: string;
+  id: number;
+  isHiddenInUI: boolean;
+  isShareByEmailGuestUser: boolean;
+  isSiteAdmin: boolean
+  loginName: string;
+  title: string;
+  principalType: number;
+  userId?: {
+    nameId: string;
+    nameIdIssuer: string;
+  }
+}

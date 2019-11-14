@@ -40,7 +40,8 @@ export default {
     commonjs({      
       include: 'node_modules/**',
       namedExports:{
-        'node_modules/formik/node_modules/scheduler/index.js' : ['unstable_runWithPriority', 'LowPriority']
+        'node_modules/formik/node_modules/scheduler/index.js' : ['unstable_runWithPriority', 'LowPriority'],
+        'node_modules/react-is/index.js': ['isValidElementType']
       }
     })
   ]

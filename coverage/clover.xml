@@ -1,6 +1,235 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1573591336008" clover="3.2.0">
-  <project timestamp="1573591336008" name="All files">
-    <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="0" coveredelements="0" complexity="0" loc="0" ncloc="0" packages="0" files="0" classes="0"/>
+<coverage generated="1573756838384" clover="3.2.0">
+  <project timestamp="1573756838384" name="All files">
+    <metrics statements="142" coveredstatements="99" conditionals="49" coveredconditionals="34" methods="35" coveredmethods="22" elements="226" coveredelements="155" complexity="0" loc="142" ncloc="142" packages="12" files="17" classes="17"/>
+    <package name="src">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="printDate.ts" path="C:\Users\iedokpayi\source\repos\foreign-visitors-react-library\src\printDate.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Fields.Feedback">
+      <metrics statements="14" coveredstatements="8" conditionals="3" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="C:\Users\iedokpayi\source\repos\foreign-visitors-react-library\src\Fields\Feedback\index.tsx">
+        <metrics statements="14" coveredstatements="8" conditionals="3" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Fields.FormField">
+      <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
+      <file name="descriptionSpan.tsx" path="C:\Users\iedokpayi\source\repos\foreign-visitors-react-library\src\Fields\FormField\descriptionSpan.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="cond" truecount="1" falsecount="1"/>
+      </file>
+      <file name="index.tsx" path="C:\Users\iedokpayi\source\repos\foreign-visitors-react-library\src\Fields\FormField\index.tsx">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Fields.FormGroup">
+      <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="C:\Users\iedokpayi\source\repos\foreign-visitors-react-library\src\Fields\FormGroup\index.tsx">
+        <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Fields.FormGroupClassName">
+      <metrics statements="12" coveredstatements="8" conditionals="6" coveredconditionals="3" methods="1" coveredmethods="1"/>
+      <file name="index.ts" path="C:\Users\iedokpayi\source\repos\foreign-visitors-react-library\src\Fields\FormGroupClassName\index.ts">
+        <metrics statements="12" coveredstatements="8" conditionals="6" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Fields.RadioButton">
+      <metrics statements="11" coveredstatements="11" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
+      <file name="RadioButtonClick.ts" path="C:\Users\iedokpayi\source\repos\foreign-visitors-react-library\src\Fields\RadioButton\RadioButtonClick.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+      </file>
+      <file name="index.tsx" path="C:\Users\iedokpayi\source\repos\foreign-visitors-react-library\src\Fields\RadioButton\index.tsx">
+        <metrics statements="9" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="5" type="stmt"/>
+        <line num="12" count="5" type="stmt"/>
+        <line num="13" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Fields.RequiredField">
+      <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="C:\Users\iedokpayi\source\repos\foreign-visitors-react-library\src\Fields\RequiredField\index.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="cond" truecount="1" falsecount="1"/>
+      </file>
+    </package>
+    <package name="src.FormWrapper">
+      <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
+      <file name="parseJSONValues.ts" path="C:\Users\iedokpayi\source\repos\foreign-visitors-react-library\src\FormWrapper\parseJSONValues.ts">
+        <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.ResponseForm">
+      <metrics statements="4" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <file name="threatLevelOptionChecked.ts" path="C:\Users\iedokpayi\source\repos\foreign-visitors-react-library\src\ResponseForm\threatLevelOptionChecked.ts">
+        <metrics statements="4" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="0" type="cond" truecount="0" falsecount="2"/>
+      </file>
+    </package>
+    <package name="src.ResponseForm.ResponseFormFields">
+      <metrics statements="26" coveredstatements="23" conditionals="14" coveredconditionals="14" methods="9" coveredmethods="5"/>
+      <file name="ConvertFieldValue.ts" path="C:\Users\iedokpayi\source\repos\foreign-visitors-react-library\src\ResponseForm\ResponseFormFields\ConvertFieldValue.ts">
+        <metrics statements="9" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+      </file>
+      <file name="ccHandler.ts" path="C:\Users\iedokpayi\source\repos\foreign-visitors-react-library\src\ResponseForm\ResponseFormFields\ccHandler.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="5" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="7" count="5" type="stmt"/>
+      </file>
+      <file name="ccRemoveHandler.ts" path="C:\Users\iedokpayi\source\repos\foreign-visitors-react-library\src\ResponseForm\ResponseFormFields\ccRemoveHandler.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="cond" truecount="6" falsecount="0"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+      </file>
+      <file name="ccUpdateHandler.ts" path="C:\Users\iedokpayi\source\repos\foreign-visitors-react-library\src\ResponseForm\ResponseFormFields\ccUpdateHandler.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="cond" truecount="6" falsecount="0"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Utilities">
+      <metrics statements="6" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+      <file name="getFileBuffer.ts" path="C:\Users\iedokpayi\source\repos\foreign-visitors-react-library\src\Utilities\getFileBuffer.ts">
+        <metrics statements="6" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.types">
+      <metrics statements="39" coveredstatements="15" conditionals="10" coveredconditionals="6" methods="9" coveredmethods="5"/>
+      <file name="index.ts" path="C:\Users\iedokpayi\source\repos\foreign-visitors-react-library\src\types\index.ts">
+        <metrics statements="39" coveredstatements="15" conditionals="10" coveredconditionals="6" methods="9" coveredmethods="5"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="208" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="209" count="3" type="stmt"/>
+        <line num="212" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="213" count="3" type="stmt"/>
+        <line num="216" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="217" count="3" type="stmt"/>
+        <line num="218" count="3" type="stmt"/>
+        <line num="219" count="3" type="stmt"/>
+        <line num="220" count="3" type="stmt"/>
+        <line num="309" count="3" type="stmt"/>
+        <line num="313" count="0" type="stmt"/>
+        <line num="314" count="0" type="stmt"/>
+        <line num="315" count="0" type="stmt"/>
+        <line num="316" count="0" type="stmt"/>
+        <line num="317" count="0" type="stmt"/>
+        <line num="319" count="3" type="stmt"/>
+        <line num="356" count="3" type="stmt"/>
+        <line num="376" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="378" count="0" type="stmt"/>
+        <line num="379" count="0" type="stmt"/>
+        <line num="380" count="0" type="stmt"/>
+        <line num="381" count="0" type="stmt"/>
+        <line num="382" count="0" type="stmt"/>
+        <line num="383" count="0" type="stmt"/>
+        <line num="384" count="0" type="stmt"/>
+        <line num="385" count="0" type="stmt"/>
+        <line num="386" count="0" type="stmt"/>
+        <line num="387" count="0" type="stmt"/>
+        <line num="388" count="0" type="stmt"/>
+        <line num="389" count="0" type="stmt"/>
+        <line num="390" count="0" type="stmt"/>
+        <line num="391" count="0" type="stmt"/>
+        <line num="392" count="0" type="stmt"/>
+        <line num="393" count="0" type="stmt"/>
+        <line num="394" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="399" count="0" type="stmt"/>
+        <line num="401" count="3" type="stmt"/>
+      </file>
+    </package>
   </project>
 </coverage>

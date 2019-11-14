@@ -12,6 +12,7 @@ import { newFormWrapperFieldStatus } from './newFormWrapperFieldStatus';
 import { parseJSONValues } from './parseJSONValues';
 const emptyStatus = new Map<string, IFieldStatus>();
 export class FormWrapper extends React.Component<IFormWrapperProps, IFormWrapperState>{
+    private onSubmitFunc: (event: React.FormEvent<HTMLFormElement>) => void;
     private setFieldValueFunc: (field: string, value: any, shouldValidate?: boolean) => void;
     private setStatusFunc: (fieldName: string, fieldStatus: IFieldStatus) => void;
     private getContext(): IFormWrapperContext {
@@ -47,6 +48,7 @@ export class FormWrapper extends React.Component<IFormWrapperProps, IFormWrapper
         };
         this.setFieldValueFunc = this.setFieldValue.bind(this);
         this.setStatusFunc = this.setStatus.bind(this);
+        this.onSubmitFunc = this.onSubmitHandler.bind(this);
     }
     private handleValidation(onValidate: (props: IFormValidateProps) => IFormWrapperFieldStatus): void {
         this.setState({ isValidating: true });
@@ -75,7 +77,7 @@ export class FormWrapper extends React.Component<IFormWrapperProps, IFormWrapper
         }
         return formData;
     }
-    public onSubmitHandler(): void {
+    public onSubmitHandler(event: React.FormEvent<HTMLFormElement>): void {
         const {
             onSubmit: handleSubmit,
             onValidate: handleValidation
@@ -90,6 +92,7 @@ export class FormWrapper extends React.Component<IFormWrapperProps, IFormWrapper
         if (isValid) {
             handleSubmit(this.getContext());
         }
+        event.preventDefault();
     }
     public onResetHandler(): void {
         const {
@@ -122,7 +125,7 @@ export class FormWrapper extends React.Component<IFormWrapperProps, IFormWrapper
         const values = JSON.parse(this.state.formValuesJSON || "{}");
         values[field] = getValue(field, value);
         const newJSONValues = JSON.stringify(values)
-        this.setState({ formValuesJSON:  newJSONValues});
+        this.setState({ formValuesJSON: newJSONValues });
         if (shouldValidate && handleValidation) {
             this.setState({
                 status: handleValidation({
@@ -145,7 +148,7 @@ export class FormWrapper extends React.Component<IFormWrapperProps, IFormWrapper
         } = this.props;
         return <form
             className={formClassName || "form-horizontal"}
-            onSubmit={this.onSubmitHandler.bind(this)}
+            onSubmit={this.onSubmitFunc}
             onReset={this.onResetHandler.bind(this)}
         >
             {renderFormFields(this.getContext())}
