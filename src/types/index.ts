@@ -1,4 +1,5 @@
 import getFileBuffer from "../Utilities/getFileBuffer";
+import { IFormWrapperFieldStatus } from "../FormWrapper/IFormWrapperFieldStatus";
 
 export type BusinessAssociation = "Government" | "Private Sector" | "Academic" | "Non-Profit";
 
@@ -404,5 +405,10 @@ export interface IValidationResult {
   Message?: string;
 }
 
-
+export interface IFormFieldsBase{
+  handleBlur: React.FocusEventHandler<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>;
+  handleChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>;
+  setFieldValue: (field: string, value: any, shouldValidate?: boolean) => void;
+  status: IFormWrapperFieldStatus;
+}
 
