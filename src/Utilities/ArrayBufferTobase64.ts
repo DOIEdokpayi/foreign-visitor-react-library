@@ -1,4 +1,4 @@
-function ArrayBufferToBase64(buffer: ArrayBuffer) {
+export default function ArrayBufferToBase64(buffer: ArrayBuffer) {
     let binary: string = "";
     let bytes: Uint8Array = new Uint8Array(buffer);
     let len: number = bytes.byteLength;
@@ -8,4 +8,3 @@ function ArrayBufferToBase64(buffer: ArrayBuffer) {
     return binary;
 }
 
-export default ArrayBufferToBase64;
