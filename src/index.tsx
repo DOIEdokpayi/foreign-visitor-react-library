@@ -23,7 +23,9 @@ import Visits from './Visits';
 import VisitsMasterDetail from "./VisitsMasterDetail";
 import Wizard from "./Wizard";
 import sendEmail from "./Utilities/SendEmail";
+import { IGetUsersByGroupProps } from "./Utilities/IGetUsersByGroupProps";
+import getUsersByGroup from "./Utilities/getUsersByGroup";
 
 
-export { ArrayBufferToBase64, Confirmation, Contacts, ConvertEmail, EmailAddresses, ErrorComponent, IContact, IErrorHandlerFunc, ILocation, IResponseFormValues, ISponsor, ISponsorFunc, ITermsAndConditionsFormValues, IVisit, IVisitFunc, IVisitor, IVisitorFunc, Loading, Locations, RequestStatusEnum, ProgressBar, sendEmail, Sponsors, styles, TelephoneNumbers, TermsAndConditions, ThreatLevelEnum, Visits, Visitors, VisitorsMasterDetail, VisitsMasterDetail, Wizard };
-export default { ArrayBufferToBase64, Confirmation, Contacts, ConvertEmail, EmailAddresses, ErrorComponent, Loading, Locations, ProgressBar, RequestStatusEnum, sendEmail, Sponsors, styles, TelephoneNumbers, TermsAndConditions, ThreatLevelEnum, Visits, Visitors, VisitorsMasterDetail, VisitsMasterDetail, Wizard };
+export { ArrayBufferToBase64, Confirmation, Contacts, ConvertEmail, EmailAddresses, ErrorComponent, getUsersByGroup, IContact, IErrorHandlerFunc, IGetUsersByGroupProps, ILocation, IResponseFormValues, ISponsor, ISponsorFunc, ITermsAndConditionsFormValues, IVisit, IVisitFunc, IVisitor, IVisitorFunc, Loading, Locations, RequestStatusEnum, ProgressBar, sendEmail, Sponsors, styles, TelephoneNumbers, TermsAndConditions, ThreatLevelEnum, Visits, Visitors, VisitorsMasterDetail, VisitsMasterDetail, Wizard };
+export default { ArrayBufferToBase64, Confirmation, Contacts, ConvertEmail, EmailAddresses, ErrorComponent, getUsersByGroup, Loading, Locations, ProgressBar, RequestStatusEnum, sendEmail, Sponsors, styles, TelephoneNumbers, TermsAndConditions, ThreatLevelEnum, Visits, Visitors, VisitorsMasterDetail, VisitsMasterDetail, Wizard };

@@ -1,9 +1,5 @@
 import { ISPUser } from "../types";
-
-export interface IGetUsersByGroupProps {
-    group: string;
-    requestDigest?: string;
-}
+import { IGetUsersByGroupProps } from "./IGetUsersByGroupProps";
 
 export default function getUsersByGroup(props: IGetUsersByGroupProps): Promise<ISPUser[]> {
     const { group, requestDigest } = props;
