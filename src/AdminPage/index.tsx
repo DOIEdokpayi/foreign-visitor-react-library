@@ -5,7 +5,7 @@
 import * as React from 'react'
 import { IAdminPageProps } from './IAdminPageProps';
 import { IAdminPageState } from './IAdminPageState';
-import { ErrorComponent } from '../ErrorComponent';
+import ErrorComponent from '../ErrorComponent';
 import { AdminPageImpl } from './AdminPageImpl';
 
 export class AdminPage extends React.Component<IAdminPageProps, IAdminPageState> {

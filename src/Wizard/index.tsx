@@ -4,7 +4,7 @@ import { IWizardPage, NavLinkRenderer } from "./IWizardPage";
 import IWizardProps from "./IWizardProps";
 import IWizardState from "./IWizardState";
 
-class Wizard extends React.Component<IWizardProps, IWizardState> {
+export default class Wizard extends React.Component<IWizardProps, IWizardState> {
   private hashChangeFunction: (ev: HashChangeEvent) => void;
   constructor(props: IWizardProps) {
     super(props);
@@ -70,5 +70,3 @@ class Wizard extends React.Component<IWizardProps, IWizardState> {
     }
   }
 }
-
-export default Wizard;

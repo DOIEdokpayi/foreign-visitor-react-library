@@ -1,6 +1,6 @@
 import { SPUserProfile, SPUserProfileResponse } from "../types";
 
-function getSPUserProfile(): Promise<SPUserProfile> {
+export default function getSPUserProfile(): Promise<SPUserProfile> {
 
     return new Promise<SPUserProfile>(
         (
@@ -32,5 +32,3 @@ function getSPUserProfile(): Promise<SPUserProfile> {
 
     );
 }
-
-export default getSPUserProfile;

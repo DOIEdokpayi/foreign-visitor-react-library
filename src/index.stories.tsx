@@ -1,9 +1,11 @@
 import * as React from 'react';
-import { TelephoneNumbers, EmailAddresses, Sponsors, Visits, Loading, Visitors, IVisitor, Contacts, IContact, ILocation, Locations, TermsAndConditions, ITermsAndConditionsFormValues, IResponseFormValues, ISponsor, VisitorsMasterDetail } from '.';
+import { TelephoneNumbers, EmailAddresses, Sponsors, Visits, Loading, Visitors, IVisitor, Contacts, IContact, ILocation, Locations, TermsAndConditions, ITermsAndConditionsFormValues, IResponseFormValues, ISponsor, VisitorsMasterDetail, Wizard, ProgressBar, VisitsMasterDetail } from '.';
 import ResponseForm from './ResponseForm';
 import { AdminPage } from './AdminPage';
-import { IVisit } from './types';
+import { IVisit, IVisitListInformation, SPUserProfile } from './types';
 import Confirmation from './Confirmation';
+import { NavLink, Route, HashRouter, Switch } from 'react-router-dom';
+import ErrorComponent from './ErrorComponent';
 
 export default { title: 'Foreign Visitor React Components' };
 
@@ -174,7 +176,105 @@ export const AdminPageComponent = () => (
 );
 
 export const VisitorsMasterDetailComponent = () => {
-    return <VisitorsMasterDetail
-        Visitors={new Map<string, IVisitor>(mockVisitors.map((visitor: IVisitor, index: number) => [index.toString(), visitor]))}
-        EditVisitorUrl="EditVisitorUrl" DispatchDelete={(id: string) => alert("Attempted to delete visitor with id: " + id)} />
+    return <div className="container-fluid wizard-container">
+        <div className="row">
+            <HashRouter>
+                <Switch>
+                    <Route exact={true}
+                        path={"/"}
+                        render={() => <VisitorsMasterDetail
+                            Visitors={new Map<string, IVisitor>(mockVisitors.map((visitor: IVisitor, index: number) => [index.toString(), visitor]))}
+                            DispatchDelete={(id: string) => alert("Attempted to delete visitor with id: " + id)}
+                            EditVisitorUrl="EditVisitorUrl" />} />
+                </Switch>
+            </HashRouter>
+        </div>
+    </div>;
+}
+
+export const WizardComponent = () => {
+    return <Wizard Pages={[{
+        Name: "Terms and Conditions",
+        Order: 0,
+        MatchHash: {
+            Hash: "#/",
+            Page: "Terms and Conditions"
+        },
+        RenderNavLink: (index: number) => <NavLink key={"Nav" + index} to={""}>
+            Terms and Conditions
+                                            </NavLink>,
+        RenderRouter: (index: number) => <Route exact={true} key={"Route" + index}
+            path={"/"}
+            render={() => <h1>Terms and Conditions apply!</h1>} />
+    }]} userEmailService={() => new Promise<string>(
+        (resolve: (value: string) => void) => {
+            setTimeout(() => resolve("john_tester@ios.doi.gov"), 300)
+        }
+    )} />
+}
+
+export const ProgressBarComponent = () => {
+    return <ProgressBar Progress={Math.random()} />
+}
+
+export const ErrorComponentDemonstration = () => {
+    return <ErrorComponent errorMessage="Error message goes here..." />
+}
+
+export const VisitsMasterDetailComponent = () => {
+    return <div className="container-fluid wizard-container">
+        <div className="row">
+            <HashRouter>
+                <Switch>
+                    <Route exact={true}
+                        path={"/"}
+                        render={() => <VisitsMasterDetail
+                            EarliestArrivalDate={new Date}
+                            Redirect="redirect"
+                            listItemEntityTypeFullName="list item entity type"
+                            DispatchDelete={(id: string) => alert("Attempted to delete visitor with id: " + id)}
+                            DispatchAttachment={(attachments: FileList) => console.log(attachments)}
+                            DispatchVisitInfo={(visitInfo: IVisitListInformation) => console.log(visitInfo)}
+                            userProfileService={() => {
+                                return new Promise<SPUserProfile>(
+                                    ((resolve: (value: SPUserProfile) => void) => {
+                                        setTimeout(() => {
+                                            resolve({
+                                                AccountName: "doi\\test",
+                                                DisplayName: "Test",
+                                                Email: "test@ios.doi.gov",
+                                                ExtendedManagers: {
+                                                    results: ["OCIO", "OLES"]
+                                                },
+                                                ExtendedReports: {
+                                                    results: "",
+                                                    __metadata: {}
+                                                },
+                                                IsFollowed: false,
+                                                LatestPost: "",
+                                                Peers: {
+                                                    results: ["tester1", "tester2"],
+                                                    __metadata: {}
+                                                },
+                                                PersonalUrl: "https://doi.gov",
+                                                PictureUrl: "https://doi.gov",
+                                                Title: "test",
+                                                UserProfileProperties: {
+                                                    results: [],
+                                                    UserUrl: "https://doi.gov"
+                                                },
+                                                UserUrl: "https://doi.gov",
+                                                __metadata: {}
+
+                                            });
+                                        }, 300)
+                                    })
+                                );
+                            }}
+                        />} />
+
+                </Switch>
+            </HashRouter>
+        </div>
+    </div>;
 }

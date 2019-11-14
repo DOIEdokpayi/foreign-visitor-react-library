@@ -19,6 +19,7 @@ export default function Locations(props: ILocationsProps): React.ReactElement<IL
                     <th>Street Address</th>
                     <th>City</th>
                     <th>State</th>
+                    <th>Zip code</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,16 +27,19 @@ export default function Locations(props: ILocationsProps): React.ReactElement<IL
                     Locations.map((location: ILocation, index: number) =>
                         <tr key={"Contact" + index.toString()}>
                             <td>
-                                <a className={styles.foreignVisitorAnchorTag} href="#" onClick={() => { ClickHandler(location) }}>{location.Facility}</a>
+                                <a className={styles.foreignVisitorAnchorTag} href="#" onClick={() => { ClickHandler(location) }}>{location.Title}</a>
                             </td>
                             <td>
-                                {location.StreetAddress}
+                                {location.LEPortalForeignVisitorStreetAddr}
                             </td>
                             <td>
-                                {location.City}
+                                {location.LEPortalForeignVisitorFacilityCi}
                             </td>
                             <td>
-                                {location.State}
+                                {location.LEPortalUSStatesAndTerritories}
+                            </td>
+                            <td>
+                                {location.LEPortalZipCode}
                             </td>
                         </tr>)
                 }

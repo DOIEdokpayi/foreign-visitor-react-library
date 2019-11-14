@@ -2,6 +2,9 @@ import getFileBuffer from "../Utilities/getFileBuffer";
 
 export type BusinessAssociation = "Government" | "Private Sector" | "Academic" | "Non-Profit";
 
+export const bureaus: string[] =
+  ["FWS", "USGS", "BIA", "BIE", "BLM", "BOEM", "BOR", "BSEE", "IOS", "NPS", "USPP", "OSMRE", "OPMB", "OIA", "SOL", "OIG", "OCIO", "OLES", "OSTAI"];
+
 export interface country {
   Code: string;
   "English Name": string;

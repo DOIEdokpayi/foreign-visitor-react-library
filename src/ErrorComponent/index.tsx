@@ -3,12 +3,9 @@
  */
 
 import * as React from 'react';
-export interface IErrorComponentProps {
-    errorMessage: string;
-    error?: Error;
-    errorInfo?: React.ErrorInfo;
-}
-export function ErrorComponent(props: IErrorComponentProps): React.ReactElement<IErrorComponentProps> {
+import IErrorComponentProps from './IErrorComponentProps';
+
+export default function ErrorComponent(props: IErrorComponentProps): React.ReactElement<IErrorComponentProps> {
     const { errorMessage, error, errorInfo } = props;
     return <div className="container-fluid">
         <div className="row">
