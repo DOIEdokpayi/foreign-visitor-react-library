@@ -1,8 +1,8 @@
-export default function getListItemEntityType(listTitle: string): Promise<string>{
+export default function getListItemEntityType(listTitle: string): Promise<string> {
     return new Promise<string>(
-        (resolve:(value:string)=>void, reject:(reason:any)=>void)=>{
-            if(typeof _spPageContextInfo !== "undefined"){
-                const url:string = _spPageContextInfo.webAbsoluteUrl  + `/_api/Web/Lists/getbytitle('${listTitle}')/ListItemEntityTypeFullName`;
+        (resolve: (value: string) => void, reject: (reason: any) => void) => {
+            if (typeof _spPageContextInfo !== "undefined") {
+                const url: string = _spPageContextInfo.webAbsoluteUrl + `/_api/Web/Lists/getbytitle('${listTitle}')/ListItemEntityTypeFullName`;
                 fetch(url, {
                     credentials: "same-origin",
                     headers: {
@@ -12,15 +12,15 @@ export default function getListItemEntityType(listTitle: string): Promise<string
                 }).then((response: Response) => {
                     if (response.ok) {
                         response.json()
-                            .then((data: {d:{ListItemEntityTypeFullName:string}}) => resolve(data.d.ListItemEntityTypeFullName));
+                            .then((data: { d: { ListItemEntityTypeFullName: string } }) => resolve(data.d.ListItemEntityTypeFullName));
                     } else {
                         reject(response.statusText);
                     }
                 }).catch((reason: any) => reject(reason));
             }
-            else{
+            else {
                 reject("SharePoint Page Context is not defined!");
             }
         }
     );
-}
+} 

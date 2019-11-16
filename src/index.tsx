@@ -14,7 +14,7 @@ import Sponsors from './sponsors';
 import styles from './styles.css';
 import TelephoneNumbers from './telephone-numbers';
 import TermsAndConditions from './termsAndConditions';
-import { IContact, IErrorHandlerFunc, ILocation, ISponsor, ISponsorFunc, ITermsAndConditionsFormValues, IVisit, IVisitFunc, IVisitor, IVisitorFunc, RequestStatusEnum, ThreatLevelEnum } from './types';
+import { IContact, IErrorHandlerFunc, ILocation, ISponsor, ISponsorFunc, ISPUser, ITermsAndConditionsFormValues, IVisit, IVisitFunc, IVisitor, IVisitorFunc, RequestStatusEnum, ThreatLevelEnum } from './types';
 import ArrayBufferToBase64 from "./Utilities/ArrayBufferTobase64";
 import ConvertEmail from "./Utilities/ConvertEmail";
 import getListItemEntityType from "./Utilities/getListItemEntityType";
@@ -28,5 +28,5 @@ import VisitsMasterDetail from "./VisitsMasterDetail";
 import Wizard from "./Wizard";
 
 
-export { ArrayBufferToBase64, Confirmation, Contacts, ConvertEmail, EmailAddresses, ErrorComponent, getListItemEntityType, getUsersByGroup, IContact, IErrorHandlerFunc, IGetUsersByGroupProps, ILocation, IResponseFormValues, ISponsor, ISponsorFunc, ITermsAndConditionsFormValues, IVisit, IVisitFunc, IVisitor, IVisitorFunc, Loading, Locations, RequestStatusEnum, ProgressBar, sendEmail, Sponsors, styles, TelephoneNumbers, TermsAndConditions, ThreatLevelEnum, Visits, Visitors, VisitorsMasterDetail, VisitsMasterDetail, Wizard };
+export { ArrayBufferToBase64, Confirmation, Contacts, ConvertEmail, EmailAddresses, ErrorComponent, getListItemEntityType, getUsersByGroup, IContact, IErrorHandlerFunc, IGetUsersByGroupProps, ILocation, IResponseFormValues, ISponsor, ISponsorFunc, ISPUser, ITermsAndConditionsFormValues, IVisit, IVisitFunc, IVisitor, IVisitorFunc, Loading, Locations, RequestStatusEnum, ProgressBar, sendEmail, Sponsors, styles, TelephoneNumbers, TermsAndConditions, ThreatLevelEnum, Visits, Visitors, VisitorsMasterDetail, VisitsMasterDetail, Wizard };
 export default { ArrayBufferToBase64, Confirmation, Contacts, ConvertEmail, EmailAddresses, ErrorComponent, getListItemEntityType, getUsersByGroup, Loading, Locations, ProgressBar, RequestStatusEnum, sendEmail, Sponsors, styles, TelephoneNumbers, TermsAndConditions, ThreatLevelEnum, Visits, Visitors, VisitorsMasterDetail, VisitsMasterDetail, Wizard };
