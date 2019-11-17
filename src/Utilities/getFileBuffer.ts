@@ -1,4 +1,4 @@
-function getFileBuffer(file: File): Promise<ArrayBuffer> {
+export default function getFileBuffer(file: File): Promise<ArrayBuffer> {
     const reader: FileReader = new FileReader();
     return new Promise<ArrayBuffer>(
         (
@@ -9,5 +9,3 @@ function getFileBuffer(file: File): Promise<ArrayBuffer> {
             reader.readAsArrayBuffer(file);
         });
 }
-
-export default getFileBuffer;

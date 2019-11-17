@@ -18,8 +18,7 @@ export default function getUsersByGroup(props: IGetUsersByGroupProps): Promise<I
                         {
                             accept: "application/json;odata=verbose",
                             "content-type": "application/json;odata=verbose"
-                        },
-                    method: "POST"
+                        }
                 })
                     .then((response: Response) => {
                         if (response.ok) {

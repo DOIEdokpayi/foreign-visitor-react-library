@@ -1,7 +1,14 @@
 import * as React from "react";
-import { IEditFormFooterProps } from "./IEditFormFooterProps";
+export interface IEditFormFooterProps {
+    CancelClick: () => void;
+    DeleteEnabled: boolean;
+    DeleteClick: () => void;
+    SaveClick?: () => void;
+    ResetClick?: () => void;
+}
 
-export function EditFormFooter(props: IEditFormFooterProps): JSX.Element {
+
+export default function EditFormFooter(props: IEditFormFooterProps): JSX.Element {
     const {CancelClick, DeleteClick, DeleteEnabled, ResetClick, SaveClick } = props;
     return <div className="row">
         <div className="col-xs-10 col-xs-offset-2">

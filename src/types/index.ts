@@ -412,18 +412,59 @@ export interface IFormFieldsBase {
   status: IFormWrapperFieldStatus;
 }
 
-export interface ISPUser {
-  email?: string;
-  id: number;
-  isHiddenInUI: boolean;
-  isShareByEmailGuestUser: boolean;
-  isSiteAdmin: boolean
-  loginName: string;
-  title: string;
-  principalType: number;
-  userId?: {
+export interface ISPUser extends IHasMetadata {
+  Groups: ISPDeferred;
+  Email?: string;
+  Id: number;
+  IsHiddenInUI: boolean;
+  IsShareByEmailGuestUser: boolean;
+  IsSiteAdmin: boolean
+  LoginName: string;
+  Title: string;
+  PrincipalType: number;
+  UserId?: {
+    __metadata: ISPListItemMetadata;
     nameId: string;
     nameIdIssuer: string;
   }
 }
-
+export interface ISPDeferred {
+  __deferred: {
+    uri: string;
+  }
+}
+export interface ISPFile {
+  __metadata: ISPListItemMetadata;
+  Author: ISPDeferred;
+  CheckedOutByUser: ISPDeferred;
+  EffectiveInformationRightsManagementSettings: ISPDeferred;
+  InformationRightsManagementSettings: ISPDeferred;
+  ListItemAllFields: ISPDeferred;
+  LockedByUser: ISPDeferred;
+  ModifiedBy: ISPDeferred;
+  Properties: ISPDeferred;
+  Versions: ISPDeferred;
+  CheckInComment: string;
+  CheckOutType: number;
+  ContentTag: string;
+  CustomizedPageStatus: number;
+  ETag: string;
+  Exists: boolean;
+  IrmEnabled: boolean;
+  Length: string;
+  Level: number;
+  LinkingUrl: string;
+  MajorVersion: number;
+  MinorVersion: number;
+  Name: string;
+  ServerRelativeUrl: string;
+  TimeCreated: Date | string;
+  TimeLastModified: Date | string;
+  Title: string;
+  UIVersion: number;
+  UIVersionLabel: string;
+  UniqueId: string;
+}
+export interface ISPFileResponse {
+  d: ISPFile;
+}

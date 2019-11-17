@@ -1,0 +1,34 @@
+import { ISPListItemPostResponse } from "../types";
+
+export default function Get(stringifiedData: string, url: string, requestDigest?: string): Promise<ISPListItemPostResponse> {
+  return new Promise<ISPListItemPostResponse>(
+    (
+      resolve: (value?: any) => void,
+      reject: (reason: any) => void
+    ) => {
+      fetch(url, {
+        body: stringifiedData,
+        credentials: "same-origin",
+        headers: requestDigest ? {
+          accept: "application/json;odata=verbose",
+          "content-type": "application/json;odata=verbose",
+          "X-RequestDigest": requestDigest
+        } :
+          {
+            accept: "application/json;odata=verbose",
+            "content-type": "application/json;odata=verbose"
+          },
+        method: "GET"
+      })
+        .then((response: Response) => {
+          if (response.ok) {
+            response.json()
+              .then((data: ISPListItemPostResponse) => resolve(data));
+          } else {
+            reject(JSON.stringify(response));
+          }
+        })
+        .catch((reason: any) => reject(reason));
+    }
+  );
+}
