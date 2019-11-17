@@ -25,7 +25,7 @@ export default function Post(stringifiedData: string, url: string, requestDigest
             response.json()
               .then((data: ISPListItemPostResponse) => resolve(data));
           } else {
-            reject(response.statusText);
+            reject(JSON.stringify(response));
           }
         })
         .catch((reason: any) => reject(reason));
