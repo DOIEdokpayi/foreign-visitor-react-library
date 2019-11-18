@@ -23,13 +23,19 @@ import { IConfirmationProps } from "../Confirmation/IConfirmationProps";
 export class AdminPageImpl extends React.Component<IAdminPageImplProps, IAdminPageImplState>  {
     private locationHandlerFunc: ILocationFunc;
     private locationHandler(location: ILocation): void {
-        const streetAddressInfo = location.StreetAddress.split(" ").join("+");
-        const url = "https://www.google.com/maps/place/" + streetAddressInfo + ",+" + location.City + ",+ " + location.State;
-        window.open(url, "_blank");
+        const city = location.LEPortalForeignVisitorFacilityCi;
+        const state = location.LEPortalUSStatesAndTerritories;
+        const streetAddress = location.LEPortalForeignVisitorStreetAddr;
+        if (streetAddress && city && state) {
+            const streetAddressInfo = streetAddress.split(" ").join("+");
+            const url = "https://www.google.com/maps/place/" +
+                streetAddressInfo + ",+" + city + ",+ " + state;
+            window.open(url, "_blank");
+        }
     }
     private contactHandlerFunc: IContactFunc;
     private contactHandler(contact: IContact): void {
-        const url = "https://www.linkedin.com/search/results/all/?keywords=" + contact.FirstName + "%20" + contact.LastName;
+        const url = "https://www.linkedin.com/search/results/all/?keywords=" + contact.FirstName + "%20" + contact.Title;
         window.open(url, "_blank");
     }
 

@@ -26,7 +26,7 @@ export default function Contacts(props: IContactProps): React.ReactElement<ICont
                     Contacts.map((contact: IContact, index: number) =>
                         <tr key={"Contact" + index.toString()}>
                             <td>
-                                <a className={styles.foreignVisitorAnchorTag} href="#" onClick={() => { ClickHandler(contact) }}>{contact.LastName}</a>
+                                <a className={styles.foreignVisitorAnchorTag} href="#" onClick={() => { ClickHandler(contact) }}>{contact.Title}</a>
                             </td>
                             <td>
                                 {contact.FirstName}
