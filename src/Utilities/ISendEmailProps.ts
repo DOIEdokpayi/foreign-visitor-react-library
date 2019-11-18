@@ -2,7 +2,7 @@ export interface ISendEmailProps {
     body: string;
     cc: string[];
     from: string;
-    requestDigest?: string;
+    requestDigest: string;
     subject: string;
     to: string[];
 }
