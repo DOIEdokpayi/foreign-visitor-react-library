@@ -29,6 +29,7 @@
     "@types/sharepoint": "^2016.1.6",
     "awesome-typescript-loader": "^5.2.1",
     "cosmiconfig": "^6.0.0",
+    "create-readme": "^2.1.2",
     "isemail": "^3.2.0",
     "react-docgen-typescript-loader": "^3.3.0",
     "react-responsive-modal": "^4.0.1",

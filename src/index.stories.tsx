@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { TelephoneNumbers, EmailAddresses, Sponsors, Visits, Loading, Visitors, IVisitor, Contacts, IContact, ILocation, Locations, TermsAndConditions, ITermsAndConditionsFormValues, IResponseFormValues, ISponsor, VisitorsMasterDetail, Wizard, ProgressBar, VisitsMasterDetail } from '.';
 import ResponseForm from './ResponseForm';
-import { AdminPage } from './AdminPage';
+import AdminPage from './AdminPage';
 import { IVisit, IVisitListInformation, SPUserProfile } from './types';
 import Confirmation from './Confirmation';
 import { NavLink, Route, HashRouter, Switch } from 'react-router-dom';
@@ -93,8 +93,6 @@ export const LocationsComponent = () => (<Locations
 export const TermsAndConditionsComponent = () => (<TermsAndConditions
     IconUrl={"https://en.wikipedia.org/static/images/project-logos/enwiki-2x.png"}
     TermsAccepted={false}
-    Redirect={"https://doi.org"}
-
     SubmitActionFunc={(formData: ITermsAndConditionsFormValues) => {
         if (formData.TermsAccepted) {
             alert("Terms and conditions accepted!");

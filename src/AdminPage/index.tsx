@@ -8,7 +8,7 @@ import { IAdminPageState } from './IAdminPageState';
 import ErrorComponent from '../ErrorComponent';
 import { AdminPageImpl } from './AdminPageImpl';
 
-export class AdminPage extends React.Component<IAdminPageProps, IAdminPageState> {
+export default class AdminPage extends React.Component<IAdminPageProps, IAdminPageState> {
     constructor(props: IAdminPageProps) {
         super(props);
         this.state = {};
