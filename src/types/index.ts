@@ -471,3 +471,12 @@ export interface ISPFileResponse {
 export interface ISPListItemEntity { ListItemEntityTypeFullName: string }
 export interface ISPListItemEntityTypeResponse { d: ISPListItemEntity }
 export interface ISPUsersResponse { d: { results: ISPUser[] } }
+export interface ISPRESTAPIError {
+  error: {
+    code: string;
+    message: {
+      lang: string;
+      value: string
+    }
+  }
+}
