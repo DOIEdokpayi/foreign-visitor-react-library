@@ -1,49 +1,30 @@
 import { ISendEmailProps } from "./ISendEmailProps";
+import Post from "./Post";
 
-export default function sendEmail(props: ISendEmailProps): Promise<void> {
+export default function sendEmail(props: ISendEmailProps): Promise<any> {
     const { body, cc, from, requestDigest, subject, to } = props;
-    return new Promise<void>(
-        (resolve: () => void, reject: (reason: any) => void) => {
+    return new Promise<any>(
+        (resolve: (value:any) => void, reject: (reason: any) => void) => {
             if (typeof _spPageContextInfo !== "undefined") {
                 var siteurl = _spPageContextInfo.webServerRelativeUrl;
                 var emailRESTEndpoint = siteurl + "/_api/SP.Utilities.Utility.SendEmail";
-                fetch(emailRESTEndpoint, {
-                    body: JSON.stringify({
-                        "properties": {
+                Post(JSON.stringify({
+                    "properties": {
 
-                            "__metadata": { "type": "SP.Utilities.EmailProperties" },
+                        "__metadata": { "type": "SP.Utilities.EmailProperties" },
 
-                            "From": from,
+                        "From": from,
 
-                            "To": { "results": to },
+                        "To": { "results": to },
 
-                            "Body": body,
+                        "Body": body,
 
-                            "CC": { "results": cc },
+                        "CC": { "results": cc },
 
-                            "Subject": subject
-                        }
-                    }),
-                    credentials: "same-origin",
-                    headers: requestDigest ? {
-                        accept: "application/json;odata=verbose",
-                        "content-type": "application/json;odata=verbose",
-                        "X-RequestDigest": requestDigest
-                    } :
-                        {
-                            accept: "application/json;odata=verbose",
-                            "content-type": "application/json;odata=verbose"
-                        },
-                    method: "POST"
-                })
-                    .then((response: Response) => {
-                        if (response.ok) {
-                            response.json()
-                                .then(() => resolve());
-                        } else {
-                            reject(new Error(response.statusText));
-                        }
-                    })
+                        "Subject": subject
+                    }
+                }), emailRESTEndpoint, requestDigest)
+                    .then((data:any) => resolve(data))
                     .catch((reason: any) => reject(reason));
             }
             else {

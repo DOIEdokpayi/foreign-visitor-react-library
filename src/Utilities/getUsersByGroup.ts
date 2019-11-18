@@ -1,35 +1,18 @@
-import { ISPUser } from "../types";
+import { ISPUser, ISPUsersResponse } from "../types";
 import { IGetUsersByGroupProps } from "./IGetUsersByGroupProps";
+import Get from "./Get";
 
 export default function getUsersByGroup(props: IGetUsersByGroupProps): Promise<ISPUser[]> {
     const { group, requestDigest } = props;
     return new Promise<ISPUser[]>(
-        (resolve: (value:ISPUser[]) => void, reject: (reason: any) => void) => {
+        (resolve: (value: ISPUser[]) => void, reject: (reason: any) => void) => {
             if (typeof _spPageContextInfo !== "undefined") {
                 var siteurl = _spPageContextInfo.webServerRelativeUrl;
                 var siteGroupRESTEndpoint = siteurl + `/_api/web/sitegroups/getbyname('${group}')/Users`;
-                fetch(siteGroupRESTEndpoint, {
-                    credentials: "same-origin",
-                    headers: requestDigest ? {
-                        accept: "application/json;odata=verbose",
-                        "content-type": "application/json;odata=verbose",
-                        "X-RequestDigest": requestDigest
-                    } :
-                        {
-                            accept: "application/json;odata=verbose",
-                            "content-type": "application/json;odata=verbose"
-                        }
-                })
-                    .then((response: Response) => {
-                        if (response.ok) {
-                            response.json()
-                                .then((value:{d:{results:ISPUser[]}}) => resolve(
-                                    value.d.results
-                                ));
-                        } else {
-                            reject(new Error(response.statusText));
-                        }
-                    })
+                Get<ISPUsersResponse>(siteGroupRESTEndpoint, requestDigest)
+                    .then((value: ISPUsersResponse) => resolve(
+                        value.d.results
+                    ))
                     .catch((reason: any) => reject(reason));
             }
             else {

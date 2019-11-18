@@ -1,4 +1,5 @@
 import { SPUserProfile, SPUserProfileResponse } from "../types";
+import Get from "./Get";
 
 export default function getSPUserProfile(): Promise<SPUserProfile> {
 
@@ -9,20 +10,9 @@ export default function getSPUserProfile(): Promise<SPUserProfile> {
         ) => {
             if (typeof _spPageContextInfo !== "undefined") {
                 const url: string = _spPageContextInfo.siteAbsoluteUrl + "/_api/SP.UserProfiles.PeopleManager/GetMyProperties";
-                fetch(url, {
-                    credentials: "same-origin",
-                    headers: {
-                        accept: "application/json;odata=verbose",
-                        "content-type": "application/json;odata=verbose"
-                    }
-                }).then((response: Response) => {
-                    if (response.ok) {
-                        response.json()
-                            .then((data: SPUserProfileResponse) => resolve(data.d));
-                    } else {
-                        reject(response.statusText);
-                    }
-                }).catch((reason: any) => reject(reason));
+                Get<SPUserProfileResponse>(url)
+                    .then((data: SPUserProfileResponse) => resolve(data.d))
+                    .catch((reason: any) => reject(reason));
             }
             else {
                 reject("_spPageContextInfo is not defined!");

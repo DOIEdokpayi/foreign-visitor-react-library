@@ -468,3 +468,6 @@ export interface ISPFile {
 export interface ISPFileResponse {
   d: ISPFile;
 }
+export interface ISPListItemEntity { ListItemEntityTypeFullName: string }
+export interface ISPListItemEntityTypeResponse { d: ISPListItemEntity }
+export interface ISPUsersResponse { d: { results: ISPUser[] } }
