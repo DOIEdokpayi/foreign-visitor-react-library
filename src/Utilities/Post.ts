@@ -1,6 +1,6 @@
 import { ISPListItemPostResponse } from "../types";
 
-export default function Post(stringifiedData: string, url: string, requestDigest?: string): Promise<ISPListItemPostResponse> {
+export default function Post(stringifiedData: string, url: string, requestDigest: string): Promise<ISPListItemPostResponse> {
   return new Promise<ISPListItemPostResponse>(
     (
       resolve: (value?: any) => void,
