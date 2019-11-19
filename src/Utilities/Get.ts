@@ -19,11 +19,12 @@ export default function Get<T>(url: string, requestDigest?: string): Promise<T> 
         .then((response: Response) => {
           if (response.ok) {
             response.json()
-              .then((data: T) => resolve(data));
+              .then((data: T) => resolve(data))
+              .catch((reason: any) => reject(reason));
           } else {
             response.json()
-              .then((data:any)=>reject(data))
-              .catch(()=>reject(response.statusText));
+              .then((data: any) => reject(data))
+              .catch(() => reject(response.statusText));
           }
         })
         .catch((reason: any) => reject(reason));
