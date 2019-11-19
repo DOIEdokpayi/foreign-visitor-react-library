@@ -1,16 +1,16 @@
 import { ISponsor, IVisit, IVisitor, ILocation, IContact } from '../types';
 import { IResponseFormValues } from '../ResponseForm/IResponseFormValues';
 export interface IAdminPageProps {
-    emailAddressesService: (visitorId: string) => Promise<string[]>;
+    emailAddressesService: (visitor: IVisitor) => Promise<string[]>;
     errorLoggingService?: (errorMessage: string, stack?: string) => Promise<void>;
-    escortsService: (visitId: string) => Promise<IContact[]>;
+    escortsService: (visit: IVisit) => Promise<IContact[]>;
     IsAdmin: boolean;
     getResponseFormValuesService: (sponsor: ISponsor, visit: IVisit) => Promise<IResponseFormValues>;
-    locationsService: (visitId: string) => Promise<ILocation[]>;
+    locationsService: (visit: IVisit) => Promise<ILocation[]>;
     saveResponseFormValuesService: (responseFormData: IResponseFormValues) => Promise<void>;
     sponsorsService: () => Promise<ISponsor[]>;
-    telephonesService: (visitorId: string) => Promise<string[]>;
-    translatorsService: (visitId: string) => Promise<IContact[]>;
-    visitsService: (sponsorId: string) => Promise<IVisit[]>;
-    visitorsService: (visitId: string) => Promise<IVisitor[]>;
+    telephonesService: (visitor: IVisitor) => Promise<string[]>;
+    translatorsService: (visit: IVisit) => Promise<IContact[]>;
+    visitsService: (sponsor: ISponsor) => Promise<IVisit[]>;
+    visitorsService: (visit: IVisit) => Promise<IVisitor[]>;
 }

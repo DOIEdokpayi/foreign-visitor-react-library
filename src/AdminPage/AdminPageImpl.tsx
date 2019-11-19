@@ -97,7 +97,7 @@ export class AdminPageImpl extends React.Component<IAdminPageImplProps, IAdminPa
                             ClickHandler={(sponsor: ISponsor) => {
                                 const { visitsService } = this.props;
                                 this.setState({ selectedSponsor: sponsor });
-                                visitsService(sponsor.Id as string)
+                                visitsService(sponsor)
                                     .then((visits: IVisit[]) => this.setState({ visits: visits }))
                                     .catch(handleError);
                             }} />
@@ -117,16 +117,16 @@ export class AdminPageImpl extends React.Component<IAdminPageImplProps, IAdminPa
                             }
                             IsAdmin={IsAdmin}
                             SelectHandler={(visit: IVisit) => {
-                                escortsService(visit.Id as string)
+                                escortsService(visit)
                                     .then((escortContacts: IContact[]) => this.setState({ escorts: escortContacts }))
                                     .catch(handleError);
-                                translatorsService(visit.Id as string)
+                                translatorsService(visit)
                                     .then((translatorContacts: IContact[]) => this.setState({ translators: translatorContacts }))
                                     .catch(handleError);
-                                locationsService(visit.Id as string)
+                                locationsService(visit)
                                     .then((locationInformation: ILocation[]) => this.setState({ locations: locationInformation }))
                                     .catch(handleError);
-                                visitorsService(visit.Id as string)
+                                visitorsService(visit)
                                     .then((visitors: IVisitor[]) => this.setState({ visitors: visitors }))
                                     .catch(handleError);
                             }
@@ -136,11 +136,11 @@ export class AdminPageImpl extends React.Component<IAdminPageImplProps, IAdminPa
                     <div className="col-md-4 col-xs-12">
                         <VisitorsWrapper
                             ClickHandler={(visitor: IVisitor) => {
-                                emailAddressesService(visitor.id as string)
+                                emailAddressesService(visitor)
                                     .then((emails: string[]) => this.setState({ emailAddresses: emails }))
                                     .catch(handleError);
 
-                                telephonesService(visitor.id as string)
+                                telephonesService(visitor)
                                     .then((telephones: string[]) => this.setState({ telephoneNumbers: telephones }))
                                     .catch(handleError);
                                 this.setState({
