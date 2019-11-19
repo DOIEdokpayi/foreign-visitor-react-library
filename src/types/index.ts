@@ -60,7 +60,7 @@ export interface IContactFunc {
   (contact: IContact): void
 }
 
-export interface IHasMetadata {
+export interface IHasMetadata extends IHasId {
   __metadata?: ISPListItemMetadata;
 }
 
@@ -98,8 +98,11 @@ export interface ISPListItemMetadata {
   uri?: string;
 }
 
+export interface IHasId {
+  Id?: string | number;
+}
 
-export interface ISponsor extends ISPListItemMetadata {
+export interface ISponsor extends IHasId {
   Name: string;
   Telephone: string;
   Email: string
@@ -154,7 +157,7 @@ export interface ISponsorFunc {
   (sponsor: ISponsor): void
 }
 
-export interface IVisit extends ISPListItemMetadata {
+export interface IVisit extends IHasId {
   ArrivalDate: Date;
   DepartureDate: Date;
   DownloadLink: string;

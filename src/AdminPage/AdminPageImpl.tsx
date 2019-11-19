@@ -97,7 +97,7 @@ export class AdminPageImpl extends React.Component<IAdminPageImplProps, IAdminPa
                             ClickHandler={(sponsor: ISponsor) => {
                                 const { visitsService } = this.props;
                                 this.setState({ selectedSponsor: sponsor });
-                                visitsService(sponsor.id as string)
+                                visitsService(sponsor.Id as string)
                                     .then((visits: IVisit[]) => this.setState({ visits: visits }))
                                     .catch(handleError);
                             }} />
@@ -117,16 +117,16 @@ export class AdminPageImpl extends React.Component<IAdminPageImplProps, IAdminPa
                             }
                             IsAdmin={IsAdmin}
                             SelectHandler={(visit: IVisit) => {
-                                escortsService(visit.id as string)
+                                escortsService(visit.Id as string)
                                     .then((escortContacts: IContact[]) => this.setState({ escorts: escortContacts }))
                                     .catch(handleError);
-                                translatorsService(visit.id as string)
+                                translatorsService(visit.Id as string)
                                     .then((translatorContacts: IContact[]) => this.setState({ translators: translatorContacts }))
                                     .catch(handleError);
-                                locationsService(visit.id as string)
+                                locationsService(visit.Id as string)
                                     .then((locationInformation: ILocation[]) => this.setState({ locations: locationInformation }))
                                     .catch(handleError);
-                                visitorsService(visit.id as string)
+                                visitorsService(visit.Id as string)
                                     .then((visitors: IVisitor[]) => this.setState({ visitors: visitors }))
                                     .catch(handleError);
                             }

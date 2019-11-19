@@ -60,9 +60,9 @@ export const VisitsUserView = () => (<Visits
 export const LoadingComponent = () => (<Loading />);
 
 const mockVisitors = [
-    { id: 1, LEPortalVisitorFirstName: "Mohammed", Title: "Saleh", LEPortalPlaceofBirth: "Riyadh, Saudi Arabia" },
-    { id: 2, LEPortalVisitorFirstName: "Xi", Title: "Ping", LEPortalPlaceofBirth: "Beijing, China" },
-    { id: 3, LEPortalVisitorFirstName: "Malcom", Title: "O'Donnell", LEPortalPlaceofBirth: "Ireland" }
+    { Id: 1, LEPortalVisitorFirstName: "Mohammed", Title: "Saleh", LEPortalPlaceofBirth: "Riyadh, Saudi Arabia" },
+    { Id: 2, LEPortalVisitorFirstName: "Xi", Title: "Ping", LEPortalPlaceofBirth: "Beijing, China" },
+    { Id: 3, LEPortalVisitorFirstName: "Malcom", Title: "O'Donnell", LEPortalPlaceofBirth: "Ireland" }
 ];
 export const VisitorsComponent = () => (<Visitors
     Visitors={mockVisitors}
@@ -81,9 +81,9 @@ export const ContactsComponent = () => (<Contacts
 />);
 
 const mockLocations = [
-    { id: 1, Title: "Main Interior Building", LEPortalForeignVisitorStreetAddr: "Eighteenth and C Sts. NW", LEPortalForeignVisitorFacilityCi: "Washington", LEPortalUSStatesAndTerritories: "District of Columbia" },
-    { id: 2, Title: "United States Geological Survey HQ", LEPortalForeignVisitorStreetAddr: "12201 Sunrise Valley Dr", LEPortalForeignVisitorFacilityCi: "Reston", LEPortalUSStatesAndTerritories: "Virginia" },
-    { id: 3, Title: "USFWS Partners for Fish and Wildlife Program", LEPortalForeignVisitorStreetAddr: "5275 Leesburg Pike", LEPortalForeignVisitorFacilityCi: "Falls Church", LEPortalUSStatesAndTerritories: "Virginia" },
+    { Id: 1, Title: "Main Interior Building", LEPortalForeignVisitorStreetAddr: "Eighteenth and C Sts. NW", LEPortalForeignVisitorFacilityCi: "Washington", LEPortalUSStatesAndTerritories: "District of Columbia" },
+    { Id: 2, Title: "United States Geological Survey HQ", LEPortalForeignVisitorStreetAddr: "12201 Sunrise Valley Dr", LEPortalForeignVisitorFacilityCi: "Reston", LEPortalUSStatesAndTerritories: "Virginia" },
+    { Id: 3, Title: "USFWS Partners for Fish and Wildlife Program", LEPortalForeignVisitorStreetAddr: "5275 Leesburg Pike", LEPortalForeignVisitorFacilityCi: "Falls Church", LEPortalUSStatesAndTerritories: "Virginia" },
 ];
 export const LocationsComponent = () => (<Locations
     Locations={mockLocations}
