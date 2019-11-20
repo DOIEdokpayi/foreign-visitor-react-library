@@ -175,6 +175,7 @@ export class AdminPageImpl extends React.Component<IAdminPageImplProps, IAdminPa
                     <div className="row">
                         <div className="col-sm-12">
                             <ResponseForm
+                                {...this.state.responseFormData}
                                 SubmitPageFunc={(values: IResponseFormValues) => {
                                     saveResponseFormValuesService(values);
                                     this.setState({
