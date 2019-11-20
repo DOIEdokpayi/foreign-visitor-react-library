@@ -22,11 +22,12 @@ export default function Confirmation(props: IConfirmationProps): React.ReactElem
             <div className="col-sm-8"><h2>{printDate(arrivalDate)}</h2></div>
 
             {
-                cc.map((email: string, index: number) => <React.Fragment key={"confirmationCC" + index}>
-                    <div className="col-sm-4"><h2>CC</h2></div>
-                    <div className="col-sm-8"><h2>{email}</h2></div>
+                cc ?
+                    cc.map((email: string, index: number) => <React.Fragment key={"confirmationCC" + index}>
+                        <div className="col-sm-4"><h2>CC</h2></div>
+                        <div className="col-sm-8"><h2>{email}</h2></div>
 
-                </React.Fragment>)
+                    </React.Fragment>) : undefined
             }
         </div>
     </div>
