@@ -3,4 +3,5 @@ import { IFormFieldsBase } from '../../types';
 
 export interface IResponseFormFieldsProps extends IFormFieldsBase {   
     values: IResponseFormValues;
+    fileInputRef: React.RefObject<HTMLInputElement>;
 }

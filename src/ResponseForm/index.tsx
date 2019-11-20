@@ -29,6 +29,7 @@ export default class ResponseForm extends React.Component<IResponseFormProps> {
                 onValidate={ResponseFormValidate}
 
                 renderFormFields={(ctx: IFormWrapperContext) => <ResponseFormFields
+                    fileInputRef={this.fileInputRef}
                     handleBlur={ctx.handleBlur}
                     handleChange={ctx.handleChange}
                     setFieldValue={ctx.setFieldValue}

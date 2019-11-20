@@ -16,10 +16,8 @@ import { IResponseFormFieldsProps } from './IResponseFormFieldsProps';
 
 export default class ResponseFormFields extends React.Component<IResponseFormFieldsProps>{
     private lastCCInputRef: React.RefObject<HTMLInputElement>;
-    private fileInputRef: React.RefObject<HTMLInputElement>;
     constructor(props: IResponseFormFieldsProps) {
         super(props);
-        this.fileInputRef = React.createRef<HTMLInputElement>();
         this.lastCCInputRef = React.createRef<HTMLInputElement>();
     }
     public render(): JSX.Element {
@@ -392,7 +390,7 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                     multiple={true}
                     name={"attachment"}
                     type="file"
-                    ref={this.fileInputRef}
+                    ref={this.props.fileInputRef}
                     required={false}
                 />
             </FormGroup>

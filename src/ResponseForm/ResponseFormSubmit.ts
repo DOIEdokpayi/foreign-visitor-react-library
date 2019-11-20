@@ -9,7 +9,7 @@ export function ResponseFormSubmit(props: IResponseFormSubmitProps): void {
             values.attachment.push(reader.result as ArrayBuffer);
         }
     }
-    if (props.fileInput.files) { // not null
+    if (props.fileInput && props.fileInput.files) { // not null
 
         for (let i = 0; i < props.fileInput.files.length; i++) {
             const file = props.fileInput.files[i];
