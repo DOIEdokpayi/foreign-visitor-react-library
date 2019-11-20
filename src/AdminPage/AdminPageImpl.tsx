@@ -180,7 +180,7 @@ export class AdminPageImpl extends React.Component<IAdminPageImplProps, IAdminPa
                                     saveResponseFormValuesService(values);
                                     this.setState({
                                         confirmation: {
-                                            date: values.responsedate as Date,
+                                            date: new Date(values.responsedate as Date),
                                             cc: values.cc as string[],
                                             sponsor: values.firstname + " " + values.lastname,
                                         },
