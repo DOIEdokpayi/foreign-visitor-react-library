@@ -13,6 +13,7 @@ import { ccHandler } from './ccHandler';
 import { ccRemoveHandler } from './ccRemoveHandler';
 import { ccUpdateHandler } from './ccUpdateHandler';
 import { IResponseFormFieldsProps } from './IResponseFormFieldsProps';
+import styles from "../../styles.css";
 
 export default class ResponseFormFields extends React.Component<IResponseFormFieldsProps>{
     private lastCCInputRef: React.RefObject<HTMLInputElement>;
@@ -302,7 +303,7 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                             </div>
                             <div className="col-sm-2">
                                 <a
-                                    className={"btn btn-primary"}
+                                    className={styles.ccbtn + " btn btn-primary"}
                                     href="#"
                                     onClick={() => ccRemoveHandler({
                                         index: index,
@@ -320,7 +321,7 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                 displayName="New Carbon Copy"
                 status={ccStatus.status}>
                 <a
-                    className={"btn btn-primary"}
+                    className={styles.ccbtn + " btn btn-primary"}
                     href="#"
                     id={"ccadbtn"}
                     onClick={() => ccHandler({ setFieldValue: setFieldValue, values: values })}>

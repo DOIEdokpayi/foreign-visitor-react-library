@@ -1,7 +1,11 @@
-/* add css styles here (optional) */
+.ccbtn {
+  color: #fff !important;
+}
 .confirmationtext {
   font-weight: bolder;
-  color: #fff;
+}
+.confirmationtext h1, .confirmationtext h2{
+  color: #fff !important;
 }
 
 .foreignVisitorComponent {
