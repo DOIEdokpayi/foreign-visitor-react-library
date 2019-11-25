@@ -395,7 +395,6 @@ export default class ResponseFormFields extends React.Component<IResponseFormFie
                     required={false}
                 />
             </FormGroup>
-
             <div className="form-group">
                 <div className="col-sm-offset-2 col-sm-10">
                     <button type="submit" className="btn btn-primary">Submit Feedback to Requester</button>

@@ -8,7 +8,7 @@ import { IConfirmationProps } from './IConfirmationProps';
 import { printDate } from '../printDate';
 export default function Confirmation(props: IConfirmationProps): React.ReactElement<IConfirmationProps> {
     const { date: arrivalDate, cc, sponsor } = props;
-    return <div className={styles.confirmationtext + " container-fluid bg-success"}>
+    return <div className={styles.confirmationtext + " container-fluid"}>
         <div className="row">
             <div className="col-sm-12">
                 <h1>Feedback Submitted Successfully</h1>
